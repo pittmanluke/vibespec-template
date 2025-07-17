@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 
 export function HeroSection() {
   const [currentStep, setCurrentStep] = useState(0);
+  const [isClient, setIsClient] = useState(false);
   
   const steps = [
     { text: "git clone template", highlight: "# Start with a solid foundation" },
@@ -17,11 +18,17 @@ export function HeroSection() {
   ];
 
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return; // Don't start interval until client-side
+    
     const interval = setInterval(() => {
       setCurrentStep((prev) => (prev + 1) % steps.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, [steps.length]);
+  }, [steps.length, isClient]);
 
   return (
     <section className="container mx-auto px-4 py-24 space-y-8">
@@ -91,15 +98,15 @@ export function HeroSection() {
                 <div
                   key={index}
                   className={`transition-all duration-500 ${
-                    index === currentStep 
+                    isClient && index === currentStep 
                       ? 'opacity-100 text-foreground' 
-                      : index < currentStep 
+                      : isClient && index < currentStep 
                         ? 'opacity-50 text-muted-foreground' 
                         : 'opacity-20 text-muted-foreground'
                   }`}
                 >
                   <span className="text-primary">$</span> {step.text}
-                  {index === currentStep && (
+                  {isClient && index === currentStep && (
                     <span className="text-muted-foreground ml-4 text-xs">
                       {step.highlight}
                     </span>

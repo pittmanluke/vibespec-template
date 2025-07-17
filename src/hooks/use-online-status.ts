@@ -17,15 +17,19 @@ import { useState, useEffect } from "react";
  * ```
  */
 export function useOnlineStatus() {
-  const [isOnline, setIsOnline] = useState(
-    typeof navigator !== "undefined" ? navigator.onLine : true
-  );
+  // Always start as true to avoid SSR mismatches
+  const [isOnline, setIsOnline] = useState(true);
   const [reconnectAttempts, setReconnectAttempts] = useState(0);
-  const [lastOnlineTime, setLastOnlineTime] = useState<Date | null>(
-    isOnline ? new Date() : null
-  );
+  const [lastOnlineTime, setLastOnlineTime] = useState<Date | null>(new Date());
 
   useEffect(() => {
+    // Set the actual online status after mount
+    if (typeof navigator !== "undefined") {
+      setIsOnline(navigator.onLine);
+      if (!navigator.onLine) {
+        setLastOnlineTime(null);
+      }
+    }
     // Handler for online status
     const handleOnline = () => {
       setIsOnline(true);

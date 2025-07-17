@@ -56,7 +56,12 @@ export function LoginFormFields({
             disabled={isLoading}
           />
         </div>
-        <Button type="submit" disabled={isLoading}>
+        <Button 
+          type="submit" 
+          disabled={isLoading}
+          size="lg"
+          className="w-full font-semibold shadow-md hover:shadow-lg transition-all bg-primary text-primary-foreground hover:bg-primary/90 dark:bg-primary dark:hover:bg-primary/80 dark:shadow-lg dark:shadow-primary/20 dark:border dark:border-primary/50"
+        >
           Sign In
         </Button>
       </div>

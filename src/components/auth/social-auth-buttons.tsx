@@ -9,17 +9,14 @@ interface SocialAuthButtonsProps {
 
 export function SocialAuthButtons({ onGoogleSignIn, isLoading }: SocialAuthButtonsProps) {
   return (
-    <>
-      <div className="relative">
-        <div className="absolute inset-0 flex items-center">
-          <span className="w-full border-t"></span>
-        </div>
-        <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
-        </div>
-      </div>
-      
-      <Button type="button" variant="outline" onClick={onGoogleSignIn} disabled={isLoading}>
+    <div className="w-full">
+      <Button 
+        type="button" 
+        variant="outline" 
+        onClick={onGoogleSignIn} 
+        disabled={isLoading}
+        className="w-full"
+      >
         <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M5.26644 9.76453C6.19903 6.93863 8.85469 4.90909 12.0002 4.90909C13.6912 4.90909 15.2184 5.50909 16.4184 6.49091L19.9093 3C17.7821 1.14545 15.0548 0 12.0002 0C7.27031 0 3.19799 2.6983 1.24023 6.65002L5.26644 9.76453Z" fill="#EA4335"/>
           <path d="M16.0406 18.0142C14.9508 18.718 13.5659 19.0909 11.9998 19.0909C8.86633 19.0909 6.21896 17.0773 5.27682 14.2618L1.2373 17.3334C3.19263 21.2953 7.26484 24.0001 11.9998 24.0001C14.9327 24.0001 17.7352 22.959 19.834 21.0012L16.0406 18.0142Z" fill="#34A853"/>
@@ -28,6 +25,6 @@ export function SocialAuthButtons({ onGoogleSignIn, isLoading }: SocialAuthButto
         </svg>
         Google
       </Button>
-    </>
+    </div>
   );
 } 
