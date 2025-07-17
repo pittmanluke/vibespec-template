@@ -1,0 +1,1 @@
+READ README.md, CLAUDE.md, and ai-development-guide.md, THEN run eza . --git-ignore --tree to understand the context of the project.
