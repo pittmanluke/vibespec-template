@@ -1,6 +1,9 @@
+'use client';
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Key, FolderTree } from "lucide-react";
+import { useEffect, useState } from "react";
 
 // Tech stack logos as inline SVGs for better control
 const techLogos = {
@@ -63,6 +66,12 @@ const techLogos = {
 };
 
 export function ContextSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+  
   return (
     <section className="container mx-auto px-4 py-16 md:py-24">
       <div className="text-center mb-12 space-y-4">
@@ -88,7 +97,8 @@ export function ContextSection() {
               {Object.entries(techLogos).map(([name, logo]) => (
                 <div 
                   key={name} 
-                  className="flex flex-col items-center justify-center p-4 rounded-xl bg-background hover:bg-muted transition-colors"
+                  className={`flex flex-col items-center justify-center p-4 rounded-xl bg-background hover:bg-muted transition-all duration-300 ease-out hover:scale-105 cursor-pointer ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+                  style={{ animationDelay: `${Object.keys(techLogos).indexOf(name) * 100}ms` }}
                 >
                   <div className="w-10 h-10 sm:w-12 sm:h-12 mb-2">
                     {logo}

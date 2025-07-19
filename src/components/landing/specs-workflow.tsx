@@ -12,7 +12,7 @@ export function SpecsWorkflow() {
   useEffect(() => {
     const interval = setInterval(() => {
       setAnimationStep((prev) => (prev + 1) % 4);
-    }, 2000);
+    }, 3500);
     return () => clearInterval(interval);
   }, [activeWorkflow]);
 
@@ -70,7 +70,7 @@ export function SpecsWorkflow() {
                 setAnimationStep(0);
               }}
               className={`
-                flex items-center gap-3 px-6 py-3 rounded-xl border-2 transition-all
+                flex items-center gap-3 px-6 py-3 rounded-xl border-2 transition-all duration-300 ease-out
                 ${isActive 
                   ? 'border-primary bg-primary/10 text-primary scale-105' 
                   : 'border-border bg-background hover:border-primary/50 hover:scale-102'
@@ -92,15 +92,15 @@ export function SpecsWorkflow() {
               {currentWorkflow.steps.map((step, index) => (
                 <div key={index} className="relative">
                   <div className={`
-                    space-y-4 transition-all duration-500
+                    space-y-4 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
                     ${animationStep >= index ? 'opacity-100 translate-y-0' : 'opacity-30 translate-y-2'}
                   `}>
                     {/* Step Number */}
                     <div className={`
-                      w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all
+                      w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-500 ease-out
                       ${animationStep >= index 
-                        ? 'bg-primary text-primary-foreground' 
-                        : 'bg-muted text-muted-foreground'
+                        ? 'bg-primary text-primary-foreground scale-110' 
+                        : 'bg-muted text-muted-foreground scale-100'
                       }
                     `}>
                       {index + 1}
@@ -113,8 +113,8 @@ export function SpecsWorkflow() {
                       {/* File/Command Display */}
                       {step.file && (
                         <div className={`
-                          flex items-center gap-2 p-2 rounded-lg bg-muted text-sm font-mono transition-all duration-300
-                          ${animationStep === index ? 'scale-105 shadow-sm' : ''}
+                          flex items-center gap-2 p-2 rounded-lg bg-muted text-sm font-mono transition-all duration-500 ease-out
+                          ${animationStep === index ? 'scale-105 shadow-sm bg-primary/10 border border-primary/20' : ''}
                         `}>
                           <FileCode2 className="w-4 h-4 text-primary" />
                           <span>{step.file}</span>

@@ -61,7 +61,7 @@ export function WorkflowSection() {
     
     const interval = setInterval(() => {
       setActiveStep((prev) => (prev + 1) % workflowSteps.length);
-    }, 3000);
+    }, 4000);
     
     return () => clearInterval(interval);
   }, [isAnimating]);
@@ -101,14 +101,14 @@ export function WorkflowSection() {
                   onMouseLeave={() => setIsAnimating(true)}
                 >
                   <Card className={`
-                    transition-all duration-300 cursor-pointer
-                    ${isActive ? 'scale-105 shadow-lg' : 'hover:scale-102'}
+                    transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer transform
+                    ${isActive ? 'scale-105 shadow-lg border-primary/50' : 'hover:scale-102 hover:shadow-md'}
                   `}>
                     <CardContent className="p-6 text-center">
                       {/* Icon */}
                       <div className={`
-                        w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center transition-all
-                        ${isActive ? 'bg-primary/20' : 'bg-muted'}
+                        w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center transition-all duration-500 ease-out
+                        ${isActive ? 'bg-primary/20 scale-110' : 'bg-muted scale-100'}
                       `}>
                         <Icon className={`w-8 h-8 ${isActive ? step.color : 'text-muted-foreground'}`} />
                       </div>
@@ -123,7 +123,7 @@ export function WorkflowSection() {
                       
                       {/* Details (shown when active) */}
                       <div className={`
-                        space-y-1 transition-all duration-300 overflow-hidden
+                        space-y-1 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden
                         ${isActive ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'}
                       `}>
                         {step.details.map((detail, i) => (
@@ -148,7 +148,7 @@ export function WorkflowSection() {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                className={`transition-all duration-300 ${activeStep === 0 || activeStep === 1 ? 'text-primary opacity-100' : 'text-muted-foreground opacity-30'}`}
+                className={`transition-all duration-700 ease-out ${activeStep === 0 || activeStep === 1 ? 'text-primary opacity-100' : 'text-muted-foreground opacity-30'}`}
                 strokeDasharray="5,5"
               />
               <path

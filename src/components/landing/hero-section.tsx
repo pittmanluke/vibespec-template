@@ -26,16 +26,16 @@ export function HeroSection() {
     
     const interval = setInterval(() => {
       setCurrentStep((prev) => (prev + 1) % steps.length);
-    }, 3000);
+    }, 2500);
     return () => clearInterval(interval);
   }, [steps.length, isClient]);
 
   return (
-    <section className="container mx-auto px-4 py-16 md:py-24">
+    <section className="container mx-auto px-4 py-16 md:py-24 animate-fade-in">
       <div className="text-center space-y-4">
         {/* Logo/Brand */}
-        <div className="flex justify-center mb-6">
-          <FileCode2 className="w-16 h-16 text-primary" />
+        <div className="flex justify-center mb-6 animate-slide-up">
+          <FileCode2 className="w-16 h-16 text-primary transition-transform duration-300 hover:scale-110" />
         </div>
 
         {/* Main Headline */}
@@ -86,19 +86,22 @@ export function HeroSection() {
               {steps.map((step, index) => (
                 <div
                   key={index}
-                  className={`transition-all duration-500 ${
+                  className={`transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
                     isClient && index === currentStep 
-                      ? 'opacity-100 text-foreground' 
+                      ? 'opacity-100 text-foreground translate-x-0' 
                       : isClient && index < currentStep 
-                        ? 'opacity-50 text-muted-foreground' 
-                        : 'opacity-20 text-muted-foreground'
+                        ? 'opacity-50 text-muted-foreground -translate-x-1' 
+                        : 'opacity-20 text-muted-foreground translate-x-1'
                   }`}
                 >
                   <span className="text-primary">$</span> {step.text}
                   {isClient && index === currentStep && (
-                    <span className="text-muted-foreground ml-4 text-xs italic">
-                      {step.highlight}
-                    </span>
+                    <>
+                      <span className="text-muted-foreground ml-4 text-xs italic transition-opacity duration-300">
+                        {step.highlight}
+                      </span>
+                      <span className="inline-block w-2 h-4 bg-primary ml-1 animate-pulse" style={{ animation: 'blink 1s infinite' }} />
+                    </>
                   )}
                 </div>
               ))}
