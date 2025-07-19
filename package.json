@@ -8,6 +8,11 @@
     "type": "git",
     "url": "https://github.com/pittmanluke/vibespec.git"
   },
+  "bugs": {
+    "url": "https://github.com/pittmanluke/vibespec/issues"
+  },
+  "homepage": "https://vibespec.com",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "next dev",

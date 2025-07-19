@@ -63,6 +63,9 @@ export function HomeContent() {
               <Link href="/docs" className="text-muted-foreground hover:text-foreground transition">
                 Documentation
               </Link>
+              <Link href="/examples" className="text-muted-foreground hover:text-foreground transition">
+                Examples
+              </Link>
               <Link href="https://github.com/pittmanluke/vibespec" className="text-muted-foreground hover:text-foreground transition">
                 GitHub
               </Link>
