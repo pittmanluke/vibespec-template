@@ -5,9 +5,9 @@ import Link from "next/link";
 
 export function CTASection() {
   return (
-    <section className="container mx-auto px-4 py-24">
-      <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-primary/20">
-        <CardContent className="p-12 text-center space-y-6">
+    <section className="container mx-auto px-4 py-16 md:py-24 bg-muted/30">
+      <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-primary/20 max-w-5xl mx-auto">
+        <CardContent className="p-8 md:p-12 text-center space-y-6">
           <h2 className="text-3xl font-bold sm:text-4xl">
             Ready to Build with Specifications?
           </h2>

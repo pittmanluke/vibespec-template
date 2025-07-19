@@ -42,16 +42,16 @@ export function SpecsWorkflow() {
   const currentWorkflow = workflows[activeWorkflow];
 
   return (
-    <section className="container mx-auto px-4 py-24">
+    <section className="container mx-auto px-4 py-16 md:py-24 bg-muted/30">
       <div className="text-center mb-12 space-y-4">
-        <Badge variant="outline" className="mb-4">
+        <Badge variant="outline">
           <Sparkles className="w-3 h-3 mr-2" />
           Better Specs, Better Vibes
         </Badge>
         <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
           Two Paths, One Destination
         </h2>
-        <p className="mx-auto max-w-[600px] text-lg text-muted-foreground">
+        <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
           Whether you start with a visual example or written requirements, 
           VibeSpec transforms them into clear specifications that AI understands.
         </p>
@@ -70,7 +70,7 @@ export function SpecsWorkflow() {
                 setAnimationStep(0);
               }}
               className={`
-                flex items-center gap-3 px-6 py-3 rounded-lg border-2 transition-all
+                flex items-center gap-3 px-6 py-3 rounded-xl border-2 transition-all
                 ${isActive 
                   ? 'border-primary bg-primary/10 text-primary scale-105' 
                   : 'border-border bg-background hover:border-primary/50 hover:scale-102'
@@ -85,9 +85,9 @@ export function SpecsWorkflow() {
       </div>
 
       {/* Animated Workflow */}
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <Card className="overflow-hidden">
-          <CardContent className="p-8">
+          <CardContent className="p-6 md:p-8">
             <div className="grid md:grid-cols-4 gap-6">
               {currentWorkflow.steps.map((step, index) => (
                 <div key={index} className="relative">
@@ -113,7 +113,7 @@ export function SpecsWorkflow() {
                       {/* File/Command Display */}
                       {step.file && (
                         <div className={`
-                          flex items-center gap-2 p-2 rounded bg-muted text-sm font-mono transition-all duration-300
+                          flex items-center gap-2 p-2 rounded-lg bg-muted text-sm font-mono transition-all duration-300
                           ${animationStep === index ? 'scale-105 shadow-sm' : ''}
                         `}>
                           <FileCode2 className="w-4 h-4 text-primary" />
@@ -123,7 +123,7 @@ export function SpecsWorkflow() {
                       
                       {step.command && (
                         <div className={`
-                          p-2 rounded bg-muted text-sm font-mono transition-all duration-300
+                          p-2 rounded-lg bg-muted text-sm font-mono transition-all duration-300
                           ${animationStep === index ? 'scale-105 shadow-sm' : ''}
                         `}>
                           <span className="text-primary">$</span> {step.command}

@@ -31,8 +31,8 @@ export function HeroSection() {
   }, [steps.length, isClient]);
 
   return (
-    <section className="container mx-auto px-4 py-24 space-y-8">
-      <div className="text-center space-y-6">
+    <section className="container mx-auto px-4 py-16 md:py-24">
+      <div className="text-center space-y-4">
         {/* Logo/Brand */}
         <div className="flex justify-center mb-6">
           <FileCode2 className="w-16 h-16 text-primary" />
@@ -44,7 +44,7 @@ export function HeroSection() {
         </h1>
         
         {/* Subheadline */}
-        <p className="mx-auto max-w-[600px] text-xl text-muted-foreground md:text-2xl">
+        <p className="mx-auto max-w-2xl text-lg text-muted-foreground md:text-xl">
           A template for spec-driven AI-assisted coding
         </p>
 
@@ -56,7 +56,7 @@ export function HeroSection() {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6 px-4 sm:px-0">
           <Button asChild size="lg" className="font-semibold">
             <Link href="https://github.com/pittmanluke/vibespec" target="_blank">
               <Github className="mr-2 h-5 w-5" />
@@ -72,8 +72,8 @@ export function HeroSection() {
         </div>
 
         {/* Animated Terminal Preview */}
-        <div className="mt-16 max-w-2xl mx-auto">
-          <div className="bg-card border rounded-lg p-6 text-left shadow-lg">
+        <div className="mt-12 md:mt-16 max-w-3xl mx-auto">
+          <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6 text-left shadow-lg">
             <div className="flex items-center gap-2 mb-4">
               <div className="flex gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-red-500" />
@@ -82,7 +82,7 @@ export function HeroSection() {
               </div>
               <span className="text-xs text-muted-foreground ml-2">terminal</span>
             </div>
-            <div className="font-mono text-sm space-y-2">
+            <div className="font-mono text-sm space-y-2 text-zinc-100">
               {steps.map((step, index) => (
                 <div
                   key={index}

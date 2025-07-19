@@ -85,7 +85,7 @@ export function WorkflowSection() {
       <div className="max-w-5xl mx-auto">
         {/* Circular Workflow Diagram */}
         <div className="relative mb-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {workflowSteps.map((step, index) => {
               const Icon = step.icon;
               const isActive = activeStep === index;
@@ -140,7 +140,7 @@ export function WorkflowSection() {
           </div>
 
           {/* Connecting Lines (Desktop Only) */}
-          <div className="hidden md:block absolute inset-0 pointer-events-none">
+          <div className="hidden lg:block absolute inset-0 pointer-events-none">
             <svg className="w-full h-full" viewBox="0 0 800 200">
               {/* Curved connecting lines */}
               <path

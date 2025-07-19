@@ -9,8 +9,8 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Next.js Firebase Template",
-  description: "A template app with Next.js, Firebase, and shadcn/ui",
+  title: "VibeSpec - Spec-driven development for AI coding",
+  description: "Transform ideas into specifications, specifications into shipped products. Build MVPs faster with Claude Code integration and structured workflows.",
 };
 
 export default function RootLayout({

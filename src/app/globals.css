@@ -101,6 +101,33 @@
   .container {
     @apply max-w-screen-xl;
   }
+  
+  /* Consistent section padding */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  /* Consistent content widths */
+  .content-width-sm {
+    @apply max-w-2xl mx-auto;
+  }
+  
+  .content-width-md {
+    @apply max-w-4xl mx-auto;
+  }
+  
+  .content-width-lg {
+    @apply max-w-5xl mx-auto;
+  }
+  
+  .content-width-xl {
+    @apply max-w-6xl mx-auto;
+  }
+  
+  /* Consistent terminal/code block styling */
+  .terminal-window {
+    @apply bg-zinc-900 text-zinc-100 border border-zinc-800 rounded-xl;
+  }
 }
 
 /* Responsive debugging helpers */

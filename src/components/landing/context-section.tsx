@@ -64,33 +64,33 @@ const techLogos = {
 
 export function ContextSection() {
   return (
-    <section className="container mx-auto px-4 py-24 bg-muted/30">
+    <section className="container mx-auto px-4 py-16 md:py-24">
       <div className="text-center mb-12 space-y-4">
-        <Badge variant="outline" className="mb-4">
+        <Badge variant="outline">
           <Key className="w-3 h-3 mr-2" />
           Context is Key
         </Badge>
         <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
           A Well-Defined Foundation
         </h2>
-        <p className="mx-auto max-w-[600px] text-lg text-muted-foreground">
+        <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
           Clear structure and proven tech stack provide the context AI needs 
           to build accurately and efficiently.
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
         {/* Tech Stack */}
         <Card>
-          <CardContent className="p-8">
+          <CardContent className="p-6 md:p-8">
             <h3 className="text-xl font-semibold mb-6">Modern Tech Stack</h3>
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
               {Object.entries(techLogos).map(([name, logo]) => (
                 <div 
                   key={name} 
-                  className="flex flex-col items-center justify-center p-4 rounded-lg bg-background hover:bg-muted transition-colors"
+                  className="flex flex-col items-center justify-center p-4 rounded-xl bg-background hover:bg-muted transition-colors"
                 >
-                  <div className="w-12 h-12 mb-2">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 mb-2">
                     {logo}
                   </div>
                   <span className="text-xs text-muted-foreground capitalize">
@@ -107,7 +107,7 @@ export function ContextSection() {
 
         {/* Project Structure */}
         <Card>
-          <CardContent className="p-8">
+          <CardContent className="p-6 md:p-8">
             <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
               <FolderTree className="w-5 h-5" />
               Organized Structure

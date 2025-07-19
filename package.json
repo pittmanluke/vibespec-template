@@ -1,12 +1,12 @@
 {
-  "name": "nextjs-ai-template",
+  "name": "vibespec",
   "version": "0.1.0",
-  "description": "AI-optimized Next.js template with Claude Code commands, session management, and flexible Firebase integration",
-  "author": "Your Name",
-  "keywords": ["nextjs", "firebase", "template", "ai-development", "claude", "typescript", "react", "mvp"],
+  "description": "Spec-driven development template for agentic coding. Transform ideas into specifications, specifications into shipped products.",
+  "author": "Luke Pittman",
+  "keywords": ["nextjs", "claude-code", "ai-development", "specifications", "typescript", "react", "mvp", "spec-driven", "shadcn"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git"
+    "url": "https://github.com/pittmanluke/vibespec.git"
   },
   "private": true,
   "scripts": {
