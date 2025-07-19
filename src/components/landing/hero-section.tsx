@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Sparkles, Clock, CheckCircle2 } from "lucide-react";
+import { Github, BookOpen, FileCode2 } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export function HeroSection() {
@@ -11,10 +11,10 @@ export function HeroSection() {
   const [isClient, setIsClient] = useState(false);
   
   const steps = [
-    { text: "git clone template", highlight: "# Start with a solid foundation" },
-    { text: "/transpose @example.tsx", highlight: "# Turn examples into specs" },
-    { text: "/breakdown @spec.md", highlight: "# Or bring your own spec" },
-    { text: "npm run dev", highlight: "# Build locally, no setup needed" }
+    { text: "npx create-next-app --example vibespec", highlight: "# Start with structure" },
+    { text: "/transpose @examples/design.tsx", highlight: "# Transform to specification" },
+    { text: "/breakdown @specs/feature.md", highlight: "# Or break down requirements" },
+    { text: "/context-prime", highlight: "# AI understands your project" }
   ];
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export function HeroSection() {
   }, []);
 
   useEffect(() => {
-    if (!isClient) return; // Don't start interval until client-side
+    if (!isClient) return;
     
     const interval = setInterval(() => {
       setCurrentStep((prev) => (prev + 1) % steps.length);
@@ -32,59 +32,48 @@ export function HeroSection() {
 
   return (
     <section className="container mx-auto px-4 py-24 space-y-8">
-      <div className="text-center space-y-4">
-        {/* Trust Badge */}
-        <div className="flex justify-center mb-8">
-          <Badge variant="outline" className="px-4 py-1.5">
-            <Sparkles className="w-3 h-3 mr-2" />
-            Built for Claude Code & AI-Assisted Development
-          </Badge>
+      <div className="text-center space-y-6">
+        {/* Logo/Brand */}
+        <div className="flex justify-center mb-6">
+          <FileCode2 className="w-16 h-16 text-primary" />
         </div>
 
         {/* Main Headline */}
         <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-          Ship Your <span className="text-primary">MVP Faster</span> with AI
+          VibeSpec
         </h1>
         
         {/* Subheadline */}
-        <p className="mx-auto max-w-[700px] text-lg text-muted-foreground md:text-xl">
-          A thoughtful starting point for founders building with AI. Manage context windows, 
-          transform examples into specs, and develop locally without the complexity.
+        <p className="mx-auto max-w-[600px] text-xl text-muted-foreground md:text-2xl">
+          A template for spec-driven AI-assisted coding
         </p>
 
-        {/* Value Props */}
-        <div className="flex flex-wrap justify-center gap-6 py-4">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <CheckCircle2 className="w-4 h-4 text-primary" />
-            <span>Claude Code commands built-in</span>
-          </div>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Clock className="w-4 h-4 text-primary" />
-            <span>Session management for context</span>
-          </div>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span>Local-first development</span>
-          </div>
+        {/* Badge */}
+        <div className="flex justify-center">
+          <Badge variant="secondary" className="px-4 py-1.5">
+            Specifications first, code second
+          </Badge>
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
           <Button asChild size="lg" className="font-semibold">
-            <Link href="/auth/signup">
-              Get Started <ArrowRight className="ml-2 h-4 w-4" />
+            <Link href="https://github.com/pittmanluke/vibespec" target="_blank">
+              <Github className="mr-2 h-5 w-5" />
+              View on GitHub
             </Link>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <Link href="/ai-development-guide.md" target="_blank">
-              Read AI Dev Guide
+            <Link href="/docs">
+              <BookOpen className="mr-2 h-5 w-5" />
+              Read the Docs
             </Link>
           </Button>
         </div>
 
-        {/* Animated Code Preview */}
-        <div className="mt-12 max-w-2xl mx-auto">
-          <div className="bg-card border rounded-lg p-6 text-left">
+        {/* Animated Terminal Preview */}
+        <div className="mt-16 max-w-2xl mx-auto">
+          <div className="bg-card border rounded-lg p-6 text-left shadow-lg">
             <div className="flex items-center gap-2 mb-4">
               <div className="flex gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-red-500" />
@@ -107,7 +96,7 @@ export function HeroSection() {
                 >
                   <span className="text-primary">$</span> {step.text}
                   {isClient && index === currentStep && (
-                    <span className="text-muted-foreground ml-4 text-xs">
+                    <span className="text-muted-foreground ml-4 text-xs italic">
                       {step.highlight}
                     </span>
                   )}

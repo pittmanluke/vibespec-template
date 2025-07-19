@@ -1,1 +1,1 @@
-READ README.md, CLAUDE.md, and ai-development-guide.md, THEN run eza . --git-ignore --tree to understand the context of the project.
+READ README.md, CLAUDE.md, ai-development-guide.md, ai-workflow-guide.md, and workflow-kickstart.md THEN run eza . --git-ignore --tree to understand the context of the project.
