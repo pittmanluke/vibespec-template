@@ -37,7 +37,7 @@ export function CTASection() {
           <div className="flex flex-wrap justify-center gap-6 pt-6 text-sm">
             <Link 
               href="#" 
-              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all hover:gap-3"
             >
               <Users className="w-4 h-4" />
               Join Discord Community
@@ -45,14 +45,14 @@ export function CTASection() {
             <Link 
               href="https://github.com/pittmanluke/vibespec/issues" 
               target="_blank"
-              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all hover:gap-3"
             >
               Report an Issue
             </Link>
             <Link 
               href="https://github.com/pittmanluke/vibespec/discussions" 
               target="_blank"
-              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all hover:gap-3"
             >
               Share Your Workflow
             </Link>

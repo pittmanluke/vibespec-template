@@ -70,7 +70,7 @@ export function SpecsWorkflow() {
                 setAnimationStep(0);
               }}
               className={`
-                flex items-center gap-3 px-6 py-3 rounded-xl border-2 transition-all duration-300 ease-out
+                flex items-center gap-3 px-6 py-3 rounded-xl border-2 transition-all duration-300 ease-out transform hover:-translate-y-0.5
                 ${isActive 
                   ? 'border-primary bg-primary/10 text-primary scale-105' 
                   : 'border-border bg-background hover:border-primary/50 hover:scale-102'
@@ -114,7 +114,7 @@ export function SpecsWorkflow() {
                       {step.file && (
                         <div className={`
                           flex items-center gap-2 p-2 rounded-lg bg-muted text-sm font-mono transition-all duration-500 ease-out
-                          ${animationStep === index ? 'scale-105 shadow-sm bg-primary/10 border border-primary/20' : ''}
+                          ${animationStep === index ? 'scale-105 shadow-sm bg-primary/10 border border-primary/20' : 'hover:bg-muted/80'}
                         `}>
                           <FileCode2 className="w-4 h-4 text-primary" />
                           <span>{step.file}</span>

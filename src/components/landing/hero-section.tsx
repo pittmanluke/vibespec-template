@@ -50,7 +50,7 @@ export function HeroSection() {
 
         {/* Badge */}
         <div className="flex justify-center">
-          <Badge variant="secondary" className="px-4 py-1.5">
+          <Badge variant="secondary" className="px-4 py-1.5 transition-all hover:scale-105 cursor-default">
             Specifications first, code second
           </Badge>
         </div>
