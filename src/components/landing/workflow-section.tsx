@@ -2,8 +2,8 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Workflow, FileText, GitBranch, Zap, Brain } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Workflow, FileText, GitBranch, Zap, Brain, Terminal } from "lucide-react";
+import { useState } from "react";
 
 const workflowSteps = [
   {
@@ -15,7 +15,9 @@ const workflowSteps = [
       "Requirements → Specs", 
       "Consistent format"
     ],
-    color: "text-blue-500"
+    color: "text-blue-500",
+    bgColor: "bg-blue-500/10",
+    borderColor: "border-blue-500/20"
   },
   {
     icon: GitBranch,
@@ -26,7 +28,9 @@ const workflowSteps = [
       "Clear milestones",
       "Incremental progress"
     ],
-    color: "text-green-500"
+    color: "text-green-500",
+    bgColor: "bg-green-500/10",
+    borderColor: "border-green-500/20"
   },
   {
     icon: Zap,
@@ -37,7 +41,9 @@ const workflowSteps = [
       "Understand conventions",
       "Consistent output"
     ],
-    color: "text-yellow-500"
+    color: "text-yellow-500",
+    bgColor: "bg-yellow-500/10",
+    borderColor: "border-yellow-500/20"
   },
   {
     icon: Brain,
@@ -48,23 +54,37 @@ const workflowSteps = [
       "Progress checkpoints",
       "Seamless continuation"
     ],
-    color: "text-purple-500"
+    color: "text-purple-500",
+    bgColor: "bg-purple-500/10",
+    borderColor: "border-purple-500/20"
+  }
+];
+
+const commandExamples = [
+  {
+    command: "/transpose",
+    description: "Convert artifacts to specifications",
+    example: "/transpose image.png"
+  },
+  {
+    command: "/breakdown",
+    description: "Create phased implementation plans",
+    example: "/breakdown spec.md"
+  },
+  {
+    command: "/context-prime",
+    description: "Load project context for AI",
+    example: "/context-prime"
+  },
+  {
+    command: "/session:start",
+    description: "Begin tracking development",
+    example: "/session:start 'add user auth'"
   }
 ];
 
 export function WorkflowSection() {
-  const [activeStep, setActiveStep] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(true);
-
-  useEffect(() => {
-    if (!isAnimating) return;
-    
-    const interval = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % workflowSteps.length);
-    }, 4000);
-    
-    return () => clearInterval(interval);
-  }, [isAnimating]);
+  const [hoveredStep, setHoveredStep] = useState<number | null>(null);
 
   return (
     <section className="container mx-auto px-4 py-24 bg-muted/30">
@@ -74,150 +94,128 @@ export function WorkflowSection() {
           Our Workflow
         </Badge>
         <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
-          Four Pillars of Efficient AI Coding
+          Four Steps to Efficient AI Coding
         </h2>
         <p className="mx-auto max-w-[600px] text-lg text-muted-foreground">
-          A continuous cycle that transforms how you build with AI. 
-          Each element reinforces the others for maximum efficiency.
+          A proven workflow that transforms how you build with AI. 
+          Follow these steps for maximum efficiency.
         </p>
       </div>
 
       <div className="max-w-5xl mx-auto">
-        {/* Circular Workflow Diagram */}
-        <div className="relative mb-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-            {workflowSteps.map((step, index) => {
-              const Icon = step.icon;
-              const isActive = activeStep === index;
-              
-              return (
-                <div
-                  key={index}
-                  className="relative"
-                  onMouseEnter={() => {
-                    setIsAnimating(false);
-                    setActiveStep(index);
-                  }}
-                  onMouseLeave={() => setIsAnimating(true)}
-                >
-                  <Card className={`
-                    transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer transform
-                    ${isActive ? 'scale-105 shadow-lg border-primary/50' : 'hover:scale-102 hover:shadow-md'}
-                  `}>
-                    <CardContent className="p-6 text-center">
+        {/* 2x2 Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+          {workflowSteps.map((step, index) => {
+            const Icon = step.icon;
+            const isHovered = hoveredStep === index;
+            
+            return (
+              <div
+                key={index}
+                className="relative"
+                onMouseEnter={() => setHoveredStep(index)}
+                onMouseLeave={() => setHoveredStep(null)}
+              >
+                <Card className={`
+                  transition-all duration-300 cursor-pointer h-full
+                  ${isHovered ? 'shadow-lg scale-[1.02]' : 'shadow-sm hover:shadow-md'}
+                  ${isHovered ? step.borderColor : ''}
+                `}>
+                  <CardContent className="p-6">
+                    {/* Step Number */}
+                    <div className={`
+                      absolute -top-3 -left-3 w-8 h-8 rounded-full flex items-center justify-center
+                      font-bold text-sm transition-colors duration-300
+                      ${isHovered ? step.bgColor + ' ' + step.color : 'bg-muted text-muted-foreground'}
+                    `}>
+                      {index + 1}
+                    </div>
+
+                    <div className="flex items-start gap-4">
                       {/* Icon */}
                       <div className={`
-                        w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center transition-all duration-500 ease-out
-                        ${isActive ? 'bg-primary/20 scale-110' : 'bg-muted scale-100'}
+                        w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-300
+                        ${isHovered ? step.bgColor : 'bg-muted'}
                       `}>
-                        <Icon className={`w-8 h-8 ${isActive ? step.color : 'text-muted-foreground'}`} />
+                        <Icon className={`w-6 h-6 transition-colors duration-300 ${isHovered ? step.color : 'text-muted-foreground'}`} />
                       </div>
                       
-                      {/* Title */}
-                      <h3 className="font-semibold mb-2">{step.title}</h3>
-                      
-                      {/* Description */}
-                      <p className="text-sm text-muted-foreground mb-3">
-                        {step.description}
-                      </p>
-                      
-                      {/* Details (shown when active) */}
-                      <div className={`
-                        space-y-1 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden
-                        ${isActive ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'}
-                      `}>
-                        {step.details.map((detail, i) => (
-                          <p key={i} className="text-xs text-muted-foreground">
-                            • {detail}
-                          </p>
-                        ))}
+                      {/* Content */}
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-lg mb-2">{step.title}</h3>
+                        <p className="text-sm text-muted-foreground mb-3">
+                          {step.description}
+                        </p>
+                        
+                        {/* Details */}
+                        <ul className="space-y-1">
+                          {step.details.map((detail, i) => (
+                            <li key={i} className={`
+                              text-xs transition-all duration-300 flex items-start gap-2
+                              ${isHovered ? 'text-foreground translate-x-2' : 'text-muted-foreground'}
+                            `}>
+                              <span className={`transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-50'}`}>→</span>
+                              {detail}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              );
-            })}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Command Examples Section */}
+        <div className="mt-16">
+          <div className="text-center mb-8">
+            <Badge variant="secondary" className="mb-4">
+              <Terminal className="w-3 h-3 mr-2" />
+              Quick Commands
+            </Badge>
+            <h3 className="text-2xl font-semibold">
+              Powerful Commands at Your Fingertips
+            </h3>
+            <p className="text-muted-foreground mt-2 max-w-[600px] mx-auto">
+              Use these commands in Claude to streamline your workflow
+            </p>
           </div>
 
-          {/* Connecting Lines (Desktop Only) */}
-          <div className="hidden lg:block absolute inset-0 pointer-events-none">
-            <svg className="w-full h-full" viewBox="0 0 800 200">
-              {/* Curved connecting lines */}
-              <path
-                d="M 200 100 Q 300 50 400 100"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                className={`transition-all duration-700 ease-out ${activeStep === 0 || activeStep === 1 ? 'text-primary opacity-100' : 'text-muted-foreground opacity-30'}`}
-                strokeDasharray="5,5"
-              />
-              <path
-                d="M 400 100 Q 500 50 600 100"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                className={`transition-all duration-300 ${activeStep === 1 || activeStep === 2 ? 'text-primary opacity-100' : 'text-muted-foreground opacity-30'}`}
-                strokeDasharray="5,5"
-              />
-              <path
-                d="M 600 100 Q 700 150 600 200"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                className={`transition-all duration-300 ${activeStep === 2 || activeStep === 3 ? 'text-primary opacity-100' : 'text-muted-foreground opacity-30'}`}
-                strokeDasharray="5,5"
-              />
-              <path
-                d="M 200 100 Q 100 150 200 200"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                className={`transition-all duration-300 ${activeStep === 3 || activeStep === 0 ? 'text-primary opacity-100' : 'text-muted-foreground opacity-30'}`}
-                strokeDasharray="5,5"
-              />
-            </svg>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+            {commandExamples.map((cmd, index) => (
+              <Card key={index} className="border-dashed hover:border-solid transition-all duration-300 hover:shadow-sm">
+                <CardContent className="p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded bg-muted flex items-center justify-center flex-shrink-0">
+                      <Terminal className="w-4 h-4 text-muted-foreground" />
+                    </div>
+                    <div className="flex-1">
+                      <code className="text-sm font-mono text-primary font-semibold">
+                        {cmd.command}
+                      </code>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        {cmd.description}
+                      </p>
+                      <code className="text-xs font-mono text-muted-foreground mt-2 block">
+                        {cmd.example}
+                      </code>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
 
-        {/* Command Examples */}
-        <Card>
-          <CardContent className="p-6">
-            <h3 className="text-lg font-semibold mb-4 text-center">
-              See It In Action
-            </h3>
-            <div className="bg-zinc-900 rounded-lg p-4 font-mono text-sm">
-              <div className="space-y-2 text-zinc-100">
-                <div className="opacity-60">
-                  <span className="text-blue-400">$</span> claude
-                </div>
-                <div className={activeStep === 0 ? 'opacity-100' : 'opacity-40'}>
-                  <span className="text-blue-400">&gt;</span> /transpose @examples/feature.tsx
-                  <span className="text-zinc-500 ml-2"># Spec Design</span>
-                </div>
-                <div className={activeStep === 1 ? 'opacity-100' : 'opacity-40'}>
-                  <span className="text-blue-400">&gt;</span> /breakdown @specs/feature.md
-                  <span className="text-zinc-500 ml-2"># Planning</span>
-                </div>
-                <div className={activeStep === 2 ? 'opacity-100' : 'opacity-40'}>
-                  <span className="text-blue-400">&gt;</span> /context-prime
-                  <span className="text-zinc-500 ml-2"># Context Priming</span>
-                </div>
-                <div className={activeStep === 3 ? 'opacity-100' : 'opacity-40'}>
-                  <span className="text-blue-400">&gt;</span> /session:update
-                  <span className="text-zinc-500 ml-2"># Memory Management</span>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
         {/* Bottom Message */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-16">
           <p className="text-lg font-medium">
-            This isn&apos;t just a workflow—it&apos;s a system that evolves with your project.
+            Start with Step 1 and watch your development process transform.
           </p>
           <p className="text-sm text-muted-foreground mt-2">
-            Each cycle makes AI more effective, your code more consistent, and your development faster.
+            Each step builds on the previous, creating a seamless development experience.
           </p>
         </div>
       </div>

@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Github, BookOpen, Users } from "lucide-react";
+import { ArrowRight, Github, BookOpen } from "lucide-react";
 import Link from "next/link";
 
 export function CTASection() {
   return (
     <section className="container mx-auto px-4 py-16 md:py-24 bg-muted/30">
-      <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-background border-primary/20 max-w-5xl mx-auto">
+      <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-background max-w-5xl mx-auto">
         <CardContent className="p-8 md:p-12 text-center space-y-6">
           <h2 className="text-3xl font-bold sm:text-4xl">
             Ready to Build with Specifications?
@@ -33,37 +33,6 @@ export function CTASection() {
             </Button>
           </div>
 
-          {/* Secondary Links */}
-          <div className="flex flex-wrap justify-center gap-6 pt-6 text-sm">
-            <Link 
-              href="#" 
-              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all hover:gap-3"
-            >
-              <Users className="w-4 h-4" />
-              Join Discord Community
-            </Link>
-            <Link 
-              href="https://github.com/pittmanluke/vibespec/issues" 
-              target="_blank"
-              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all hover:gap-3"
-            >
-              Report an Issue
-            </Link>
-            <Link 
-              href="https://github.com/pittmanluke/vibespec/discussions" 
-              target="_blank"
-              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-all hover:gap-3"
-            >
-              Share Your Workflow
-            </Link>
-          </div>
-
-          {/* Open Source Note */}
-          <div className="pt-6 border-t border-border/50">
-            <p className="text-xs text-muted-foreground">
-              MIT Licensed • Built with Next.js, React, and TypeScript • Contributions Welcome
-            </p>
-          </div>
         </CardContent>
       </Card>
     </section>

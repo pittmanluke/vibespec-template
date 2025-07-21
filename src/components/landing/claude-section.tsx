@@ -3,7 +3,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Terminal, FileText, Command } from "lucide-react";
-import { useState } from "react";
 
 const claudeMdContent = `# CLAUDE.md - AI Assistant Technical Context
 
@@ -53,8 +52,6 @@ const commands = [
 ];
 
 export function ClaudeSection() {
-  const [activeTab, setActiveTab] = useState<'claude-md' | 'commands'>('claude-md');
-
   return (
     <section className="container mx-auto px-4 py-16 md:py-24 bg-muted/30">
       <div className="text-center mb-12 space-y-4">
@@ -71,40 +68,16 @@ export function ClaudeSection() {
         </p>
       </div>
 
-      <div className="max-w-5xl mx-auto">
-        {/* Tab Selector */}
-        <div className="flex justify-center gap-2 mb-8">
-          <button
-            onClick={() => setActiveTab('claude-md')}
-            className={`
-              flex items-center gap-2 px-4 py-2 rounded-xl transition-all
-              ${activeTab === 'claude-md' 
-                ? 'bg-primary text-primary-foreground' 
-                : 'bg-muted hover:bg-muted/80'
-              }
-            `}
-          >
-            <FileText className="w-4 h-4" />
-            CLAUDE.md Configuration
-          </button>
-          <button
-            onClick={() => setActiveTab('commands')}
-            className={`
-              flex items-center gap-2 px-4 py-2 rounded-xl transition-all
-              ${activeTab === 'commands' 
-                ? 'bg-primary text-primary-foreground' 
-                : 'bg-muted hover:bg-muted/80'
-              }
-            `}
-          >
-            <Command className="w-4 h-4" />
-            Custom Commands
-          </button>
-        </div>
-
-        {/* Content */}
-        {activeTab === 'claude-md' ? (
-          <Card>
+      <div className="max-w-6xl mx-auto">
+        {/* Side-by-side Content */}
+        <div className="grid gap-8 lg:grid-cols-2">
+          {/* CLAUDE.md Content */}
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <FileText className="w-5 h-5 text-primary" />
+              <h3 className="text-lg font-semibold">CLAUDE.md</h3>
+            </div>
+            <Card>
             <CardContent className="p-0">
               <div className="bg-zinc-900 rounded-lg overflow-hidden">
                 {/* Editor Header */}
@@ -134,8 +107,15 @@ export function ClaudeSection() {
               </div>
             </CardContent>
           </Card>
-        ) : (
-          <div className="grid gap-4">
+          </div>
+
+          {/* Commands Content */}
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <Command className="w-5 h-5 text-primary" />
+              <h3 className="text-lg font-semibold">Custom Commands</h3>
+            </div>
+            <div className="grid gap-4">
             {commands.map((cmd, index) => (
               <Card key={index}>
                 <CardContent className="p-6">
@@ -162,7 +142,8 @@ export function ClaudeSection() {
               </p>
             </div>
           </div>
-        )}
+          </div>
+        </div>
       </div>
 
       {/* Bottom Note */}

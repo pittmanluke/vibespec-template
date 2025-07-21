@@ -61,16 +61,13 @@ export function HomeContent() {
             </p>
             <div className="flex gap-6 text-sm">
               <Link href="/docs" className="text-muted-foreground hover:text-foreground transition">
-                Documentation
-              </Link>
-              <Link href="/examples" className="text-muted-foreground hover:text-foreground transition">
-                Examples
+                Docs
               </Link>
               <Link href="https://github.com/pittmanluke/vibespec" className="text-muted-foreground hover:text-foreground transition">
                 GitHub
               </Link>
-              <Link href="https://github.com/pittmanluke/vibespec/issues" className="text-muted-foreground hover:text-foreground transition">
-                Support
+              <Link href="/roadmap" className="text-muted-foreground hover:text-foreground transition">
+                Roadmap
               </Link>
             </div>
           </div>
