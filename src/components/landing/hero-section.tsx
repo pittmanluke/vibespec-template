@@ -4,8 +4,39 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, BookOpen, FileCode2 } from "lucide-react";
+import { TerminalAnimation } from "@/components/ui/terminal-animation";
 
 export function HeroSection() {
+  const terminalSteps = [
+    { 
+      text: "claude", 
+      highlight: "# Start Claude Code CLI"
+    },
+    { 
+      text: "/context-prime", 
+      highlight: "# Load project context and structure"
+    },
+    { 
+      text: "/transpose @examples/dashboard.png", 
+      highlight: "# Convert design to specification"
+    },
+    { 
+      text: "Build a dashboard based on this spec", 
+      highlight: "# Natural language prompt"
+    },
+    { 
+      text: "/session:start dashboard-implementation", 
+      highlight: "# Track progress with sessions"
+    },
+    { 
+      text: "/breakdown @specs/user-auth.md", 
+      highlight: "# Break down complex features"
+    },
+    { 
+      text: "Implement phase 1 of the auth flow", 
+      highlight: "# AI builds incrementally"
+    }
+  ];
 
   return (
     <section className="container mx-auto px-4 py-16 md:py-24 animate-fade-in">
@@ -48,6 +79,15 @@ export function HeroSection() {
           </Button>
         </div>
 
+        {/* Terminal Animation */}
+        <div className="mt-12 md:mt-16 max-w-3xl mx-auto">
+          <TerminalAnimation 
+            steps={terminalSteps}
+            intervalMs={3000}
+            typingSpeed={60}
+            title="claude"
+          />
+        </div>
       </div>
     </section>
   );

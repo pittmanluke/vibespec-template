@@ -6,43 +6,49 @@ import { Key, FolderTree } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-// Tech stack configuration with logo paths
+// Tech stack configuration with logo paths and theme handling
 const techStack = [
   {
     name: 'nextjs',
     displayName: 'Next.js 15',
     logo: '/logos/nextdotjs.svg',
-    alt: 'Next.js logo'
+    alt: 'Next.js logo',
+    darkModeClass: 'dark:brightness-0 dark:invert'
   },
   {
     name: 'react',
     displayName: 'React',
     logo: '/logos/react.svg',
-    alt: 'React logo'
+    alt: 'React logo',
+    darkModeClass: 'dark:brightness-0 dark:invert'
   },
   {
     name: 'typescript',
     displayName: 'TypeScript',
     logo: '/logos/typescript.svg',
-    alt: 'TypeScript logo'
+    alt: 'TypeScript logo',
+    darkModeClass: 'dark:brightness-0 dark:invert'
   },
   {
     name: 'tailwind',
     displayName: 'Tailwind CSS',
     logo: '/logos/tailwindcss.svg',
-    alt: 'Tailwind CSS logo'
+    alt: 'Tailwind CSS logo',
+    darkModeClass: 'dark:brightness-0 dark:invert'
   },
   {
     name: 'shadcn',
     displayName: 'shadcn/ui',
     logo: '/logos/shadcnui.svg',
-    alt: 'shadcn/ui logo'
+    alt: 'shadcn/ui logo',
+    darkModeClass: 'dark:brightness-0 dark:invert'
   },
   {
     name: 'claude',
     displayName: 'Claude Code',
     logo: '/logos/claude.svg',
-    alt: 'Claude Code logo'
+    alt: 'Claude Code logo',
+    darkModeClass: 'dark:brightness-0 dark:invert'
   }
 ];
 
@@ -88,11 +94,7 @@ export function ContextSection() {
                       alt={tech.alt}
                       width={56}
                       height={56}
-                      className={`w-full h-full object-contain ${
-                        tech.name === 'nextjs' || tech.name === 'shadcn' 
-                          ? 'dark:brightness-0 dark:invert' 
-                          : ''
-                      }`}
+                      className={`w-full h-full object-contain ${tech.darkModeClass}`}
                     />
                   </div>
                   <span className="relative text-xs sm:text-sm font-medium">

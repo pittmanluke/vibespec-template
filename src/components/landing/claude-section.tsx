@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Terminal, FileText, Command } from "lucide-react";
+import { Terminal, FileText } from "lucide-react";
 
 const claudeMdContent = `# CLAUDE.md - AI Assistant Technical Context
 
@@ -57,13 +57,13 @@ export function ClaudeSection() {
       <div className="text-center mb-12 space-y-4">
         <Badge variant="outline">
           <Terminal className="w-3 h-3 mr-2" />
-          Optimized for Claude Code
+          Native AI Integration
         </Badge>
         <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
-          Native AI Integration
+          Optimized for Claude Code
         </h2>
         <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-          Built from the ground up with Claude Code in mind. Custom commands, 
+          Built from the ground up with Claude Code in mind. Custom /commands, 
           optimized prompts, and deep integration.
         </p>
       </div>
@@ -77,8 +77,7 @@ export function ClaudeSection() {
               <FileText className="w-5 h-5 text-primary" />
               <h3 className="text-lg font-semibold">CLAUDE.md</h3>
             </div>
-            <Card>
-            <CardContent className="p-0">
+            <div>
               <div className="bg-zinc-900 rounded-lg overflow-hidden">
                 {/* Editor Header */}
                 <div className="flex items-center justify-between px-4 py-2 bg-zinc-800 border-b border-zinc-700">
@@ -99,20 +98,21 @@ export function ClaudeSection() {
                 </div>
               </div>
               
-              <div className="p-4 bg-muted/50">
+              <div className="p-4 bg-muted/50 rounded-lg mt-4">
                 <p className="text-sm text-muted-foreground">
                   The CLAUDE.md file provides essential context to AI assistants, 
                   ensuring they understand your project structure and conventions.
                 </p>
               </div>
-            </CardContent>
-          </Card>
+            </div>
           </div>
 
           {/* Commands Content */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Command className="w-5 h-5 text-primary" />
+              <div className="w-5 h-5 flex items-center justify-center text-primary font-mono font-bold text-lg">
+                /
+              </div>
               <h3 className="text-lg font-semibold">Custom Commands</h3>
             </div>
             <div className="grid gap-4">

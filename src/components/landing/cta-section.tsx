@@ -6,10 +6,10 @@ import Link from "next/link";
 export function CTASection() {
   return (
     <section className="container mx-auto px-4 py-16 md:py-24 bg-muted/30">
-      <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-background max-w-5xl mx-auto">
+      <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-background max-w-5xl mx-auto border-0">
         <CardContent className="p-8 md:p-12 text-center space-y-6">
           <h2 className="text-3xl font-bold sm:text-4xl">
-            Ready to Build with Specifications?
+            Ready to Build?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Join developers who are bringing structure and clarity to AI-assisted development. 
