@@ -77,12 +77,12 @@ export function SpecsWorkflow() {
                 `}>
                   {/* Step Number */}
                   <div className={`
-                    w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-500 ease-out shrink-0
+                    w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-500 ease-out shrink-0 transform-gpu
                     ${animationStep >= index 
-                      ? 'bg-primary text-primary-foreground scale-110' 
-                      : 'bg-muted text-muted-foreground scale-100'
+                      ? 'bg-primary text-primary-foreground shadow-md shadow-primary/20' 
+                      : 'bg-muted text-muted-foreground'
                     }
-                  `}>
+                  `} style={{ backfaceVisibility: 'hidden' }}>
                     {index + 1}
                   </div>
 
@@ -93,9 +93,9 @@ export function SpecsWorkflow() {
                     {/* File/Command Display */}
                     {step.file && (
                       <div className={`
-                        flex items-center gap-2 p-2 rounded-lg bg-muted text-sm font-mono transition-all duration-500 ease-out
-                        ${animationStep === index ? 'scale-105 shadow-sm bg-primary/10 border border-primary/20' : 'hover:bg-muted/80'}
-                      `}>
+                        flex items-center gap-2 p-2 rounded-lg bg-muted text-sm font-mono transition-all duration-500 ease-out transform-gpu
+                        ${animationStep === index ? 'shadow-md bg-primary/10 border border-primary/20' : 'hover:bg-muted/80'}
+                      `} style={{ backfaceVisibility: 'hidden' }}>
                         <FileCode2 className="w-4 h-4 text-primary" />
                         <span>{step.file}</span>
                       </div>
@@ -103,9 +103,9 @@ export function SpecsWorkflow() {
                     
                     {step.command && (
                       <div className={`
-                        p-2 rounded-lg bg-muted text-sm font-mono transition-all duration-300
-                        ${animationStep === index ? 'scale-105 shadow-sm' : ''}
-                      `}>
+                        p-2 rounded-lg bg-muted text-sm font-mono transition-all duration-300 transform-gpu
+                        ${animationStep === index ? 'shadow-md bg-primary/5' : ''}
+                      `} style={{ backfaceVisibility: 'hidden' }}>
                         <span className="text-primary">$</span> {step.command}
                       </div>
                     )}
@@ -138,9 +138,9 @@ export function SpecsWorkflow() {
 
           {/* Result Message */}
           <div className={`
-            mt-8 p-4 rounded-lg bg-primary/10 text-center transition-all duration-500
-            ${animationStep === 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}
-          `}>
+            mt-8 p-4 rounded-lg bg-primary/10 text-center transition-all duration-500 transform-gpu
+            ${animationStep === 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}
+          `} style={{ backfaceVisibility: 'hidden' }}>
             <p className="text-sm font-medium text-primary">
               Clear specifications = Consistent AI output
             </p>

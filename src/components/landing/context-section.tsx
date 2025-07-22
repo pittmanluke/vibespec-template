@@ -84,11 +84,15 @@ export function ContextSection() {
               {techStack.map((tech, index) => (
                 <div 
                   key={tech.name} 
-                  className={`group relative flex flex-col items-center justify-center p-6 rounded-xl bg-gradient-to-br from-background to-muted/20 hover:from-muted/20 hover:to-muted/40 transition-all duration-300 ease-out hover:scale-105 hover:shadow-md cursor-pointer ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  className={`group relative flex flex-col items-center justify-center p-6 rounded-xl bg-gradient-to-br from-background to-muted/20 hover:from-muted/20 hover:to-muted/40 transition-all duration-300 ease-out hover:shadow-lg cursor-pointer transform-gpu ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+                  style={{ 
+                    animationDelay: `${index * 100}ms`,
+                    backfaceVisibility: 'hidden',
+                    contain: 'layout style'
+                  }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
-                  <div className="relative w-12 h-12 sm:w-14 sm:h-14 mb-3 transition-transform group-hover:scale-110">
+                  <div className="relative w-12 h-12 sm:w-14 sm:h-14 mb-3 transition-transform duration-300 group-hover:-translate-y-1">
                     <Image
                       src={tech.logo}
                       alt={tech.alt}

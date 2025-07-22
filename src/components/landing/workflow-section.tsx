@@ -95,10 +95,10 @@ export function WorkflowSection() {
                 onMouseLeave={() => setHoveredStep(null)}
               >
                 <Card className={`
-                  transition-all duration-300 cursor-pointer h-full
-                  ${isHovered ? 'shadow-lg scale-[1.02]' : 'shadow-sm hover:shadow-md'}
+                  transition-all duration-300 cursor-pointer h-full transform-gpu
+                  ${isHovered ? 'shadow-lg -translate-y-0.5' : 'shadow-sm hover:shadow-md'}
                   ${isHovered ? step.borderColor : ''}
-                `}>
+                `} style={{ backfaceVisibility: 'hidden' }}>
                   <CardContent className="p-6">
 
                     <div className="flex items-start gap-4">
