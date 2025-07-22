@@ -70,16 +70,16 @@ export function HeroSection() {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6 px-4 sm:px-0 animate-fade-in animation-delay-400">
-          <Button asChild size="lg" className="font-semibold group focus-ring">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 pt-8 animate-fade-in animation-delay-400">
+          <Button asChild size="lg" className="font-semibold group focus-ring transition-shadow hover:shadow-lg">
             <Link href="https://github.com/pittmanluke/vibespec" target="_blank">
-              <Github className="mr-2 h-5 w-5 hover-lift" />
+              <Github className="mr-2 h-5 w-5 transition-transform group-hover:-translate-y-0.5" />
               View on GitHub
             </Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="group focus-ring">
+          <Button asChild variant="outline" size="lg" className="group focus-ring transition-shadow hover:shadow-lg">
             <Link href="/docs">
-              <BookOpen className="mr-2 h-5 w-5 hover-lift" />
+              <BookOpen className="mr-2 h-5 w-5 transition-transform group-hover:-translate-y-0.5" />
               Read the Docs
             </Link>
           </Button>

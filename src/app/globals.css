@@ -103,7 +103,7 @@
 @layer utilities {
   /* Focus ring utilities */
   .focus-ring {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
   }
   
   .focus-ring-primary {
@@ -225,15 +225,16 @@
   
   /* Consistent hover states */
   .hover-lift {
-    @apply transition-transform duration-300 ease-out hover:-translate-y-0.5;
-  }
-  
-  .hover-glow {
-    @apply transition-shadow duration-300 hover:shadow-lg;
+    @apply transition-transform duration-300 ease-out hover:-translate-y-0.5 transform-gpu;
   }
   
   .hover-border {
     @apply transition-colors duration-300;
+  }
+  
+  /* Consistent interactive states */
+  .interactive-element {
+    @apply transition-shadow hover:shadow-lg cursor-pointer transform-gpu focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
   }
   
   /* Reduced motion support */

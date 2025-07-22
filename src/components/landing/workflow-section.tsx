@@ -74,15 +74,15 @@ export function WorkflowSection() {
         <h2 className="heading-2">
           Steps to Efficient AI Coding
         </h2>
-        <p className="mx-auto max-w-[600px] body-lg text-muted-foreground">
+        <p className="content-width-sm body-lg text-muted-foreground">
           A proven workflow that transforms how you build with AI. 
           Follow these steps for maximum efficiency.
         </p>
       </div>
 
-      <div className="max-w-5xl mx-auto">
+      <div className="content-width-lg">
         {/* 2x2 Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {workflowSteps.map((step, index) => {
             const Icon = step.icon;
             const isHovered = hoveredStep === index;
@@ -95,11 +95,11 @@ export function WorkflowSection() {
                 onMouseLeave={() => setHoveredStep(null)}
               >
                 <Card className={`
-                  transition-all duration-300 cursor-pointer h-full transform-gpu hover-glow
-                  ${isHovered ? '-translate-y-0.5' : ''}
+                  transition-all duration-300 cursor-pointer h-full transform-gpu focus-ring
+                  ${isHovered ? '-translate-y-1 shadow-xl' : 'hover:shadow-lg'}
                   ${isHovered ? step.borderColor : ''}
                 `} style={{ backfaceVisibility: 'hidden' }}>
-                  <CardContent className="p-6">
+                  <CardContent className="p-6 min-h-[200px]">
 
                     <div className="flex items-start gap-4">
                       {/* Icon */}

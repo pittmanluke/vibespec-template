@@ -47,22 +47,35 @@ export function HomeContent() {
       <CTASection />
 
       {/* Footer */}
-      <footer className="border-t py-8 bg-muted/30">
+      <footer className="border-t py-12 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground text-center sm:text-left">
-              VibeSpec • Spec-driven development for AI coding
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-sm items-center">
-              <Link href="/docs" className="text-muted-foreground hover:text-foreground transition">
-                Docs
-              </Link>
-              <Link href="https://github.com/pittmanluke/vibespec" className="text-muted-foreground hover:text-foreground transition">
-                GitHub
-              </Link>
-              <Link href="/roadmap" className="text-muted-foreground hover:text-foreground transition">
-                Roadmap
-              </Link>
+          <div className="flex flex-col gap-8">
+            {/* Main footer content */}
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
+              <div className="text-center sm:text-left">
+                <div className="flex items-center gap-2 justify-center sm:justify-start mb-2">
+                  <FileCode2 className="h-5 w-5 text-primary" />
+                  <span className="font-semibold">VibeSpec</span>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Spec-driven development for AI coding
+                </p>
+              </div>
+              <nav className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-sm items-center">
+                <Link href="/docs" className="text-muted-foreground hover:text-foreground transition focus-ring rounded px-2 py-1 -mx-2 -my-1">
+                  Documentation
+                </Link>
+                <Link href="https://github.com/pittmanluke/vibespec" className="text-muted-foreground hover:text-foreground transition focus-ring rounded px-2 py-1 -mx-2 -my-1">
+                  GitHub
+                </Link>
+                <Link href="/roadmap" className="text-muted-foreground hover:text-foreground transition focus-ring rounded px-2 py-1 -mx-2 -my-1">
+                  Roadmap
+                </Link>
+              </nav>
+            </div>
+            {/* Copyright */}
+            <div className="text-center text-xs text-muted-foreground/60 pt-4 border-t border-border/50">
+              © {new Date().getFullYear()} VibeSpec. Open source under MIT License.
             </div>
           </div>
         </div>

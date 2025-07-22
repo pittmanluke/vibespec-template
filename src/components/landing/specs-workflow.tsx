@@ -58,8 +58,8 @@ export function SpecsWorkflow() {
     const workflow = workflows[workflowKey];
 
     return (
-      <Card className="overflow-hidden">
-        <CardContent className="p-6 md:p-8">
+      <Card className="overflow-hidden transition-shadow hover:shadow-lg">
+        <CardContent className="p-6 md:p-8 min-h-[500px]">
           {/* Steps */}
           <div className="space-y-6">
               {workflow.steps.map((step, index) => (
@@ -161,7 +161,7 @@ export function SpecsWorkflow() {
 
       {/* Side-by-side Workflows */}
       <div className="max-w-6xl mx-auto">
-        <div className="grid gap-8 md:grid-cols-2 mb-12">
+        <div className="grid gap-8 lg:grid-cols-2 mb-12">
           {/* Example Workflow */}
           <div className="space-y-4">
             <h3 className="text-xl font-semibold flex items-center gap-3">
@@ -195,7 +195,7 @@ export function SpecsWorkflow() {
       </div>
 
       {/* Bottom Note */}
-      <p className="text-center mt-12 body-sm text-muted-foreground max-w-2xl mx-auto">
+      <p className="text-center mt-16 body-sm text-muted-foreground content-width-sm">
         No more guessing what AI will build. Specifications create a clear contract 
         between your vision and the implementation.
       </p>

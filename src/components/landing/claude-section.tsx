@@ -93,8 +93,14 @@ export function ClaudeSection() {
               </div>
               
               {/* Code Content */}
-              <div className="p-4 sm:p-6 text-xs sm:text-sm font-mono text-zinc-50 overflow-x-auto flex-1">
-                <pre className="whitespace-pre-wrap leading-relaxed">{claudeMdContent}</pre>
+              <div className="relative flex-1 overflow-hidden">
+                <div className="p-4 sm:p-6 text-xs sm:text-sm font-mono text-zinc-50 overflow-x-auto flex-1 scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-transparent">
+                  <pre className="whitespace-pre-wrap leading-relaxed">{claudeMdContent}</pre>
+                </div>
+                {/* Horizontal scroll indicator */}
+                <div className="absolute bottom-2 right-2 text-xs text-zinc-500 pointer-events-none sm:hidden bg-zinc-900/80 backdrop-blur-sm px-2 py-1 rounded">
+                  ← Scroll →
+                </div>
               </div>
             </div>
           </div>
@@ -120,8 +126,10 @@ export function ClaudeSection() {
                         </p>
                       </div>
                     </div>
-                    <div className="bg-zinc-900 dark:bg-zinc-950 rounded p-2 sm:p-3 font-mono text-[10px] sm:text-xs overflow-x-auto">
-                      <pre className="text-zinc-50 whitespace-pre leading-relaxed">{cmd.example}</pre>
+                    <div className="relative bg-zinc-900 dark:bg-zinc-950 rounded overflow-hidden">
+                      <div className="p-2 sm:p-3 font-mono text-[10px] sm:text-xs overflow-x-auto scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-transparent">
+                        <pre className="text-zinc-50 whitespace-pre leading-relaxed">{cmd.example}</pre>
+                      </div>
                     </div>
                   </div>
                 </CardContent>

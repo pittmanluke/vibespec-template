@@ -5,29 +5,29 @@ import Link from "next/link";
 
 export function CTASection() {
   return (
-    <section className="container mx-auto px-4 section-padding-sm bg-muted/30">
-      <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-background max-w-5xl mx-auto border-0">
+    <section className="container mx-auto px-4 section-padding bg-muted/30">
+      <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-background content-width-lg border-0 transition-shadow hover:shadow-lg">
         <CardContent className="p-8 md:p-12 text-center space-y-6">
           <h2 className="heading-2">
             Ready to Build?
           </h2>
-          <p className="body-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="body-lg text-muted-foreground content-width-sm">
             Join developers who are bringing structure and clarity to AI-assisted development. 
             VibeSpec is open source and improving every day.
           </p>
           
           {/* Primary Actions */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button asChild size="lg" className="font-semibold">
+            <Button asChild size="lg" className="font-semibold focus-ring transition-shadow hover:shadow-lg group">
               <Link href="https://github.com/pittmanluke/vibespec" target="_blank">
-                <Github className="mr-2 h-5 w-5" />
+                <Github className="mr-2 h-5 w-5 transition-transform group-hover:-translate-y-0.5" />
                 Get Started on GitHub
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg" variant="outline" className="focus-ring transition-shadow hover:shadow-lg group">
               <Link href="/docs">
-                <BookOpen className="mr-2 h-5 w-5" />
+                <BookOpen className="mr-2 h-5 w-5 transition-transform group-hover:-translate-y-0.5" />
                 Read Documentation
               </Link>
             </Button>

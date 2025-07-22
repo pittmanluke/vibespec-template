@@ -75,9 +75,9 @@ export function ContextSection() {
         </p>
       </div>
 
-      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+      <div className="content-width-lg grid lg:grid-cols-2 gap-8">
         {/* Tech Stack */}
-        <Card className="h-full">
+        <Card className="h-full transition-shadow hover:shadow-lg">
           <CardContent className="p-6 md:p-8 h-full flex flex-col">
             <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
               <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center">
@@ -85,11 +85,11 @@ export function ContextSection() {
               </div>
               Modern Tech Stack
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 flex-1">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 flex-1">
               {techStack.map((tech, index) => (
                 <div 
                   key={tech.name} 
-                  className={`group relative flex flex-col items-center justify-center p-4 rounded-xl bg-gradient-to-br from-background to-muted/20 hover:from-muted/20 hover:to-muted/40 transition-all duration-300 ease-out hover:shadow-lg cursor-pointer transform-gpu h-full`}
+                  className={`group relative flex flex-col items-center justify-center p-4 rounded-xl bg-gradient-to-br from-background to-muted/20 hover:from-muted/20 hover:to-muted/40 transition-all duration-300 ease-out hover:shadow-lg cursor-pointer transform-gpu h-full min-h-[120px] focus-ring`}
                   style={{ 
                     opacity: isVisible ? 1 : 0,
                     animation: isVisible ? `fadeIn 0.6s ease-out ${index * 100}ms forwards` : 'none',
@@ -119,7 +119,7 @@ export function ContextSection() {
         </Card>
 
         {/* Project Structure */}
-        <Card className="h-full">
+        <Card className="h-full transition-shadow hover:shadow-lg">
           <CardContent className="p-6 md:p-8 h-full flex flex-col">
             <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
               <FolderTree className="w-5 h-5 text-primary" />
@@ -199,7 +199,7 @@ export function ContextSection() {
       </div>
 
       {/* Bottom Message */}
-      <div className="text-center mt-12">
+      <div className="text-center mt-16">
         <p className="text-lg font-medium">
           When AI understands your project structure, it builds with precision.
         </p>
