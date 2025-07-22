@@ -90,7 +90,7 @@ export function SpecsWorkflow() {
                     {step.file && (
                       <div className={`
                         flex items-center gap-2 p-2 rounded-lg text-sm font-mono transition-all duration-500 ease-out transform-gpu border
-                        ${animationStep === index ? 'bg-primary/10 border-primary/20' : 'bg-muted border-transparent hover:bg-muted/80'}
+                        ${animationStep === index ? 'bg-primary/10 border-primary/20' : 'bg-muted border-transparent hover:bg-muted'}
                       `} style={{ 
                         backfaceVisibility: 'hidden',
                         boxShadow: animationStep === index ? '0 4px 6px -1px rgba(var(--primary), 0.1)' : '0 0 0 0 transparent'
@@ -144,7 +144,7 @@ export function SpecsWorkflow() {
   };
 
   return (
-    <section className="container mx-auto px-4 section-padding bg-muted/30">
+    <section className="container mx-auto px-4 section-padding">
       <div className="text-center mb-12 space-y-4">
         <Badge variant="outline">
           <Sparkles className="w-3 h-3 mr-2" />

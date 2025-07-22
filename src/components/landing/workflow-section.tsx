@@ -65,7 +65,7 @@ export function WorkflowSection() {
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
 
   return (
-    <section className="container mx-auto px-4 section-padding bg-muted/30">
+    <section className="container mx-auto px-4 section-padding">
       <div className="text-center mb-12 space-y-4">
         <Badge variant="outline" className="mb-4">
           <Workflow className="w-3 h-3 mr-2" />

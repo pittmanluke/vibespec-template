@@ -13,7 +13,7 @@ import { HeaderAuth } from "@/components/landing/header-auth";
 
 export function HomeContent() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
         <div className="container mx-auto px-4 flex h-16 items-center justify-between">
@@ -47,7 +47,7 @@ export function HomeContent() {
       <CTASection />
 
       {/* Footer */}
-      <footer className="border-t py-12 bg-muted/30">
+      <footer className="border-t py-12 bg-background">
         <div className="container mx-auto px-4">
           <div className="flex flex-col gap-8">
             {/* Main footer content */}

@@ -89,7 +89,7 @@ export function ContextSection() {
               {techStack.map((tech, index) => (
                 <div 
                   key={tech.name} 
-                  className={`group relative flex flex-col items-center justify-center p-4 rounded-xl bg-gradient-to-br from-background to-muted/20 hover:from-muted/20 hover:to-muted/40 transition-all duration-300 ease-out hover:shadow-lg cursor-pointer transform-gpu h-full min-h-[120px] focus-ring`}
+                  className={`group relative flex flex-col items-center justify-center p-4 rounded-xl bg-muted hover:bg-muted transition-all duration-300 ease-out hover:shadow-lg cursor-pointer transform-gpu h-full min-h-[120px] focus-ring`}
                   style={{ 
                     opacity: isVisible ? 1 : 0,
                     animation: isVisible ? `fadeIn 0.6s ease-out ${index * 100}ms forwards` : 'none',

@@ -30,7 +30,7 @@ const problems = [
 
 export function ProblemSolution() {
   return (
-    <section className="container mx-auto px-4 py-24 bg-muted/30">
+    <section className="container mx-auto px-4 py-24">
       <div className="text-center mb-12 space-y-4">
         <h2 className="text-3xl font-bold">
           Common AI Coding Challenges

@@ -7,7 +7,7 @@ const HomeContent = dynamic(
   () => import("@/components/landing/home-content").then(mod => ({ default: mod.HomeContent })),
   { 
     loading: () => (
-      <div className="min-h-screen bg-gradient-to-b from-background to-muted animate-fade-in">
+      <div className="min-h-screen bg-background animate-fade-in">
         {/* Header Skeleton */}
         <header className="border-b bg-background/95 backdrop-blur sticky top-0 z-50">
           <div className="container mx-auto px-4 flex h-16 items-center justify-between">

@@ -54,7 +54,7 @@ const commands = [
 
 export function ClaudeSection() {
   return (
-    <section className="container mx-auto px-4 section-padding bg-muted/30">
+    <section className="container mx-auto px-4 section-padding">
       <div className="text-center mb-12 space-y-4">
         <Badge variant="outline">
           <Terminal className="w-3 h-3 mr-2" />
