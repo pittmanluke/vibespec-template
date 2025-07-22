@@ -29,7 +29,7 @@
   --secondary: oklch(0.967 0.001 286.375);
   --secondary-foreground: oklch(0.21 0.006 285.885);
   --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
+  --muted-foreground: oklch(0.452 0.016 285.938);
   --accent: oklch(0.967 0.001 286.375);
   --accent-foreground: oklch(0.21 0.006 285.885);
   --destructive: oklch(0.577 0.245 27.325);
@@ -65,7 +65,7 @@
   --secondary: oklch(0.274 0.006 286.033);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
+  --muted-foreground: oklch(0.755 0.015 286.067);
   --accent: oklch(0.274 0.006 286.033);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
@@ -100,14 +100,58 @@
   }
 }
 
+@layer utilities {
+  /* Focus ring utilities */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+  
+  .focus-ring-primary {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+}
+
 @layer components {
+  /* Typography scale */
+  .heading-1 {
+    @apply text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl;
+  }
+  
+  .heading-2 {
+    @apply text-3xl font-bold sm:text-4xl md:text-5xl;
+  }
+  
+  .heading-3 {
+    @apply text-2xl font-bold sm:text-3xl;
+  }
+  
+  .body-lg {
+    @apply text-lg md:text-xl;
+  }
+  
+  .body-md {
+    @apply text-base md:text-lg;
+  }
+  
+  .body-sm {
+    @apply text-sm md:text-base;
+  }
+  
   .container {
     @apply max-w-screen-xl;
   }
   
   /* Consistent section padding */
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-20 md:py-28;
+  }
+  
+  .section-padding-sm {
+    @apply py-16 md:py-20;
+  }
+  
+  .section-padding-lg {
+    @apply py-24 md:py-32;
   }
   
   /* Consistent content widths */
@@ -177,6 +221,19 @@
   /* GPU acceleration helper */
   .transform-gpu {
     transform: translateZ(0);
+  }
+  
+  /* Consistent hover states */
+  .hover-lift {
+    @apply transition-transform duration-300 ease-out hover:-translate-y-0.5;
+  }
+  
+  .hover-glow {
+    @apply transition-shadow duration-300 hover:shadow-lg;
+  }
+  
+  .hover-border {
+    @apply transition-colors duration-300;
   }
   
   /* Reduced motion support */

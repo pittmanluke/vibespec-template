@@ -7,14 +7,15 @@ import { Terminal, FileText } from "lucide-react";
 const claudeMdContent = `# CLAUDE.md - AI Assistant Technical Context
 
 ## Project Overview
-This is a production-ready Next.js 15 template with optional Firebase integration. 
-The key feature is its flexibility - developers can start immediately with mock 
-services and enable Firebase features as needed.
+This is a production-ready Next.js 15 template with optional 
+Firebase integration. Developers can start immediately with 
+mock services and enable Firebase features as needed.
 
 ## Key Architectural Decisions
 
 ### 1. Feature Flags for Firebase Services
-All Firebase services can be toggled on/off via environment variables
+All Firebase services can be toggled on/off via environment 
+variables
 
 ### 2. Mock Services Pattern
 When Firebase is disabled, mock services provide the same API
@@ -53,16 +54,16 @@ const commands = [
 
 export function ClaudeSection() {
   return (
-    <section className="container mx-auto px-4 py-16 md:py-24 bg-muted/30">
+    <section className="container mx-auto px-4 section-padding bg-muted/30">
       <div className="text-center mb-12 space-y-4">
         <Badge variant="outline">
           <Terminal className="w-3 h-3 mr-2" />
           Native AI Integration
         </Badge>
-        <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
+        <h2 className="heading-2">
           Optimized for Claude Code
         </h2>
-        <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+        <p className="mx-auto max-w-2xl body-lg text-muted-foreground">
           Built from the ground up with Claude Code in mind. Custom /commands, 
           optimized prompts, and deep integration.
         </p>
@@ -70,78 +71,63 @@ export function ClaudeSection() {
 
       <div className="max-w-6xl mx-auto">
         {/* Side-by-side Content */}
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="grid gap-8 lg:gap-12 lg:grid-cols-2">
           {/* CLAUDE.md Content */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
+          <div className="h-full flex flex-col">
+            <div className="flex items-center gap-2 mb-6">
               <FileText className="w-5 h-5 text-primary" />
               <h3 className="text-lg font-semibold">CLAUDE.md</h3>
             </div>
-            <div>
-              <div className="bg-zinc-900 rounded-lg overflow-hidden">
-                {/* Editor Header */}
-                <div className="flex items-center justify-between px-4 py-2 bg-zinc-800 border-b border-zinc-700">
-                  <div className="flex items-center gap-2">
-                    <div className="flex gap-1.5">
-                      <div className="w-3 h-3 rounded-full bg-red-500" />
-                      <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                      <div className="w-3 h-3 rounded-full bg-green-500" />
-                    </div>
-                    <span className="text-xs text-zinc-400 ml-2">CLAUDE.md</span>
+            <div className="flex-1 bg-zinc-900 rounded-lg overflow-hidden flex flex-col shadow-lg">
+              {/* Editor Header */}
+              <div className="flex items-center justify-between px-4 py-2 bg-zinc-800 border-b border-zinc-700">
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-500" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                    <div className="w-3 h-3 rounded-full bg-green-500" />
                   </div>
-                  <span className="text-xs text-zinc-500">AI Context File</span>
+                  <span className="text-xs text-zinc-400 ml-2">CLAUDE.md</span>
                 </div>
-                
-                {/* Code Content */}
-                <div className="p-4 text-sm font-mono text-zinc-100 overflow-x-auto">
-                  <pre className="whitespace-pre-wrap">{claudeMdContent}</pre>
-                </div>
+                <span className="text-xs text-zinc-500">AI Context File</span>
               </div>
               
-              <div className="p-4 bg-muted/50 rounded-lg mt-4">
-                <p className="text-sm text-muted-foreground">
-                  The CLAUDE.md file provides essential context to AI assistants, 
-                  ensuring they understand your project structure and conventions.
-                </p>
+              {/* Code Content */}
+              <div className="p-4 sm:p-6 text-xs sm:text-sm font-mono text-zinc-50 overflow-x-auto flex-1">
+                <pre className="whitespace-pre-wrap leading-relaxed">{claudeMdContent}</pre>
               </div>
             </div>
           </div>
 
           {/* Commands Content */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-5 h-5 flex items-center justify-center text-primary font-mono font-bold text-lg">
-                /
-              </div>
+          <div className="h-full flex flex-col">
+            <div className="flex items-center gap-2 mb-6">
+              <Terminal className="w-5 h-5 text-primary" />
               <h3 className="text-lg font-semibold">Custom Commands</h3>
             </div>
-            <div className="grid gap-4">
+            <div className="flex flex-col gap-3 flex-1">
             {commands.map((cmd, index) => (
-              <Card key={index}>
-                <CardContent className="p-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <h3 className="font-mono text-lg font-semibold text-primary mb-2">
-                        {cmd.command}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {cmd.description}
-                      </p>
+              <Card key={index} className="shadow-sm hover:shadow-md transition-shadow">
+                <CardContent className="p-4">
+                  <div className="flex flex-col gap-3">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex-1">
+                        <h4 className="font-mono text-sm font-semibold text-primary">
+                          {cmd.command}
+                        </h4>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          {cmd.description}
+                        </p>
+                      </div>
                     </div>
-                    <div className="bg-zinc-900 rounded-lg p-3 font-mono text-xs">
-                      <pre className="text-zinc-100 whitespace-pre">{cmd.example}</pre>
+                    <div className="bg-zinc-900 dark:bg-zinc-950 rounded p-2 sm:p-3 font-mono text-[10px] sm:text-xs overflow-x-auto">
+                      <pre className="text-zinc-50 whitespace-pre leading-relaxed">{cmd.example}</pre>
                     </div>
                   </div>
                 </CardContent>
               </Card>
             ))}
-            
-            <div className="text-center mt-6">
-              <p className="text-sm text-muted-foreground">
-                Plus more commands in <code className="px-1 py-0.5 bg-muted rounded">/.claude/commands/</code>
-              </p>
             </div>
-          </div>
           </div>
         </div>
       </div>

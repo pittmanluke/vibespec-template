@@ -79,17 +79,17 @@ export function TerminalAnimation({
           <span className="text-xs text-zinc-400 ml-2">{title}</span>
         </div>
       )}
-      <div className="font-mono text-xs sm:text-sm text-zinc-100">
+      <div className="font-mono text-xs sm:text-sm text-zinc-50">
         {/* Fixed height container to prevent layout shifts */}
-        <div className="h-[3rem] sm:h-[2.5rem] flex items-center">
+        <div className="min-h-[3rem] sm:min-h-[2.5rem] flex items-center">
           {/* Command line with fixed grid layout */}
-          <div className="grid grid-cols-[auto,1fr,auto] gap-2 items-center w-full">
+          <div className="grid grid-cols-[auto,1fr,auto] gap-2 items-start w-full">
             <span className="text-emerald-400 self-start">$</span>
-            <div className="relative h-[1.5em] flex items-center">
+            <div className="relative min-h-[1.5em] flex items-center">
               {/* Invisible text to reserve space */}
-              <span className="invisible whitespace-pre-wrap">{longestText}</span>
+              <span className="invisible whitespace-pre-wrap block">{longestText}</span>
               {/* Actual typing text */}
-              <span className="absolute left-0 whitespace-pre-wrap">
+              <span className="absolute left-0 top-0 whitespace-pre-wrap">
                 {displayedText}
                 {phase === 'typing' && (
                   <span className="inline-block w-2 h-[1.2em] bg-emerald-400 ml-0.5 align-middle animate-[blink_1s_ease-in-out_infinite]" 
@@ -97,9 +97,9 @@ export function TerminalAnimation({
                 )}
               </span>
             </div>
-            <div className="self-start">
+            <div className="self-start min-w-0">
               {/* Reserved space for highlight */}
-              <span className={`text-zinc-500 text-[10px] sm:text-xs whitespace-nowrap transition-opacity duration-300 block ${
+              <span className={`text-zinc-500 text-[10px] sm:text-xs whitespace-nowrap transition-opacity duration-300 block overflow-hidden text-ellipsis ${
                 phase === 'showing' && currentStep.highlight ? 'opacity-100' : 'opacity-0'
               }`}>
                 {currentStep.highlight || '\u00A0'}

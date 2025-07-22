@@ -56,33 +56,29 @@ export function SpecsWorkflow() {
 
   const renderWorkflow = (workflowKey: 'example' | 'spec', animationStep: number) => {
     const workflow = workflows[workflowKey];
-    const Icon = workflow.icon;
 
     return (
-      <Card className="overflow-hidden h-full">
+      <Card className="overflow-hidden">
         <CardContent className="p-6 md:p-8">
-          {/* Workflow Header */}
-          <div className="flex items-center gap-3 mb-6">
-            <Icon className="w-6 h-6 text-primary" />
-            <h3 className="text-xl font-semibold">{workflow.title}</h3>
-          </div>
-
           {/* Steps */}
           <div className="space-y-6">
-            {workflow.steps.map((step, index) => (
-              <div key={index} className="relative">
+              {workflow.steps.map((step, index) => (
+                <div key={index} className="relative min-h-[100px]">
                 <div className={`
-                  flex gap-4 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
+                  flex gap-4 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] transform-gpu
                   ${animationStep >= index ? 'opacity-100 translate-x-0' : 'opacity-30 translate-x-2'}
-                `}>
+                `} style={{ backfaceVisibility: 'hidden' }}>
                   {/* Step Number */}
                   <div className={`
-                    w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-500 ease-out shrink-0 transform-gpu
+                    w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-500 ease-out shrink-0 transform-gpu border-2
                     ${animationStep >= index 
-                      ? 'bg-primary text-primary-foreground shadow-md shadow-primary/20' 
-                      : 'bg-muted text-muted-foreground'
+                      ? 'bg-primary text-primary-foreground border-primary shadow-primary/20' 
+                      : 'bg-muted text-muted-foreground border-transparent'
                     }
-                  `} style={{ backfaceVisibility: 'hidden' }}>
+                  `} style={{ 
+                    backfaceVisibility: 'hidden',
+                    boxShadow: animationStep >= index ? '0 4px 6px -1px rgba(var(--primary), 0.2)' : '0 0 0 0 transparent'
+                  }}>
                     {index + 1}
                   </div>
 
@@ -93,9 +89,12 @@ export function SpecsWorkflow() {
                     {/* File/Command Display */}
                     {step.file && (
                       <div className={`
-                        flex items-center gap-2 p-2 rounded-lg bg-muted text-sm font-mono transition-all duration-500 ease-out transform-gpu
-                        ${animationStep === index ? 'shadow-md bg-primary/10 border border-primary/20' : 'hover:bg-muted/80'}
-                      `} style={{ backfaceVisibility: 'hidden' }}>
+                        flex items-center gap-2 p-2 rounded-lg text-sm font-mono transition-all duration-500 ease-out transform-gpu border
+                        ${animationStep === index ? 'bg-primary/10 border-primary/20' : 'bg-muted border-transparent hover:bg-muted/80'}
+                      `} style={{ 
+                        backfaceVisibility: 'hidden',
+                        boxShadow: animationStep === index ? '0 4px 6px -1px rgba(var(--primary), 0.1)' : '0 0 0 0 transparent'
+                      }}>
                         <FileCode2 className="w-4 h-4 text-primary" />
                         <span>{step.file}</span>
                       </div>
@@ -103,9 +102,13 @@ export function SpecsWorkflow() {
                     
                     {step.command && (
                       <div className={`
-                        p-2 rounded-lg bg-muted text-sm font-mono transition-all duration-300 transform-gpu
-                        ${animationStep === index ? 'shadow-md bg-primary/5' : ''}
-                      `} style={{ backfaceVisibility: 'hidden' }}>
+                        p-2 rounded-lg text-sm font-mono transition-all duration-300 transform-gpu border
+                        ${animationStep === index ? 'bg-primary/5 border-primary/10' : 'bg-muted border-transparent'}
+                      `} style={{ 
+                        backfaceVisibility: 'hidden',
+                        willChange: 'transform, opacity',
+                        boxShadow: animationStep === index ? '0 4px 6px -1px rgba(var(--primary), 0.05)' : '0 0 0 0 transparent'
+                      }}>
                         <span className="text-primary">$</span> {step.command}
                       </div>
                     )}
@@ -128,22 +131,12 @@ export function SpecsWorkflow() {
                 {/* Connecting Line */}
                 {index < workflow.steps.length - 1 && (
                   <div className={`
-                    absolute left-4 top-12 h-full w-px bg-border transition-all duration-500
+                    absolute left-4 top-12 w-px bg-border transition-opacity duration-500
                     ${animationStep > index ? 'opacity-100' : 'opacity-20'}
-                  `} />
+                  `} style={{ height: 'calc(100% - 3rem)' }} />
                 )}
               </div>
             ))}
-          </div>
-
-          {/* Result Message */}
-          <div className={`
-            mt-8 p-4 rounded-lg bg-primary/10 text-center transition-all duration-500 transform-gpu
-            ${animationStep === 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}
-          `} style={{ backfaceVisibility: 'hidden' }}>
-            <p className="text-sm font-medium text-primary">
-              Clear specifications = Consistent AI output
-            </p>
           </div>
         </CardContent>
       </Card>
@@ -151,16 +144,16 @@ export function SpecsWorkflow() {
   };
 
   return (
-    <section className="container mx-auto px-4 py-16 md:py-24 bg-muted/30">
+    <section className="container mx-auto px-4 section-padding bg-muted/30">
       <div className="text-center mb-12 space-y-4">
         <Badge variant="outline">
           <Sparkles className="w-3 h-3 mr-2" />
           Better Specs, Better Vibes
         </Badge>
-        <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
+        <h2 className="heading-2">
           Two Paths, One Destination
         </h2>
-        <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+        <p className="mx-auto max-w-2xl body-lg text-muted-foreground">
           Whether you start with a visual example or written requirements, 
           VibeSpec transforms them into clear, project-aware specifications that AI understands.
         </p>
@@ -168,17 +161,41 @@ export function SpecsWorkflow() {
 
       {/* Side-by-side Workflows */}
       <div className="max-w-6xl mx-auto">
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="grid gap-8 md:grid-cols-2 mb-12">
           {/* Example Workflow */}
-          {renderWorkflow('example', exampleAnimationStep)}
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold flex items-center gap-3">
+              <FileCode2 className="w-6 h-6 text-primary" />
+              Start with an Example
+            </h3>
+            {renderWorkflow('example', exampleAnimationStep)}
+          </div>
           
           {/* Spec Workflow */}
-          {renderWorkflow('spec', specAnimationStep)}
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold flex items-center gap-3">
+              <FileText className="w-6 h-6 text-primary" />
+              Start with a Spec
+            </h3>
+            {renderWorkflow('spec', specAnimationStep)}
+          </div>
+        </div>
+        
+        {/* Centered message below both workflows */}
+        <div className={`
+          text-center transition-opacity duration-700 px-4
+          ${(exampleAnimationStep === 3 || specAnimationStep === 3) ? 'opacity-100' : 'opacity-0'}
+        `}>
+          <div className="p-6 rounded-lg bg-primary/10 inline-block">
+            <p className="text-lg font-medium text-primary">
+              Clear specifications = Consistent AI output
+            </p>
+          </div>
         </div>
       </div>
 
       {/* Bottom Note */}
-      <p className="text-center mt-12 text-sm text-muted-foreground max-w-2xl mx-auto">
+      <p className="text-center mt-12 body-sm text-muted-foreground max-w-2xl mx-auto">
         No more guessing what AI will build. Specifications create a clear contract 
         between your vision and the implementation.
       </p>

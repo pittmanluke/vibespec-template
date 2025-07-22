@@ -39,7 +39,7 @@ export function HeroSection() {
   ];
 
   return (
-    <section className="container mx-auto px-4 py-16 md:py-24">
+    <section className="container mx-auto px-4 section-padding-lg">
       <div className="text-center space-y-4">
         {/* Logo/Brand */}
         <div className="flex justify-center mb-6 animate-fade-in">
@@ -52,12 +52,12 @@ export function HeroSection() {
         </div>
 
         {/* Main Headline */}
-        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl animate-fade-in animation-delay-100">
+        <h1 className="heading-1 animate-fade-in animation-delay-100">
           VibeSpec
         </h1>
         
         {/* Subheadline */}
-        <p className="mx-auto max-w-2xl text-lg text-muted-foreground md:text-xl animate-fade-in animation-delay-200">
+        <p className="mx-auto max-w-2xl body-lg text-muted-foreground animate-fade-in animation-delay-200">
           A template for spec-driven AI-assisted coding
         </p>
 
@@ -71,15 +71,15 @@ export function HeroSection() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6 px-4 sm:px-0 animate-fade-in animation-delay-400">
-          <Button asChild size="lg" className="font-semibold group">
+          <Button asChild size="lg" className="font-semibold group focus-ring">
             <Link href="https://github.com/pittmanluke/vibespec" target="_blank">
-              <Github className="mr-2 h-5 w-5 transition-transform duration-300 group-hover:-translate-y-0.5" />
+              <Github className="mr-2 h-5 w-5 hover-lift" />
               View on GitHub
             </Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="group">
+          <Button asChild variant="outline" size="lg" className="group focus-ring">
             <Link href="/docs">
-              <BookOpen className="mr-2 h-5 w-5 transition-transform duration-300 group-hover:-translate-y-0.5" />
+              <BookOpen className="mr-2 h-5 w-5 hover-lift" />
               Read the Docs
             </Link>
           </Button>

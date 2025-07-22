@@ -1,8 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Github, FileCode2 } from "lucide-react";
+import { FileCode2 } from "lucide-react";
 import { ModeToggle } from "@/components/theme/mode-toggle";
 import { HeroSection } from "@/components/landing/hero-section";
 import { SpecsWorkflow } from "@/components/landing/specs-workflow";
@@ -23,11 +22,6 @@ export function HomeContent() {
             <h1 className="text-xl font-bold">VibeSpec</h1>
           </div>
           <div className="flex items-center space-x-4">
-            <Button asChild variant="ghost" size="icon">
-              <Link href="https://github.com/pittmanluke/vibespec" target="_blank" aria-label="GitHub">
-                <Github className="h-5 w-5" />
-              </Link>
-            </Button>
             <ModeToggle />
             <HeaderAuth />
           </div>
@@ -56,10 +50,10 @@ export function HomeContent() {
       <footer className="border-t py-8 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground text-center sm:text-left">
               VibeSpec • Spec-driven development for AI coding
             </p>
-            <div className="flex gap-6 text-sm">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-sm items-center">
               <Link href="/docs" className="text-muted-foreground hover:text-foreground transition">
                 Docs
               </Link>

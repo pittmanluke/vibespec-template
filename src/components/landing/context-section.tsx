@@ -60,16 +60,16 @@ export function ContextSection() {
   }, []);
   
   return (
-    <section className="container mx-auto px-4 py-16 md:py-24">
+    <section className="container mx-auto px-4 section-padding">
       <div className="text-center mb-12 space-y-4">
         <Badge variant="outline">
           <Key className="w-3 h-3 mr-2" />
           Context is Key
         </Badge>
-        <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
+        <h2 className="heading-2">
           A Well-Defined Foundation
         </h2>
-        <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+        <p className="mx-auto max-w-2xl body-lg text-muted-foreground">
           Clear structure and proven tech stack provide the context AI needs 
           to build accurately and efficiently.
         </p>
@@ -77,28 +77,36 @@ export function ContextSection() {
 
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
         {/* Tech Stack */}
-        <Card>
-          <CardContent className="p-6 md:p-8">
-            <h3 className="text-xl font-semibold mb-6">Modern Tech Stack</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        <Card className="h-full">
+          <CardContent className="p-6 md:p-8 h-full flex flex-col">
+            <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
+              <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center">
+                <span className="text-primary text-sm">✦</span>
+              </div>
+              Modern Tech Stack
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 flex-1">
               {techStack.map((tech, index) => (
                 <div 
                   key={tech.name} 
-                  className={`group relative flex flex-col items-center justify-center p-6 rounded-xl bg-gradient-to-br from-background to-muted/20 hover:from-muted/20 hover:to-muted/40 transition-all duration-300 ease-out hover:shadow-lg cursor-pointer transform-gpu ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+                  className={`group relative flex flex-col items-center justify-center p-4 rounded-xl bg-gradient-to-br from-background to-muted/20 hover:from-muted/20 hover:to-muted/40 transition-all duration-300 ease-out hover:shadow-lg cursor-pointer transform-gpu h-full`}
                   style={{ 
-                    animationDelay: `${index * 100}ms`,
+                    opacity: isVisible ? 1 : 0,
+                    animation: isVisible ? `fadeIn 0.6s ease-out ${index * 100}ms forwards` : 'none',
                     backfaceVisibility: 'hidden',
-                    contain: 'layout style'
+                    contain: 'layout',
+                    willChange: 'transform, opacity'
                   }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 rounded-xl transition-opacity" />
-                  <div className="relative w-12 h-12 sm:w-14 sm:h-14 mb-3 transition-transform duration-300 group-hover:-translate-y-1">
+                  <div className="relative w-10 h-10 sm:w-12 sm:h-12 mb-2 transition-transform duration-300 group-hover:-translate-y-1 transform-gpu" style={{ backfaceVisibility: 'hidden' }}>
                     <Image
                       src={tech.logo}
                       alt={tech.alt}
                       width={56}
                       height={56}
                       className={`w-full h-full object-contain ${tech.darkModeClass}`}
+                      loading="eager"
                     />
                   </div>
                   <span className="relative text-xs sm:text-sm font-medium">
@@ -107,20 +115,18 @@ export function ContextSection() {
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-sm text-muted-foreground">
-              Every technology chosen for AI compatibility and developer experience.
-            </p>
           </CardContent>
         </Card>
 
         {/* Project Structure */}
-        <Card>
-          <CardContent className="p-6 md:p-8">
+        <Card className="h-full">
+          <CardContent className="p-6 md:p-8 h-full flex flex-col">
             <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
-              <FolderTree className="w-5 h-5" />
+              <FolderTree className="w-5 h-5 text-primary" />
               Organized Structure
             </h3>
-            <div className="space-y-2 font-mono text-sm bg-zinc-900 dark:bg-zinc-950 rounded-lg p-4 overflow-x-auto">
+            <div className="flex-1 font-mono text-sm bg-zinc-900 dark:bg-zinc-950 rounded-lg p-4 overflow-x-auto flex flex-col justify-center">
+              <div className="space-y-2">
               <div className="text-zinc-400">
                 <span className="text-zinc-500">vibespec/</span>
               </div>
@@ -186,12 +192,7 @@ export function ContextSection() {
                   <span className="text-zinc-500 text-xs ml-2">→ AI instructions</span>
                 </div>
               </div>
-            </div>
-            <div className="mt-6 p-4 rounded-lg bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20">
-              <p className="text-sm font-medium flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                AI navigates this structure with perfect understanding
-              </p>
+              </div>
             </div>
           </CardContent>
         </Card>

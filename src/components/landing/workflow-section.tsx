@@ -65,16 +65,16 @@ export function WorkflowSection() {
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
 
   return (
-    <section className="container mx-auto px-4 py-24 bg-muted/30">
+    <section className="container mx-auto px-4 section-padding bg-muted/30">
       <div className="text-center mb-12 space-y-4">
         <Badge variant="outline" className="mb-4">
           <Workflow className="w-3 h-3 mr-2" />
           Our Workflow
         </Badge>
-        <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
+        <h2 className="heading-2">
           Steps to Efficient AI Coding
         </h2>
-        <p className="mx-auto max-w-[600px] text-lg text-muted-foreground">
+        <p className="mx-auto max-w-[600px] body-lg text-muted-foreground">
           A proven workflow that transforms how you build with AI. 
           Follow these steps for maximum efficiency.
         </p>
@@ -95,8 +95,8 @@ export function WorkflowSection() {
                 onMouseLeave={() => setHoveredStep(null)}
               >
                 <Card className={`
-                  transition-all duration-300 cursor-pointer h-full transform-gpu
-                  ${isHovered ? 'shadow-lg -translate-y-0.5' : 'shadow-sm hover:shadow-md'}
+                  transition-all duration-300 cursor-pointer h-full transform-gpu hover-glow
+                  ${isHovered ? '-translate-y-0.5' : ''}
                   ${isHovered ? step.borderColor : ''}
                 `} style={{ backfaceVisibility: 'hidden' }}>
                   <CardContent className="p-6">
