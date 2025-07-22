@@ -68,7 +68,7 @@ export function TerminalAnimation({
 
   return (
     <div className={`bg-zinc-900 dark:bg-zinc-950 border border-zinc-800 rounded-xl p-4 sm:p-6 text-left shadow-lg transform-gpu ${className}`} 
-         style={{ contain: 'layout style', willChange: 'contents' }}>
+         style={{ contain: 'layout', willChange: 'contents' }}>
       {showWindowControls && (
         <div className="flex items-center gap-2 mb-3 sm:mb-4">
           <div className="flex gap-1.5">
@@ -81,21 +81,25 @@ export function TerminalAnimation({
       )}
       <div className="font-mono text-xs sm:text-sm text-zinc-100">
         {/* Fixed height container to prevent layout shifts */}
-        <div className="min-h-[3rem] sm:min-h-[2.5rem] relative">
+        <div className="h-[3rem] sm:h-[2.5rem] flex items-center">
           {/* Command line with fixed grid layout */}
-          <div className="grid grid-cols-[auto,1fr,auto] gap-2 items-start">
-            <span className="text-emerald-400">$</span>
-            <div className="relative">
-              <span className="invisible opacity-0 whitespace-pre-wrap">{longestText}</span>
-              <span className="absolute inset-0">{displayedText}</span>
-              {phase === 'typing' && (
-                <span className="inline-block w-2 h-4 bg-emerald-400 ml-0.5 animate-[blink_1s_ease-in-out_infinite]" 
-                      style={{ transform: 'translateZ(0)' }} />
-              )}
+          <div className="grid grid-cols-[auto,1fr,auto] gap-2 items-center w-full">
+            <span className="text-emerald-400 self-start">$</span>
+            <div className="relative h-[1.5em] flex items-center">
+              {/* Invisible text to reserve space */}
+              <span className="invisible whitespace-pre-wrap">{longestText}</span>
+              {/* Actual typing text */}
+              <span className="absolute left-0 whitespace-pre-wrap">
+                {displayedText}
+                {phase === 'typing' && (
+                  <span className="inline-block w-2 h-[1.2em] bg-emerald-400 ml-0.5 align-middle animate-[blink_1s_ease-in-out_infinite]" 
+                        style={{ transform: 'translateZ(0)' }} />
+                )}
+              </span>
             </div>
-            <div className="min-w-0">
+            <div className="self-start">
               {/* Reserved space for highlight */}
-              <span className={`text-zinc-500 text-[10px] sm:text-xs whitespace-nowrap transition-opacity duration-300 ${
+              <span className={`text-zinc-500 text-[10px] sm:text-xs whitespace-nowrap transition-opacity duration-300 block ${
                 phase === 'showing' && currentStep.highlight ? 'opacity-100' : 'opacity-0'
               }`}>
                 {currentStep.highlight || '\u00A0'}
