@@ -58,8 +58,22 @@ export function SpecsWorkflow() {
     const workflow = workflows[workflowKey];
 
     return (
-      <Card className="overflow-hidden transition-shadow hover:shadow-lg">
+      <Card className="overflow-hidden transition-shadow bg-transparent border-border/50 hover:shadow-lg">
         <CardContent className="p-6 md:p-8 min-h-[500px]">
+          {/* Title */}
+          <h3 className="text-xl font-semibold flex items-center gap-3 mb-8">
+            {workflowKey === 'example' ? (
+              <>
+                <FileCode2 className="w-6 h-6" />
+                Start with an Example
+              </>
+            ) : (
+              <>
+                <FileText className="w-6 h-6" />
+                Start with a Spec
+              </>
+            )}
+          </h3>
           {/* Steps */}
           <div className="space-y-6">
               {workflow.steps.map((step, index) => (
@@ -90,7 +104,7 @@ export function SpecsWorkflow() {
                     {step.file && (
                       <div className={`
                         flex items-center gap-2 p-2 rounded-lg text-sm font-mono transition-all duration-500 ease-out transform-gpu border
-                        ${animationStep === index ? 'bg-primary/10 border-primary/20' : 'bg-muted border-transparent hover:bg-muted'}
+                        ${animationStep === index ? 'bg-primary/10 border-primary/20' : 'bg-muted border-transparent hover:bg-muted/80'}
                       `} style={{ 
                         backfaceVisibility: 'hidden',
                         boxShadow: animationStep === index ? '0 4px 6px -1px rgba(var(--primary), 0.1)' : '0 0 0 0 transparent'
@@ -163,20 +177,12 @@ export function SpecsWorkflow() {
       <div className="max-w-6xl mx-auto">
         <div className="grid gap-8 lg:grid-cols-2 mb-12">
           {/* Example Workflow */}
-          <div className="space-y-4">
-            <h3 className="text-xl font-semibold flex items-center gap-3">
-              <FileCode2 className="w-6 h-6 text-primary" />
-              Start with an Example
-            </h3>
+          <div>
             {renderWorkflow('example', exampleAnimationStep)}
           </div>
           
           {/* Spec Workflow */}
-          <div className="space-y-4">
-            <h3 className="text-xl font-semibold flex items-center gap-3">
-              <FileText className="w-6 h-6 text-primary" />
-              Start with a Spec
-            </h3>
+          <div>
             {renderWorkflow('spec', specAnimationStep)}
           </div>
         </div>

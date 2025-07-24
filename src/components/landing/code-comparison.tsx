@@ -145,7 +145,7 @@ export function CodeComparison() {
                         <Badge variant="outline" className="text-xs">
                           {step.label}
                         </Badge>
-                        <div className="bg-muted rounded-lg p-4 font-mono text-sm space-y-1">
+                        <div className="bg-gray-100 dark:bg-zinc-900 rounded-lg p-4 font-mono text-sm space-y-1">
                           {step.code.map((line, lineIndex) => (
                             <div key={lineIndex} className="text-muted-foreground">
                               {line.startsWith('//') ? (

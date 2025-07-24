@@ -105,7 +105,7 @@ export function WorkflowSection() {
                       {/* Icon */}
                       <div className={`
                         w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-300
-                        ${isHovered ? step.bgColor : 'bg-muted'}
+                        ${isHovered ? step.bgColor : 'bg-gray-100 dark:bg-zinc-900'}
                       `}>
                         <Icon className={`w-6 h-6 transition-colors duration-300 ${isHovered ? step.color : 'text-muted-foreground'}`} />
                       </div>

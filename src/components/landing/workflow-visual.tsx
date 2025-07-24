@@ -154,7 +154,7 @@ export function WorkflowVisual() {
                           <p className="text-sm text-muted-foreground">
                             {step.description}
                           </p>
-                          <div className="bg-muted rounded-lg p-4 font-mono text-sm space-y-1">
+                          <div className="bg-gray-100 dark:bg-zinc-900 rounded-lg p-4 font-mono text-sm space-y-1">
                             {step.commands.map((cmd, cmdIndex) => (
                               <div key={cmdIndex} className="text-muted-foreground">
                                 {cmd.startsWith('//') ? (

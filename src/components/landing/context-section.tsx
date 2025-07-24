@@ -77,19 +77,17 @@ export function ContextSection() {
 
       <div className="content-width-lg grid lg:grid-cols-2 gap-8">
         {/* Tech Stack */}
-        <Card className="h-full transition-shadow hover:shadow-lg">
+        <Card className="h-full transition-shadow hover:shadow-lg bg-transparent border-border/50">
           <CardContent className="p-6 md:p-8 h-full flex flex-col">
             <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
-              <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center">
-                <span className="text-primary text-sm">✦</span>
-              </div>
+              <span className="text-primary text-lg">✦</span>
               Modern Tech Stack
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 flex-1">
               {techStack.map((tech, index) => (
                 <div 
                   key={tech.name} 
-                  className={`group relative flex flex-col items-center justify-center p-4 rounded-xl bg-muted hover:bg-muted transition-all duration-300 ease-out hover:shadow-lg cursor-pointer transform-gpu h-full min-h-[120px] focus-ring`}
+                  className={`group relative flex flex-col items-center justify-center p-4 rounded-xl bg-muted/50 hover:bg-muted transition-all duration-300 ease-out hover:shadow-lg cursor-pointer transform-gpu h-full min-h-[120px] focus-ring`}
                   style={{ 
                     opacity: isVisible ? 1 : 0,
                     animation: isVisible ? `fadeIn 0.6s ease-out ${index * 100}ms forwards` : 'none',
@@ -119,13 +117,13 @@ export function ContextSection() {
         </Card>
 
         {/* Project Structure */}
-        <Card className="h-full transition-shadow hover:shadow-lg">
+        <Card className="h-full transition-shadow hover:shadow-lg bg-transparent border-border/50">
           <CardContent className="p-6 md:p-8 h-full flex flex-col">
             <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
               <FolderTree className="w-5 h-5 text-primary" />
               Organized Structure
             </h3>
-            <div className="flex-1 font-mono text-sm bg-zinc-900 dark:bg-zinc-950 rounded-lg p-4 overflow-x-auto flex flex-col justify-center">
+            <div className="flex-1 font-mono text-sm bg-zinc-950 rounded-lg p-4 overflow-x-auto flex flex-col justify-center">
               <div className="space-y-2">
               <div className="text-zinc-400">
                 <span className="text-zinc-500">vibespec/</span>

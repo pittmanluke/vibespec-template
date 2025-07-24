@@ -6,7 +6,7 @@ import Link from "next/link";
 export function CTASection() {
   return (
     <section className="container mx-auto px-4 section-padding">
-      <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-background content-width-lg border-0 transition-shadow hover:shadow-lg">
+      <Card className="bg-transparent border-border/50 content-width-lg border-0 transition-shadow hover:shadow-lg">
         <CardContent className="p-8 md:p-12 text-center space-y-6">
           <h2 className="heading-2">
             Ready to Build?

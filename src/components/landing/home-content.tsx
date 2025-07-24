@@ -15,7 +15,7 @@ export function HomeContent() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
+      <header className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
         <div className="container mx-auto px-4 flex h-16 items-center justify-between">
           <div className="flex items-center space-x-4">
             <FileCode2 className="h-6 w-6 text-primary" />
@@ -47,7 +47,7 @@ export function HomeContent() {
       <CTASection />
 
       {/* Footer */}
-      <footer className="border-t py-12 bg-background">
+      <footer className="py-12 bg-background">
         <div className="container mx-auto px-4">
           <div className="flex flex-col gap-8">
             {/* Main footer content */}
@@ -74,9 +74,9 @@ export function HomeContent() {
               </nav>
             </div>
             {/* Copyright */}
-            <div className="text-center text-xs text-muted-foreground/60 pt-4 border-t border-border/50">
+            {/* <div className="text-center text-xs text-muted-foreground/60 pt-4">
               © {new Date().getFullYear()} VibeSpec. Open source under MIT License.
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>
