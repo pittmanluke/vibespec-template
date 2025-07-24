@@ -1,0 +1,146 @@
+# [PROJECT_NAME]
+
+[PROJECT_BADGES]
+
+[PROJECT_TAGLINE]
+
+## Overview
+
+[PROJECT_DESCRIPTION_FULL]
+
+### Why [PROJECT_NAME]?
+
+[PROJECT_VALUE_PROPOSITION]
+
+## ✨ Features
+
+[PROJECT_FEATURES_DETAILED]
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18.17 or later
+- npm (or yarn/pnpm)
+- Git
+- [ADDITIONAL_PREREQUISITES]
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone [REPO_URL]
+   cd [PROJECT_DIRECTORY]
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install --legacy-peer-deps
+   ```
+
+3. **Set up environment**
+   ```bash
+   cp .env.local.example .env.local
+   # Edit .env.local with your configuration
+   ```
+
+4. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 📁 Project Structure
+
+```
+[PROJECT_NAME]/
+├── src/
+│   ├── app/              # Next.js pages and routing
+│   ├── components/       # React components
+│   │   ├── ui/          # Base UI components
+│   │   └── [features]/  # Feature-specific components
+│   ├── services/        # Business logic and APIs
+│   ├── providers/       # Context providers
+│   ├── hooks/          # Custom React hooks
+│   ├── lib/            # Utilities and helpers
+│   ├── types/          # TypeScript definitions
+│   └── config/         # Configuration files
+│
+├── public/             # Static assets
+├── specs/              # Feature specifications
+├── plans/              # Implementation plans
+└── vibespec/           # Template documentation
+```
+
+[ADDITIONAL_STRUCTURE_NOTES]
+
+## 🛠️ Development
+
+### Available Scripts
+
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint
+npm run typecheck    # Check TypeScript
+[ADDITIONAL_SCRIPTS]
+```
+
+### Development Workflow
+
+This project follows the VibeSpec methodology. Key references:
+- **Specifications**: See `/specs/` for feature specifications
+- **Architecture**: See `vibespec/architecture-principles.md`
+- **AI Development**: See `vibespec/ai-workflow-guide.md`
+- **Troubleshooting**: See `vibespec/troubleshooting.md`
+
+[PROJECT_SPECIFIC_WORKFLOW]
+
+## 🔧 Configuration
+
+### Environment Variables
+
+[ENV_VAR_DOCUMENTATION]
+
+### Feature Flags
+
+[FEATURE_FLAG_DOCUMENTATION]
+
+## 📦 Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org)
+- **Language**: [TypeScript](https://www.typescriptlang.org)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com)
+- [ADDITIONAL_TECH]
+
+## 🚢 Deployment
+
+[DEPLOYMENT_INSTRUCTIONS]
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+[PLATFORM_SPECIFIC_DEPLOYMENT]
+
+## 🤝 Contributing
+
+[CONTRIBUTING_GUIDELINES]
+
+## 📄 License
+
+[LICENSE_INFO]
+
+## 🙏 Acknowledgments
+
+[ACKNOWLEDGMENTS]
+
+---
+
+Built with [VibeSpec](https://github.com/pittmanluke/vibespec) - Spec-driven development for agentic coding

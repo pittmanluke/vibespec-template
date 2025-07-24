@@ -2,11 +2,26 @@
 
 **MANDATORY: This document contains strict rules and technical context for AI assistants. All rules must be followed without exception.**
 
-> **Document Precedence**: User instructions > CLAUDE.md > Other documentation
+> **Document Precedence**: User instructions > CLAUDE.md > VibeSpec Template Documentation
+
+## VibeSpec Template Documentation
+
+This project uses the VibeSpec template. For detailed template documentation, see:
+- **Core Rules**: `vibespec/ai-assistant-rules.md` - The 12 strict rules for AI assistants
+- **Architecture**: `vibespec/architecture-principles.md` - Core patterns and design principles
+- **Project Structure**: `vibespec/project-structure.md` - Directory organization and file placement
+- **Naming Conventions**: `vibespec/naming-conventions.md` - File and component naming rules
+- **Tech Stack**: `vibespec/tech-stack.md` - Framework versions and configuration
+- **Development Workflow**: `vibespec/development-workflow.md` - Common tasks and processes
+- **Code Quality**: `vibespec/code-quality.md` - Standards and validation requirements
+- **Feature Flags**: `vibespec/feature-flags.md` - Service toggling system
+- **Claude Commands**: `vibespec/claude-commands.md` - Available automation commands
 
 ## Project Overview
 
 This is a production-ready Next.js 15 template with optional Firebase integration. The key feature is its flexibility - developers can start immediately with mock services and enable Firebase features as needed.
+
+**Note**: To adapt this documentation to your specific project after creating initial specifications, run `/adapt`.
 
 ## Key Architectural Decisions
 
@@ -301,11 +316,13 @@ This project includes custom Claude commands for workflow automation:
 - `/session:end` - Close and document session
 - `/transpose` - Convert artifact files to template-compliant PRDs
 - `/breakdown` - Break external PRDs into phased implementation specs
+- `/adapt` - Adapt CLAUDE.md and README.md to your specific project
 
 ### Workflow Integration
 For detailed workflow guidance, see:
-- [AI Workflow Guide](./ai-workflow-guide.md) - Comprehensive development process
-- [Workflow Quick Reference](./workflow-quickstart.md) - Commands and tips
+- [AI Workflow Guide](./vibespec/ai-workflow-guide.md) - Comprehensive development process
+- [Workflow Quick Reference](./vibespec/workflow-quickstart.md) - Commands and tips
+- [Claude Commands Reference](./vibespec/claude-commands.md) - Detailed command documentation
 
 ## Technical Context
 

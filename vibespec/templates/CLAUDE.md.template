@@ -1,0 +1,129 @@
+# CLAUDE.md - AI Assistant Technical Context
+
+**MANDATORY: This document contains project-specific rules and technical context for AI assistants. All rules must be followed without exception.**
+
+> **Document Precedence**: User instructions > CLAUDE.md > VibeSpec Template Documentation
+
+## VibeSpec Template Guidelines
+
+This project is built using the VibeSpec template. For core development rules and patterns, refer to:
+- **AI Assistant Rules**: `vibespec/ai-assistant-rules.md` - The 12 strict rules all AI assistants must follow
+- **Architecture**: `vibespec/architecture-principles.md` - Core patterns and principles
+- **File Structure**: `vibespec/project-structure.md` - Directory organization and import paths
+- **Naming Conventions**: `vibespec/naming-conventions.md` - File and component naming rules
+- **Development Workflow**: `vibespec/development-workflow.md` - Common tasks and processes
+- **Code Quality**: `vibespec/code-quality.md` - Standards and validation requirements
+
+## Project Overview
+
+[PROJECT_NAME] is [PROJECT_DESCRIPTION]
+
+### Key Features
+[PROJECT_FEATURES]
+
+### Target Audience
+[TARGET_AUDIENCE]
+
+## Technical Architecture
+
+### Core Technologies
+- Framework: Next.js 15 (App Router)
+- Language: TypeScript 5.x
+- Styling: Tailwind CSS v4
+- UI Components: shadcn/ui
+- [ADDITIONAL_TECH_STACK]
+
+### Data Models
+```typescript
+// Define your primary data structures here
+[PROJECT_DATA_MODELS]
+```
+
+### API Structure
+[PROJECT_API_ENDPOINTS]
+
+### Service Layer
+[PROJECT_SERVICES]
+
+## Project Status
+
+### ✅ Completed Features
+[COMPLETED_FEATURES]
+
+### 🚧 In Progress
+[IN_PROGRESS_FEATURES]
+
+### 📋 Planned Features
+[PLANNED_FEATURES]
+
+## Project-Specific Guidelines
+
+### Business Logic Rules
+[PROJECT_BUSINESS_RULES]
+
+### UI/UX Conventions
+[PROJECT_UI_GUIDELINES]
+
+### State Management
+[PROJECT_STATE_MANAGEMENT]
+
+### Authentication & Authorization
+[PROJECT_AUTH_RULES]
+
+### External Integrations
+[PROJECT_INTEGRATIONS]
+
+## Environment Configuration
+
+### Required Environment Variables
+```bash
+[PROJECT_ENV_VARS]
+```
+
+### Feature Flags
+[PROJECT_FEATURE_FLAGS]
+
+## Deployment
+
+### Target Platform
+[DEPLOYMENT_PLATFORM]
+
+### Build Configuration
+[BUILD_CONFIG]
+
+### Production Considerations
+[PRODUCTION_NOTES]
+
+## Development Notes
+
+### Known Issues
+[KNOWN_ISSUES]
+
+### Performance Considerations
+[PERFORMANCE_NOTES]
+
+### Security Considerations
+[SECURITY_NOTES]
+
+## Quick Reference
+
+### Common Commands
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run lint         # Run linting
+npm run typecheck    # TypeScript validation
+[ADDITIONAL_COMMANDS]
+```
+
+### Key Files
+- Entry point: `src/app/page.tsx`
+- [OTHER_KEY_FILES]
+
+## Additional Context
+
+[ANY_OTHER_PROJECT_SPECIFIC_INFO]
+
+---
+
+**Remember**: Always refer to the VibeSpec template documentation in `/vibespec/` for foundational patterns and rules. This document contains project-specific adaptations only.

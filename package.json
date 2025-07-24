@@ -1,24 +1,37 @@
 {
   "name": "vibespec",
-  "version": "0.1.0",
-  "description": "Spec-driven development template for agentic coding. Transform ideas into specifications, specifications into shipped products.",
-  "author": "Luke Pittman",
-  "keywords": ["nextjs", "claude-code", "ai-development", "specifications", "typescript", "react", "mvp", "spec-driven", "shadcn"],
+  "version": "1.0.0",
+  "description": "Spec-driven Next.js starter template for AI-assisted development. Transform ideas into specifications, specifications into shipped products.",
+  "author": "VibeSpec Contributors",
+  "keywords": [
+    "nextjs",
+    "typescript",
+    "tailwindcss",
+    "firebase",
+    "claude",
+    "claude-code",
+    "ai-development",
+    "starter-template",
+    "shadcn-ui",
+    "spec-driven",
+    "mvp",
+    "react"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/pittmanluke/vibespec.git"
+    "url": "git+https://github.com/vibespec/vibespec.git"
   },
   "bugs": {
-    "url": "https://github.com/pittmanluke/vibespec/issues"
+    "url": "https://github.com/vibespec/vibespec/issues"
   },
-  "homepage": "https://vibespec.com",
+  "homepage": "https://github.com/vibespec/vibespec#readme",
   "license": "MIT",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "typecheck": "tsc --noEmit",
     "emulators": "firebase emulators:start",
     "emulators:export": "firebase emulators:export ./emulator-data"
   },
