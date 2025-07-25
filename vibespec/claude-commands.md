@@ -2,6 +2,20 @@
 
 This document details the custom Claude commands available in VibeSpec projects for workflow automation.
 
+## Sub-Agents Integration
+
+VibeSpec commands work seamlessly with specialized sub-agents that provide automated assistance:
+
+| Sub-Agent | Purpose | Activates |
+|-----------|---------|----------|
+| **spec-alignment-guardian** | Validates code matches specifications | After `/transpose`, `/breakdown`, during implementation |
+| **velocity-guardian** | Prevents feature creep | When perfectionism detected, scope expansion |
+| **vibespec-compliance-validator** | Enforces coding standards | After code changes, before commits |
+| **session-state-tracker** | Captures development state | During `/session:update`, session end |
+| **vibespec-docs-harmonizer** | Maintains documentation sync | When agents/commands/architecture change |
+
+For detailed information about sub-agents, see `/vibespec/sub-agents.md`.
+
 ## Available Commands
 
 ### Core Commands
@@ -55,6 +69,7 @@ Track progress during development.
 - Documents completed work
 - Notes any blockers
 - Captures decisions made
+- **Triggers session-state-tracker** for comprehensive state capture
 
 **When to use:**
 - After completing subtasks
@@ -93,6 +108,7 @@ Convert artifact files to template-compliant PRDs.
 - Extracts functionality and patterns
 - Maps to template architecture
 - Generates specification document
+- **Triggers spec-alignment-guardian** to validate output
 
 **Output:**
 - `/specs/transposed-[feature].md` - Full PRD
@@ -115,6 +131,7 @@ Break external PRDs into phased implementation specs.
 - Creates phased implementation plan
 - Identifies dependencies
 - Estimates complexity
+- **Triggers spec-alignment-guardian** to check alignment
 
 **Output:**
 - `/plans/phase-1-[feature].md`
@@ -179,7 +196,22 @@ Get help with session commands.
 /session:help
 ```
 
-## Workflow Integration
+## Workflow Integration with Sub-Agents
+
+Sub-agents enhance the command workflow by providing automated quality control:
+
+1. **Specification Commands** (`/transpose`, `/breakdown`)
+   - spec-alignment-guardian validates output
+   - Ensures specifications are complete and accurate
+
+2. **Session Commands** (`/session:*`)
+   - session-state-tracker captures comprehensive state
+   - Enables seamless handoffs between sessions
+
+3. **During Implementation**
+   - vibespec-compliance-validator checks code standards
+   - velocity-guardian prevents scope creep
+   - spec-alignment-guardian ensures spec adherence
 
 ### Typical Development Flow
 

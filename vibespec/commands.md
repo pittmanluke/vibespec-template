@@ -2,6 +2,8 @@
 
 This guide covers all Claude Code commands available in VibeSpec, their usage, and best practices.
 
+**Note**: VibeSpec commands integrate with specialized sub-agents that provide automated assistance. See [Sub-Agents Guide](./sub-agents.md) for details on how agents enhance your workflow.
+
 ## Core Commands
 
 ### `/context-prime`
@@ -24,6 +26,7 @@ claude
 2. Reads CLAUDE.md instructions
 3. Understands your conventions
 4. Prepares for accurate code generation
+5. Activates sub-agents for monitoring
 
 **Best practices**:
 - Always run first in new conversations
@@ -40,6 +43,10 @@ claude
 - Starting work on a new feature
 - Beginning a multi-step task
 - When you need progress tracking
+
+**Sub-agent integration**:
+- Enables session-state-tracker for automatic progress capture
+- Activates all monitoring agents
 
 **Usage**:
 ```bash

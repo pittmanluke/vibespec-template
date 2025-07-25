@@ -6,6 +6,17 @@
 
 This guide documents a battle-tested workflow for building applications with AI assistance, from initial ideation through implementation. It emphasizes thorough planning, systematic execution, and proper documentation at every stage.
 
+### Sub-Agents Integration
+
+VibeSpec includes specialized sub-agents that automatically assist during development:
+- **spec-alignment-guardian**: Validates implementations match specifications
+- **velocity-guardian**: Prevents feature creep and maintains momentum
+- **vibespec-compliance-validator**: Enforces coding standards and conventions
+- **session-state-tracker**: Captures development state for seamless handoffs
+- **vibespec-docs-harmonizer**: Keeps documentation synchronized
+
+These agents activate automatically at key points in your workflow or can be invoked manually. See `/vibespec/sub-agents.md` for detailed information.
+
 ## Workflow Phases
 
 ### 1. External Planning Phase
@@ -43,6 +54,7 @@ Once you have a clear plan, move into your development environment:
    ```bash
    /context-prime
    ```
+   *Note: Sub-agents will now monitor your development activity*
 
 3. **Planning Mode**
    - Enter planning mode to discuss approach
@@ -56,8 +68,8 @@ Once you have a clear plan, move into your development environment:
 
 5. **Execute & Track**
    ```bash
-   /session:update  # After significant progress
-   git commit       # Regular commits
+   /session:update  # After significant progress (triggers session-state-tracker)
+   git commit       # Regular commits (triggers vibespec-compliance-validator)
    ```
 
 6. **Close Session**

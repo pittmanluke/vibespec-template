@@ -2,6 +2,18 @@
 
 This document outlines the core architectural principles and patterns that guide VibeSpec development.
 
+## Automated Quality Assurance
+
+VibeSpec employs specialized sub-agents to automatically enforce architectural principles:
+
+- **spec-alignment-guardian**: Ensures implementations follow specifications
+- **velocity-guardian**: Prevents over-engineering and scope creep
+- **vibespec-compliance-validator**: Enforces file naming and code standards
+- **session-state-tracker**: Maintains development continuity
+- **vibespec-docs-harmonizer**: Keeps all documentation synchronized
+
+These agents work in the background, proactively preventing architectural drift. See [Sub-Agents Guide](./sub-agents.md) for details.
+
 ## Core Principles
 
 ### 1. Separation of Concerns

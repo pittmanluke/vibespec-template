@@ -2,6 +2,8 @@
 
 This document contains the 12 strict rules that ALL AI assistants must follow when working with VibeSpec projects. These rules have no exceptions.
 
+**Note**: The **vibespec-compliance-validator** sub-agent automatically monitors and enforces these rules during development. See [Sub-Agents Guide](./sub-agents.md) for more information.
+
 ## The 12 Strict Rules
 
 ### RULE 1: Authentication Implementation
@@ -28,6 +30,7 @@ This document contains the 12 strict rules that ALL AI assistants must follow wh
 - **Directories**: ALWAYS use kebab-case (e.g., `user-management/`)
 - **Component exports**: ALWAYS use PascalCase (e.g., `export function UserProfile`)
 - See [Naming Conventions](./naming-conventions.md) for details
+- **Enforced by**: vibespec-compliance-validator agent
 
 ### RULE 5: Error-Free Code Only
 Before writing ANY code:
@@ -48,6 +51,7 @@ npm run build
 npm run lint
 ```
 Fix any errors immediately.
+**Note**: The vibespec-compliance-validator agent helps catch these issues automatically.
 
 ### RULE 7: Commit Discipline
 Commit after:

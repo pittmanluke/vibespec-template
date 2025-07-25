@@ -15,15 +15,22 @@
 ```bash
 claude                    # Open Claude CLI
 /session:start           # Begin session
-/context-prime           # Load project context
+/context-prime           # Load project context (activates sub-agents)
 # Enter planning mode and create plan
 # Save plan to plans/
 ```
 
+**Active Sub-Agents**: Once you start a session, these agents monitor your work:
+- 🎯 **spec-alignment-guardian** - Validates spec compliance
+- ⚡ **velocity-guardian** - Prevents feature creep
+- ✅ **vibespec-compliance-validator** - Checks code standards
+- 💾 **session-state-tracker** - Captures progress
+- 📚 **vibespec-docs-harmonizer** - Syncs documentation
+
 ### 🏁 Ending a Work Session
 ```bash
-/session:update          # Track progress
-git add . && git commit  # Commit changes
+/session:update          # Track progress (triggers session-state-tracker)
+git add . && git commit  # Commit changes (triggers compliance validator)
 /session:end            # Close session
 ```
 
@@ -41,9 +48,11 @@ git add . && git commit  # Commit changes
 ### Essential Commands
 ```bash
 /session:start          # Start development session
-/context-prime          # Load project context
-/session:update         # Update progress
+/context-prime          # Load project context & activate sub-agents
+/session:update         # Update progress (triggers state tracking)
 /session:end           # End and document session
+/transpose @file        # Convert artifact to PRD (triggers spec guardian)
+/breakdown @spec        # Create phased plan (triggers spec guardian)
 ```
 
 ### Planning Commands

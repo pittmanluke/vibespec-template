@@ -476,4 +476,58 @@ If nothing works:
 3. Include session file and specs
 4. Describe expected vs actual behavior
 
+## Sub-Agent Issues
+
+### Agent Not Activating
+
+**Problem**: Expected a sub-agent to help but it didn't appear
+
+**Solutions**:
+1. **Check agent triggers**:
+   - spec-alignment-guardian: After `/transpose`, `/breakdown`, or during implementation
+   - velocity-guardian: When adding "enhancements" or refactoring working code
+   - vibespec-compliance-validator: After any code changes
+   - session-state-tracker: During `/session:update`
+
+2. **Manually invoke the agent**:
+   ```
+   > Use the spec-alignment-guardian to check my implementation
+   > Have the velocity-guardian review our current scope
+   ```
+
+3. **Verify agent files exist**:
+   ```bash
+   > LS .claude/agents/
+   ```
+
+### Too Many Agent Interventions
+
+**Problem**: Agents are interrupting workflow too frequently
+
+**Solutions**:
+1. Work in smaller, focused chunks
+2. Follow VibeSpec conventions to avoid compliance issues
+3. Create clear specifications to prevent alignment warnings
+4. Use `/session:update` less frequently if state tracking is excessive
+
+### Agent Giving Incorrect Advice
+
+**Problem**: Agent suggestions don't match project needs
+
+**Solutions**:
+1. Check CLAUDE.md for project-specific overrides
+2. Ensure specifications are up to date
+3. Review agent configuration in `.claude/agents/`
+4. Remember spec-alignment-guardian takes precedence for spec issues
+
+### Session State Missing Information
+
+**Problem**: session-state-tracker not capturing important context
+
+**Solutions**:
+1. Ensure git is initialized
+2. Make commits before session updates
+3. Check file permissions in `.claude/sessions/`
+4. Manually add context to session files if needed
+
 Remember: Most issues stem from not using specifications or fighting the established patterns. When in doubt, create a spec and follow VibeSpec conventions!

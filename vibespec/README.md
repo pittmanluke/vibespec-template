@@ -9,6 +9,7 @@ This directory contains the core documentation for the VibeSpec template. These 
 - [**AI Development Guide**](./ai-development-guide.md) - Best practices for AI-assisted development
 - [**AI Workflow Guide**](./ai-workflow-guide.md) - Comprehensive workflow from planning to deployment
 - [**Claude Commands**](./claude-commands.md) - Available automation commands
+- [**Sub-Agents Guide**](./sub-agents.md) - Specialized AI assistants for quality control
 
 ### 🏗️ Architecture & Structure
 - [**Architecture Principles**](./architecture-principles.md) - Core patterns and design principles
@@ -54,6 +55,7 @@ Use the `/adapt` command to customize these templates for your project.
 2. Reference [Project Structure](./project-structure.md) for file placement
 3. Use [Naming Conventions](./naming-conventions.md) for all files
 4. Check [Code Quality](./code-quality.md) before committing
+5. Work with [Sub-Agents](./sub-agents.md) for automated quality control
 
 ### When Customizing
 1. Keep all template documentation intact
