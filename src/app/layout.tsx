@@ -13,6 +13,7 @@ import { organizationSchema, websiteSchema } from "@/lib/seo/structured-data";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://vibespec.dev'),
   title: "VibeSpec - Spec-driven development for AI coding",
   description: "Transform ideas into specifications, specifications into shipped products. Build MVPs faster with Claude Code integration and structured workflows.",
   keywords: ["nextjs", "claude code", "ai development", "specifications", "mvp", "typescript", "react"],
