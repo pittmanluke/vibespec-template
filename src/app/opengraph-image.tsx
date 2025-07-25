@@ -57,7 +57,7 @@ export default async function OGImage() {
           </svg>
           
           {/* Multiple layers for faux-bold effect */}
-          <div style={{ position: 'relative' }}>
+          <div style={{ position: 'relative', display: 'block' }}>
             <h1
               style={{
                 fontSize: 56,
@@ -150,6 +150,7 @@ export default async function OGImage() {
                   height: 12,
                   borderRadius: '50%',
                   backgroundColor: '#EF4444',
+                  display: 'block',
                 }}
               />
               <div
@@ -158,6 +159,7 @@ export default async function OGImage() {
                   height: 12,
                   borderRadius: '50%',
                   backgroundColor: '#F59E0B',
+                  display: 'block',
                 }}
               />
               <div
@@ -166,6 +168,7 @@ export default async function OGImage() {
                   height: 12,
                   borderRadius: '50%',
                   backgroundColor: '#10B981',
+                  display: 'block',
                 }}
               />
             </div>
@@ -185,14 +188,14 @@ export default async function OGImage() {
               <span style={{ color: '#10B981', marginRight: 8 }}>$</span>
               <span style={{ color: '#E5E5E5' }}>npx claude-code new</span>
             </div>
-            <div style={{ color: '#A1A1AA', marginLeft: 16 }}>
-              ✓ Creating your spec-driven project...
+            <div style={{ color: '#A1A1AA', marginLeft: 16, display: 'block' }}>
+              Creating your spec-driven project...
             </div>
-            <div style={{ color: '#A1A1AA', marginLeft: 16 }}>
-              ✓ Setting up AI context files...
+            <div style={{ color: '#A1A1AA', marginLeft: 16, display: 'block' }}>
+              Setting up AI context files...
             </div>
-            <div style={{ color: '#A1A1AA', marginLeft: 16 }}>
-              ✓ Configuring Claude commands...
+            <div style={{ color: '#A1A1AA', marginLeft: 16, display: 'block' }}>
+              Configuring Claude commands...
             </div>
             <div style={{ display: 'flex', alignItems: 'center', marginTop: 8 }}>
               <span style={{ color: '#10B981', marginRight: 8 }}>$</span>
@@ -235,6 +238,7 @@ export default async function OGImage() {
                 fontSize: 14,
                 color: '#A1A1AA',
                 fontFamily: 'system-ui, -apple-system, sans-serif',
+                display: 'block',
               }}
             >
               {tech}
