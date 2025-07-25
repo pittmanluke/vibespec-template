@@ -1,153 +1,576 @@
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle2, Circle, Zap, Users, Code2, Shield, Palette, Globe } from "lucide-react";
+"use client";
 
-const roadmapCategories = [
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Globe, ChevronDown, ChevronUp, ArrowLeft, ExternalLink } from "lucide-react";
+import { RoadmapItemComponent, type RoadmapItem } from "./components/roadmap-item";
+import { PrioritySection } from "./components/priority-section";
+import { ModeToggle } from "@/components/theme/mode-toggle";
+import { Logo } from "@/components/ui/logo";
+import { Input } from "@/components/ui/input";
+import { useToast } from "@/hooks/use-toast";
+
+// Roadmap data
+const roadmapItems: RoadmapItem[] = [
+  // In Progress
   {
-    title: "Core Features",
-    icon: Code2,
-    items: [
-      { title: "Spec-driven workflow", status: "completed", description: "Transform designs and PRDs into specifications" },
-      { title: "Claude Code integration", status: "completed", description: "Custom commands and CLAUDE.md file" },
-      { title: "Session management", status: "completed", description: "Track development sessions with memory" },
-      { title: "Firebase integration", status: "completed", description: "Optional authentication and database" },
-      { title: "Enhanced spec templates", status: "in-progress", description: "More templates for common patterns" },
-      { title: "Spec validation", status: "planned", description: "Automated checks for spec completeness" },
-    ]
+    id: "enhanced-docs",
+    title: "Enhanced documentation",
+    description: "Improved docs and AI workflow guides",
+    priority: "in-progress",
+    status: "active",
+    category: "ai",
+    votes: 42
   },
   {
-    title: "Developer Experience",
-    icon: Zap,
-    items: [
-      { title: "Quick start guide", status: "completed", description: "Get up and running in minutes" },
-      { title: "VS Code extension", status: "planned", description: "Direct IDE integration for commands" },
-      { title: "CLI tool", status: "planned", description: "Standalone CLI for spec operations" },
-      { title: "Spec linting", status: "planned", description: "Ensure spec quality and consistency" },
-    ]
+    id: "spec-templates",
+    title: "Enhanced spec templates",
+    description: "More templates for common patterns",
+    priority: "in-progress",
+    status: "active",
+    category: "core",
+    votes: 38
   },
   {
-    title: "Community",
-    icon: Users,
-    items: [
-      { title: "Documentation site", status: "in-progress", description: "Comprehensive guides and tutorials" },
-      { title: "Example gallery", status: "planned", description: "Real-world spec examples" },
-      { title: "Discord community", status: "planned", description: "Connect with other developers" },
-      { title: "Video tutorials", status: "planned", description: "Step-by-step walkthroughs" },
-    ]
+    id: "docs-site",
+    title: "Documentation site",
+    description: "Comprehensive guides and tutorials",
+    priority: "in-progress",
+    status: "active",
+    category: "community",
+    votes: 55
+  },
+  
+  // Up Next
+  {
+    id: "mcp-servers",
+    title: "MCP servers pre-configured",
+    description: "Model Context Protocol server integrations",
+    priority: "up-next",
+    status: "planned",
+    category: "ai",
+    votes: 127
   },
   {
-    title: "Enterprise",
-    icon: Shield,
-    items: [
-      { title: "Team workspaces", status: "planned", description: "Collaborate on specifications" },
-      { title: "Custom AI models", status: "planned", description: "Bring your own AI provider" },
-      { title: "SSO integration", status: "planned", description: "Enterprise authentication" },
-      { title: "Audit logs", status: "planned", description: "Track all spec changes" },
-    ]
+    id: "product-planning",
+    title: "Product planning + deep research",
+    description: "AI-powered product planning within VibeSpec",
+    priority: "up-next",
+    status: "planned",
+    category: "ai",
+    votes: 89
   },
+  {
+    id: "design-commands",
+    title: "Design iteration commands",
+    description: "/commands for automated design workflows",
+    priority: "up-next",
+    status: "planned",
+    category: "ai",
+    votes: 76
+  },
+  {
+    id: "spec-validation",
+    title: "Spec validation",
+    description: "Automated checks for spec completeness",
+    priority: "up-next",
+    status: "planned",
+    category: "core",
+    votes: 63
+  },
+  
+  // Future Ideas
+  {
+    id: "vscode-extension",
+    title: "VS Code extension",
+    description: "Direct IDE integration for commands",
+    priority: "future",
+    status: "planned",
+    category: "dx",
+    votes: 234
+  },
+  {
+    id: "multi-agent",
+    title: "Multi-agent workflows",
+    description: "Complex AI orchestration using git trees",
+    priority: "future",
+    status: "planned",
+    category: "ai",
+    votes: 156
+  },
+  {
+    id: "semantic-search",
+    title: "Semantic search via MCP",
+    description: "Advanced search capabilities through MCP",
+    priority: "future",
+    status: "planned",
+    category: "ai",
+    votes: 142
+  },
+  {
+    id: "claude-hooks",
+    title: "Claude Code Hooks",
+    description: "Event-driven automation hooks",
+    priority: "future",
+    status: "planned",
+    category: "ai",
+    votes: 118
+  },
+  {
+    id: "cli-tool",
+    title: "CLI tool",
+    description: "Standalone CLI for spec operations",
+    priority: "future",
+    status: "planned",
+    category: "dx",
+    votes: 95
+  },
+  {
+    id: "team-workspaces",
+    title: "Team workspaces",
+    description: "Collaborate on specifications",
+    priority: "future",
+    status: "planned",
+    category: "enterprise",
+    votes: 78
+  },
+  {
+    id: "example-gallery",
+    title: "Example gallery",
+    description: "Real-world spec examples",
+    priority: "future",
+    status: "planned",
+    category: "community",
+    votes: 72
+  },
+  {
+    id: "spec-linting",
+    title: "Spec linting",
+    description: "Ensure spec quality and consistency",
+    priority: "future",
+    status: "planned",
+    category: "dx",
+    votes: 68
+  },
+  {
+    id: "custom-ai-models",
+    title: "Custom AI models",
+    description: "Bring your own AI provider",
+    priority: "future",
+    status: "planned",
+    category: "enterprise",
+    votes: 52
+  },
+  {
+    id: "discord-community",
+    title: "Discord community",
+    description: "Connect with other developers",
+    priority: "future",
+    status: "planned",
+    category: "community",
+    votes: 48
+  },
+  {
+    id: "video-tutorials",
+    title: "Video tutorials",
+    description: "Step-by-step walkthroughs",
+    priority: "future",
+    status: "planned",
+    category: "community",
+    votes: 45
+  },
+  {
+    id: "sso-integration",
+    title: "SSO integration",
+    description: "Enterprise authentication",
+    priority: "future",
+    status: "planned",
+    category: "enterprise",
+    votes: 31
+  },
+  {
+    id: "audit-logs",
+    title: "Audit logs",
+    description: "Track all spec changes",
+    priority: "future",
+    status: "planned",
+    category: "enterprise",
+    votes: 28
+  }
 ];
 
+// Recently completed items
+const recentlyShipped: RoadmapItem[] = [
+  {
+    id: "firebase-integration",
+    title: "Firebase integration",
+    description: "Optional authentication and database",
+    priority: "in-progress",
+    status: "completed",
+    category: "core",
+    votes: 0,
+    completedAt: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000) // 14 days ago
+  },
+  {
+    id: "session-management",
+    title: "Session management",
+    description: "Track development sessions with memory",
+    priority: "in-progress",
+    status: "completed",
+    category: "core",
+    votes: 0,
+    completedAt: new Date(Date.now() - 21 * 24 * 60 * 60 * 1000) // 21 days ago
+  },
+  {
+    id: "claude-integration",
+    title: "Claude Code integration",
+    description: "Custom commands and CLAUDE.md file",
+    priority: "in-progress",
+    status: "completed",
+    category: "core",
+    votes: 0,
+    completedAt: new Date(Date.now() - 28 * 24 * 60 * 60 * 1000) // 28 days ago
+  },
+  {
+    id: "spec-workflow",
+    title: "Spec-driven workflow",
+    description: "Transform designs and PRDs into specifications",
+    priority: "in-progress",
+    status: "completed",
+    category: "core",
+    votes: 0,
+    completedAt: new Date(Date.now() - 35 * 24 * 60 * 60 * 1000) // 35 days ago
+  }
+];
+
+const VOTES_KEY = 'vibespec-roadmap-votes';
+
 export default function RoadmapPage() {
+  const [items, setItems] = useState(roadmapItems);
+  const [userVotes, setUserVotes] = useState<Record<string, boolean>>({});
+  const [showAllFuture, setShowAllFuture] = useState(false);
+  const { toast } = useToast();
+  
+  // Load votes from localStorage
+  useEffect(() => {
+    const stored = localStorage.getItem(VOTES_KEY);
+    if (stored) {
+      try {
+        setUserVotes(JSON.parse(stored));
+      } catch (e) {
+        console.error('Failed to load votes:', e);
+      }
+    }
+  }, []);
+  
+  const handleVote = (itemId: string) => {
+    const newVotes = { ...userVotes };
+    const item = items.find(i => i.id === itemId);
+    if (!item) return;
+    
+    // Toggle vote
+    newVotes[itemId] = !newVotes[itemId];
+    
+    // Update vote count
+    const updatedItems = items.map(i => {
+      if (i.id === itemId) {
+        return {
+          ...i,
+          votes: newVotes[itemId] ? i.votes + 1 : i.votes - 1
+        };
+      }
+      return i;
+    });
+    
+    // Save to state and localStorage
+    setUserVotes(newVotes);
+    setItems(updatedItems);
+    localStorage.setItem(VOTES_KEY, JSON.stringify(newVotes));
+  };
+  
+  const handleSubscribe = async (email: string) => {
+    try {
+      // In a real implementation, this would save to Firestore
+      // For now, we'll just simulate success
+      console.log('Subscribing email:', email);
+      
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      toast({
+        title: "Success!",
+        description: "You'll receive updates when new features ship",
+      });
+      
+      // In production, you would:
+      // 1. Validate email server-side
+      // 2. Save to Firestore subscribers collection
+      // 3. Send confirmation email
+      // 4. Handle errors appropriately
+    } catch {
+      toast({
+        title: "Subscription failed",
+        description: "Please try again later",
+        variant: "destructive"
+      });
+    }
+  };
+  
+  // Group items by priority
+  const inProgress = items.filter(item => item.priority === 'in-progress');
+  const upNext = items.filter(item => item.priority === 'up-next');
+  const future = items.filter(item => item.priority === 'future').sort((a, b) => b.votes - a.votes);
+  
+  // Limit future items shown by default
+  const futureToShow = showAllFuture ? future : future.slice(0, 5);
+
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="container mx-auto px-4 py-16 md:py-24">
-        <div className="text-center mb-12 space-y-4">
-          <Badge variant="outline" className="mb-4">
-            <Globe className="w-3 h-3 mr-2" />
-            Public Roadmap
-          </Badge>
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+      {/* Header - matching landing page style */}
+      <header className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
+        <div className="container mx-auto px-4 flex h-16 items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <Link href="/" className="flex items-center space-x-2 focus-ring rounded-lg px-2 py-1 -mx-2 -my-1">
+              <Logo size={24} />
+              <h1 className="text-xl font-bold">VibeSpec</h1>
+            </Link>
+          </div>
+          <div className="flex items-center space-x-4">
+            <Button asChild variant="ghost" size="sm" className="focus-ring">
+              <Link href="/">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back
+              </Link>
+            </Button>
+            <ModeToggle />
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section - matching landing page style */}
+      <section className="container mx-auto px-4 section-padding-lg">
+        <div className="text-center space-y-4">
+          {/* Badge */}
+          <div className="flex justify-center animate-fade-in">
+            <Badge variant="secondary" className="px-4 py-1.5 transition-all duration-300 hover:shadow-md hover:shadow-primary/10 cursor-default">
+              <Globe className="w-3 h-3 mr-2" />
+              Public Roadmap
+            </Badge>
+          </div>
+          
+          {/* Main Headline */}
+          <h1 className="heading-1 animate-fade-in animation-delay-100">
             Where We&apos;re Going
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            VibeSpec is evolving based on community feedback and real-world usage. 
-            Here&apos;s what we&apos;re building next.
+          
+          {/* Subheadline */}
+          <p className="mx-auto max-w-2xl body-lg text-muted-foreground animate-fade-in animation-delay-200">
+            VibeSpec is evolving based on community feedback. Vote on features 
+            you care about and stay updated on our progress.
           </p>
         </div>
+      </section>
 
-        {/* Roadmap Grid */}
-        <div className="max-w-6xl mx-auto grid gap-8 md:grid-cols-2">
-          {roadmapCategories.map((category, index) => {
-            const Icon = category.icon;
-            return (
-              <Card key={index} className="h-full">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-primary/10">
-                      <Icon className="w-5 h-5 text-primary" />
+      {/* Roadmap Content - with consistent spacing */}
+      <section className="container mx-auto px-4 pb-16">
+        <div className="max-w-4xl mx-auto space-y-20">
+          {/* In Progress */}
+          {inProgress.length > 0 && (
+            <div className="animate-fade-in animation-delay-400">
+              <PrioritySection title="In Progress">
+                <div className="space-y-4">
+                  {inProgress.map((item, index) => (
+                    <div 
+                      key={item.id} 
+                      className="animate-fade-in"
+                      style={{ animationDelay: `${400 + index * 50}ms` }}
+                    >
+                      <RoadmapItemComponent
+                        item={item}
+                        onVote={handleVote}
+                        hasVoted={userVotes[item.id]}
+                        showVoting={true}
+                      />
                     </div>
-                    {category.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    {category.items.map((item, itemIndex) => (
-                      <div key={itemIndex} className="flex gap-3">
-                        <div className="mt-0.5">
-                          {item.status === "completed" ? (
-                            <CheckCircle2 className="w-5 h-5 text-green-500" />
-                          ) : item.status === "in-progress" ? (
-                            <div className="relative">
-                              <Circle className="w-5 h-5 text-yellow-500" />
-                              <div className="absolute inset-0 w-5 h-5 rounded-full bg-yellow-500/20 animate-pulse" />
-                            </div>
-                          ) : (
-                            <Circle className="w-5 h-5 text-muted-foreground" />
-                          )}
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-1">
-                            <h3 className="font-medium">{item.title}</h3>
-                            {item.status === "in-progress" && (
-                              <Badge variant="secondary" className="text-xs">
-                                In Progress
-                              </Badge>
-                            )}
-                          </div>
-                          <p className="text-sm text-muted-foreground">
-                            {item.description}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
+                  ))}
+                </div>
+              </PrioritySection>
+            </div>
+          )}
+
+          {/* Up Next */}
+          {upNext.length > 0 && (
+            <div className="animate-fade-in animation-delay-500">
+              <PrioritySection title="Up Next">
+                <div className="space-y-4">
+                  {upNext.map((item, index) => (
+                    <div 
+                      key={item.id}
+                      className="animate-fade-in"
+                      style={{ animationDelay: `${500 + index * 50}ms` }}
+                    >
+                      <RoadmapItemComponent
+                        item={item}
+                        onVote={handleVote}
+                        hasVoted={userVotes[item.id]}
+                        showVoting={true}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </PrioritySection>
+            </div>
+          )}
+
+          {/* Future Ideas */}
+          {future.length > 0 && (
+            <div className="animate-fade-in animation-delay-600">
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="heading-2">Future Ideas</h2>
+                <Button asChild variant="outline" size="sm" className="group focus-ring">
+                  <a
+                    href="https://github.com/pittmanluke/vibespec/issues/new"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Suggest a Feature
+                  </a>
+                </Button>
+              </div>
+              <div className="space-y-3">
+                {futureToShow.map((item, index) => (
+                  <div 
+                    key={item.id}
+                    className="animate-fade-in"
+                    style={{ animationDelay: `${600 + index * 30}ms` }}
+                  >
+                    <RoadmapItemComponent
+                      item={item}
+                      onVote={handleVote}
+                      hasVoted={userVotes[item.id]}
+                      showVoting={true}
+                      variant="compact"
+                    />
                   </div>
-                </CardContent>
-              </Card>
-            );
-          })}
+                ))}
+              </div>
+              {future.length > 5 && (
+                <Button
+                  variant="outline"
+                  onClick={() => setShowAllFuture(!showAllFuture)}
+                  className="w-full mt-6 group focus-ring transition-all hover:shadow-md"
+                >
+                  {showAllFuture ? (
+                    <>
+                      <ChevronUp className="w-4 h-4 mr-2 transition-transform group-hover:-translate-y-0.5" />
+                      Show less
+                    </>
+                  ) : (
+                    <>
+                      <ChevronDown className="w-4 h-4 mr-2 transition-transform group-hover:translate-y-0.5" />
+                      Show {future.length - 5} more ideas
+                    </>
+                  )}
+                </Button>
+              )}
+            </div>
+          )}
+
+          {/* Recently Shipped */}
+          {recentlyShipped.length > 0 && (
+            <div className="animate-fade-in animation-delay-700">
+              <PrioritySection title="Recently Shipped">
+                <div className="space-y-3">
+                  {recentlyShipped.map((item, index) => (
+                    <div 
+                      key={item.id}
+                      className="animate-fade-in"
+                      style={{ animationDelay: `${700 + index * 30}ms` }}
+                    >
+                      <RoadmapItemComponent
+                        item={item}
+                        showVoting={false}
+                        variant="completed"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </PrioritySection>
+            </div>
+          )}
         </div>
 
-        {/* Community Input */}
-        <Card className="max-w-4xl mx-auto mt-12 bg-gradient-to-br from-primary/5 to-background">
-          <CardContent className="p-8 text-center">
-            <Palette className="w-12 h-12 mx-auto mb-4 text-primary" />
-            <h2 className="text-2xl font-bold mb-4">Shape the Future</h2>
-            <p className="text-muted-foreground mb-6">
-              Your feedback drives our roadmap. Join the discussion on GitHub to suggest features, 
-              report issues, or contribute to the project.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://github.com/pittmanluke/vibespec/discussions"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/20 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
-              >
-                Join the Discussion
-              </a>
-              <a
-                href="https://github.com/pittmanluke/vibespec/issues/new"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/20 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
-              >
-                Suggest a Feature
-              </a>
+        {/* Stay Connected Section */}
+        <div className="max-w-2xl mx-auto mt-32 mb-32 animate-fade-in animation-delay-800 text-center">
+          <div className="space-y-8">
+            <div>
+              <h2 className="heading-3 mb-4">Stay Connected</h2>
+              <p className="text-muted-foreground max-w-lg mx-auto">
+                Get notified when new features ship or contribute your ideas to shape the roadmap
+              </p>
             </div>
-          </CardContent>
-        </Card>
-      </div>
+
+            {/* Email Subscribe */}
+            <div>
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.currentTarget);
+                const email = formData.get('email') as string;
+                if (email) handleSubscribe(email);
+              }} className="flex max-w-sm mx-auto gap-3 mb-3">
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="email@example.com"
+                  required
+                  className="flex-1 focus-ring transition-all h-10"
+                />
+                <Button 
+                  type="submit" 
+                  className="group focus-ring transition-all hover:shadow-md h-10 px-8"
+                >
+                  Subscribe
+                  <span className="ml-1.5 inline-block transition-transform group-hover:translate-x-0.5">→</span>
+                </Button>
+              </form>
+              <p className="text-xs text-muted-foreground">
+                No spam, just product updates. Unsubscribe anytime.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Footer */}
+      <footer className="py-16 bg-background border-t border-border/40">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-8">
+            <div className="text-center sm:text-left">
+              <div className="flex items-center gap-2 justify-center sm:justify-start mb-3">
+                <Logo size={20} />
+                <span className="font-semibold">VibeSpec</span>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Spec-driven development for AI coding
+              </p>
+            </div>
+            <nav className="flex flex-wrap justify-center sm:justify-end gap-6 text-sm">
+              <Link href="/docs" className="text-muted-foreground hover:text-foreground transition-colors focus-ring rounded px-1 py-0.5">
+                Documentation
+              </Link>
+              <Link href="https://github.com/pittmanluke/vibespec" className="text-muted-foreground hover:text-foreground transition-colors focus-ring rounded px-1 py-0.5">
+                GitHub
+              </Link>
+              <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors focus-ring rounded px-1 py-0.5">
+                Home
+              </Link>
+            </nav>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
