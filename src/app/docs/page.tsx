@@ -13,6 +13,9 @@ import {
   Github,
   Home
 } from "lucide-react";
+import { generatePageMetadata } from "@/lib/seo/metadata";
+
+export const metadata = generatePageMetadata('docs');
 
 const docSections = [
   {

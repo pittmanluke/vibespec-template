@@ -29,123 +29,93 @@ export default async function OGImage() {
         <div
           style={{
             display: 'flex',
-            flexDirection: 'column',
             alignItems: 'center',
-            marginBottom: 40,
+            marginBottom: 24,
           }}
         >
-          {/* V Logo */}
+          {/* Logo */}
           <svg
-            width="56"
-            height="56"
-            viewBox="0 0 180 180"
-            fill="none"
-            style={{
-              marginBottom: 20,
-            }}
+            width="48"
+            height="48"
+            viewBox="0 0 100 100"
+            style={{ marginRight: 16 }}
           >
+            <rect width="100" height="100" rx="20" fill="#8B5CF6" />
             <path
-              d="M45 45L90 135L135 45"
-              stroke="#FAFAFA"
-              strokeWidth="16"
-              strokeLinecap="round"
+              d="M30 40 L50 25 L70 40 L70 60 L50 75 L30 60 Z"
+              stroke="white"
+              strokeWidth="3"
+              fill="none"
               strokeLinejoin="round"
+            />
+            <path
+              d="M50 25 L50 50 M30 40 L50 50 L70 40 M50 50 L50 75"
+              stroke="white"
+              strokeWidth="3"
+              strokeLinecap="round"
             />
           </svg>
           
-          {/* Title - layered for faux-bold effect */}
-          <div
-            style={{
-              position: 'relative',
-              marginBottom: 16,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            {/* Base layer */}
-            <div
+          {/* Multiple layers for faux-bold effect */}
+          <div style={{ position: 'relative' }}>
+            <h1
               style={{
+                fontSize: 56,
+                fontWeight: 900,
+                color: 'white',
+                margin: 0,
+                letterSpacing: '-0.02em',
                 position: 'absolute',
-                fontSize: 112,
-                fontWeight: 800,
-                color: '#FAFAFA',
-                letterSpacing: '-0.05em',
-                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial Black, sans-serif',
-                lineHeight: 1,
+                left: 0,
+                top: 0,
               }}
             >
               VibeSpec
-            </div>
-            {/* Second layer for extra boldness */}
-            <div
+            </h1>
+            <h1
               style={{
+                fontSize: 56,
+                fontWeight: 900,
+                color: 'white',
+                margin: 0,
+                letterSpacing: '-0.02em',
                 position: 'absolute',
-                fontSize: 112,
-                fontWeight: 800,
-                color: '#FAFAFA',
-                letterSpacing: '-0.05em',
-                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial Black, sans-serif',
-                lineHeight: 1,
-                transform: 'translateX(0.5px)',
+                left: 0.5,
+                top: 0,
               }}
             >
               VibeSpec
-            </div>
-            {/* Third layer */}
-            <div
+            </h1>
+            <h1
               style={{
-                fontSize: 112,
-                fontWeight: 800,
-                color: '#FAFAFA',
-                letterSpacing: '-0.05em',
-                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial Black, sans-serif',
-                lineHeight: 1,
+                fontSize: 56,
+                fontWeight: 900,
+                color: 'white',
+                margin: 0,
+                letterSpacing: '-0.02em',
+                position: 'relative',
               }}
             >
               VibeSpec
-            </div>
-          </div>
-
-          {/* Tagline */}
-          <div
-            style={{
-              fontSize: 18,
-              color: '#A1A1AA',
-              marginBottom: 24,
-              textAlign: 'center',
-              fontFamily: 'system-ui, -apple-system, sans-serif',
-            }}
-          >
-            A template for spec-driven AI-assisted coding
-          </div>
-
-          {/* Badge */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: '#18181B',
-              border: '1px solid #27272A',
-              borderRadius: 24,
-              padding: '10px 20px',
-              fontFamily: 'system-ui, -apple-system, sans-serif',
-            }}
-          >
-            <div
-              style={{
-                fontSize: 13,
-                color: '#E4E4E7',
-                fontWeight: 500,
-              }}
-            >
-              Specifications first, code second
-            </div>
+            </h1>
           </div>
         </div>
 
-        {/* Terminal Window */}
+        {/* Subtitle */}
+        <p
+          style={{
+            fontSize: 24,
+            color: '#A1A1AA',
+            textAlign: 'center',
+            margin: '0 0 48px 0',
+            maxWidth: 800,
+            lineHeight: 1.4,
+          }}
+        >
+          A template for spec-driven AI-assisted coding
+        </p>
+
+        {/* Terminal-like element */}
         <div
           style={{
             display: 'flex',
@@ -156,51 +126,48 @@ export default async function OGImage() {
             borderRadius: 12,
             padding: 20,
             marginBottom: 40,
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
           }}
         >
-          {/* Terminal window controls */}
+          {/* Terminal header */}
           <div
             style={{
               display: 'flex',
-              gap: 6,
-              marginBottom: 16,
               alignItems: 'center',
+              marginBottom: 16,
+              paddingBottom: 16,
+              borderBottom: '1px solid #27272A',
             }}
           >
             <div
               style={{
-                width: 12,
-                height: 12,
-                borderRadius: '50%',
-                backgroundColor: '#EF4444',
-              }}
-            />
-            <div
-              style={{
-                width: 12,
-                height: 12,
-                borderRadius: '50%',
-                backgroundColor: '#EAB308',
-              }}
-            />
-            <div
-              style={{
-                width: 12,
-                height: 12,
-                borderRadius: '50%',
-                backgroundColor: '#22C55E',
-              }}
-            />
-            <div
-              style={{
-                marginLeft: 12,
-                fontSize: 12,
-                color: '#71717A',
-                fontFamily: 'monospace',
+                display: 'flex',
+                gap: 8,
               }}
             >
-              claude
+              <div
+                style={{
+                  width: 12,
+                  height: 12,
+                  borderRadius: '50%',
+                  backgroundColor: '#EF4444',
+                }}
+              />
+              <div
+                style={{
+                  width: 12,
+                  height: 12,
+                  borderRadius: '50%',
+                  backgroundColor: '#F59E0B',
+                }}
+              />
+              <div
+                style={{
+                  width: 12,
+                  height: 12,
+                  borderRadius: '50%',
+                  backgroundColor: '#10B981',
+                }}
+              />
             </div>
           </div>
           
@@ -209,43 +176,63 @@ export default async function OGImage() {
             style={{
               display: 'flex',
               flexDirection: 'column',
+              gap: 12,
               fontFamily: 'monospace',
-              fontSize: 14,
-              lineHeight: 1.6,
+              fontSize: 16,
             }}
           >
-            <div style={{ display: 'flex', marginBottom: 4 }}>
-              <span style={{ color: '#34D399', marginRight: 8 }}>$</span>
-              <span style={{ color: '#E4E4E7' }}>/session:start dashboard-implementation</span>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <span style={{ color: '#10B981', marginRight: 8 }}>$</span>
+              <span style={{ color: '#E5E5E5' }}>npx claude-code new</span>
             </div>
-            <div style={{ color: '#71717A', fontSize: 12, marginBottom: 4, display: 'flex' }}>
-              # Track progress with sessions
+            <div style={{ color: '#A1A1AA', marginLeft: 16 }}>
+              ✓ Creating your spec-driven project...
+            </div>
+            <div style={{ color: '#A1A1AA', marginLeft: 16 }}>
+              ✓ Setting up AI context files...
+            </div>
+            <div style={{ color: '#A1A1AA', marginLeft: 16 }}>
+              ✓ Configuring Claude commands...
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', marginTop: 8 }}>
+              <span style={{ color: '#10B981', marginRight: 8 }}>$</span>
+              <span style={{ color: '#E5E5E5' }}>npm run dev</span>
+              <span
+                style={{
+                  marginLeft: 12,
+                  padding: '2px 8px',
+                  backgroundColor: '#8B5CF6',
+                  color: 'white',
+                  borderRadius: 4,
+                  fontSize: 12,
+                  fontWeight: 600,
+                }}
+              >
+                Ready!
+              </span>
             </div>
           </div>
         </div>
 
-        {/* Tech Stack - refined presentation */}
+        {/* Tech stack badges */}
         <div
           style={{
             display: 'flex',
-            gap: 8,
-            alignItems: 'center',
+            gap: 16,
             flexWrap: 'wrap',
             justifyContent: 'center',
-            maxWidth: 600,
+            marginTop: 8,
           }}
         >
-          {['Next.js 15', 'Claude Code', 'TypeScript', 'Tailwind CSS'].map((tech, index) => (
+          {['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'Claude Code'].map((tech) => (
             <div
-              key={index}
+              key={tech}
               style={{
-                display: 'flex',
-                alignItems: 'center',
+                padding: '8px 16px',
                 backgroundColor: '#18181B',
                 border: '1px solid #27272A',
-                borderRadius: 16,
-                padding: '6px 14px',
-                fontSize: 12,
+                borderRadius: 6,
+                fontSize: 14,
                 color: '#A1A1AA',
                 fontFamily: 'system-ui, -apple-system, sans-serif',
               }}
