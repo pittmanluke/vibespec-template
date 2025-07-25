@@ -46,7 +46,12 @@ claude
 
 **Sub-agent integration**:
 - Enables session-state-tracker for automatic progress capture
-- Activates all monitoring agents
+- Activates all monitoring agents:
+  - spec-alignment-guardian
+  - velocity-guardian
+  - vibespec-compliance-validator
+  - vibespec-docs-harmonizer
+  - agent-architect
 
 **Usage**:
 ```bash

@@ -2,7 +2,11 @@
 
 This document contains the 12 strict rules that ALL AI assistants must follow when working with VibeSpec projects. These rules have no exceptions.
 
-**Note**: The **vibespec-compliance-validator** sub-agent automatically monitors and enforces these rules during development. See [Sub-Agents Guide](./sub-agents.md) for more information.
+**Note**: Multiple sub-agents automatically assist with these rules:
+- **vibespec-compliance-validator**: Monitors and enforces rules during development
+- **agent-architect**: Helps create new agents for repetitive validation tasks
+
+See [Sub-Agents Guide](./sub-agents.md) for more information.
 
 ## The 12 Strict Rules
 

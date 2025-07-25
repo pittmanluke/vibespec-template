@@ -488,6 +488,7 @@ If nothing works:
    - velocity-guardian: When adding "enhancements" or refactoring working code
    - vibespec-compliance-validator: After any code changes
    - session-state-tracker: During `/session:update`
+   - agent-architect: When repetitive tasks detected or agent creation requested
 
 2. **Manually invoke the agent**:
    ```

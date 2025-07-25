@@ -26,6 +26,7 @@ claude                    # Open Claude CLI
 - ✅ **vibespec-compliance-validator** - Checks code standards
 - 💾 **session-state-tracker** - Captures progress
 - 📚 **vibespec-docs-harmonizer** - Syncs documentation
+- 🤖 **agent-architect** - Identifies automation opportunities
 
 ### 🏁 Ending a Work Session
 ```bash

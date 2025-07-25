@@ -13,6 +13,7 @@ VibeSpec commands work seamlessly with specialized sub-agents that provide autom
 | **vibespec-compliance-validator** | Enforces coding standards | After code changes, before commits |
 | **session-state-tracker** | Captures development state | During `/session:update`, session end |
 | **vibespec-docs-harmonizer** | Maintains documentation sync | When agents/commands/architecture change |
+| **agent-architect** | Designs new sub-agents | When automation opportunities detected, agent creation requested |
 
 For detailed information about sub-agents, see `/vibespec/sub-agents.md`.
 

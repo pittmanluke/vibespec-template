@@ -12,6 +12,7 @@ Sub-agents are specialized AI assistants that work alongside Claude Code to hand
 - **Specification Alignment**: Prevent drift between specs and implementation
 - **Velocity Maintenance**: Keep projects focused on shipping MVPs
 - **Context Preservation**: Capture development state for seamless handoffs
+- **Agent Design Automation**: Create new specialized agents for your specific needs
 
 ## Available Sub-Agents
 
@@ -143,6 +144,39 @@ Run these commands to fix:
 1. Resolve stats calculation approach
 2. Complete service integration
 3. Test responsive breakpoints
+```
+
+### 5. agent-architect
+
+**Purpose**: Designs and creates optimal sub-agent configurations for VibeSpec projects, analyzing tasks for automation opportunities and crafting specialized agents that follow VibeSpec patterns.
+
+**Activates When**:
+- Repetitive tasks that could benefit from automation detected
+- User explicitly requests agent creation
+- Complex workflows need streamlining
+- Pattern emerges that matches agent automation use case
+
+**What It Does**:
+- Analyzes task requirements and patterns
+- Determines if agent automation is appropriate
+- Designs agent configurations following VibeSpec principles
+- Creates comprehensive system prompts for domain expertise
+- Ensures compliance with all VibeSpec rules and patterns
+
+**Example Intervention**:
+```
+🤖 AGENT AUTOMATION OPPORTUNITY DETECTED
+
+I notice you're frequently validating component naming conventions.
+This is a perfect candidate for agent automation.
+
+Let me design a naming-convention-validator agent that can:
+- Automatically check file and directory names
+- Validate component export patterns
+- Suggest corrections following kebab-case rules
+- Integrate with your commit workflow
+
+Would you like me to create this agent configuration?
 ```
 
 ## How Sub-Agents Work
@@ -277,6 +311,37 @@ The sub-agents in VibeSpec are:
 - **Team shareable**: Everyone gets the same development experience
 - **Customizable**: Adjust for your project's needs
 
+## Agent Creation
+
+### Using the agent-architect
+
+The **agent-architect** sub-agent helps you create new specialized agents for your project:
+
+1. **Identify Automation Opportunities**
+   ```
+   "I keep having to check if my API responses match the TypeScript interfaces"
+   > The agent-architect can design an api-contract-validator for this
+   ```
+
+2. **Request Agent Creation**
+   ```
+   "Create an agent that ensures all images have alt text"
+   > The agent-architect will design an accessibility-checker agent
+   ```
+
+3. **Optimize Existing Workflows**
+   ```
+   "Can we automate checking for unused imports?"
+   > The agent-architect will create a code-hygiene agent
+   ```
+
+The agent-architect ensures all new agents:
+- Follow VibeSpec naming conventions (kebab-case)
+- Include proper triggering conditions
+- Have comprehensive system prompts
+- Integrate with existing workflow
+- Respect the 12 strict rules
+
 ## Future Enhancements
 
 Potential agents for future development:
@@ -284,6 +349,8 @@ Potential agents for future development:
 - **performance-sentinel**: Monitors for performance regressions
 - **accessibility-advocate**: Ensures WCAG compliance
 - **deps-harmony-keeper**: Manages dependency updates safely
+
+Use the agent-architect to design these or any other specialized agents your project needs!
 
 ## Summary
 

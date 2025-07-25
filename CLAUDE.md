@@ -326,6 +326,7 @@ VibeSpec includes specialized sub-agents that automatically monitor and assist d
 - **vibespec-compliance-validator** - Enforces VibeSpec rules and conventions
 - **session-state-tracker** - Captures comprehensive development state
 - **vibespec-docs-harmonizer** - Keeps documentation synchronized
+- **agent-architect** - Designs new sub-agents for automation opportunities
 
 These agents activate automatically when needed or can be invoked manually. See `vibespec/sub-agents.md` for details.
 
