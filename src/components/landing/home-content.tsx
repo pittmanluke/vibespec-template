@@ -1,8 +1,8 @@
 'use client';
 
 import Link from "next/link";
-import { FileCode2 } from "lucide-react";
 import { ModeToggle } from "@/components/theme/mode-toggle";
+import { Logo } from "@/components/ui/logo";
 import { HeroSection } from "@/components/landing/hero-section";
 import { SpecsWorkflow } from "@/components/landing/specs-workflow";
 import { ContextSection } from "@/components/landing/context-section";
@@ -17,8 +17,8 @@ export function HomeContent() {
       {/* Header */}
       <header className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
         <div className="container mx-auto px-4 flex h-16 items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <FileCode2 className="h-6 w-6 text-primary" />
+          <div className="flex items-center space-x-2">
+            <Logo size={24} />
             <h1 className="text-xl font-bold">VibeSpec</h1>
           </div>
           <div className="flex items-center space-x-4">
@@ -54,7 +54,7 @@ export function HomeContent() {
             <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
               <div className="text-center sm:text-left">
                 <div className="flex items-center gap-2 justify-center sm:justify-start mb-2">
-                  <FileCode2 className="h-5 w-5 text-primary" />
+                  <Logo size={20} />
                   <span className="font-semibold">VibeSpec</span>
                 </div>
                 <p className="text-sm text-muted-foreground">

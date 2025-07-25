@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Github, BookOpen, FileCode2 } from "lucide-react";
+import { Github, BookOpen } from "lucide-react";
 import { TerminalAnimation } from "@/components/ui/terminal-animation";
+import { Logo } from "@/components/ui/logo";
 
 export function HeroSection() {
   const terminalSteps = [
@@ -44,9 +45,8 @@ export function HeroSection() {
         {/* Logo/Brand */}
         <div className="flex justify-center mb-6 animate-fade-in">
           <div className="relative group">
-            <FileCode2 className="w-16 h-16 text-primary transition-all duration-300 transform-gpu group-hover:text-primary/80" 
-                       style={{ backfaceVisibility: 'hidden' }} />
-            {/* Glow effect on hover instead of scale */}
+            <Logo size={64} className="transition-all duration-300 transform-gpu" />
+            {/* Glow effect on hover */}
             <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
         </div>
