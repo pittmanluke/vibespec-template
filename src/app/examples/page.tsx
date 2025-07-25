@@ -14,6 +14,9 @@ import {
   MessageSquare,
   Settings
 } from "lucide-react";
+import { generatePageMetadata } from "@/lib/seo/metadata";
+
+export const metadata = generatePageMetadata('examples');
 
 const examples = [
   {

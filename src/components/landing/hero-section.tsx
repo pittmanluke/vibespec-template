@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Github, BookOpen } from "lucide-react";
 import { TerminalAnimation } from "@/components/ui/terminal-animation";
 import { Logo } from "@/components/ui/logo";
+import { trackClick } from "@/lib/analytics";
 
 export function HeroSection() {
   const terminalSteps = [
@@ -71,13 +72,30 @@ export function HeroSection() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row justify-center gap-4 pt-8 animate-fade-in animation-delay-400">
-          <Button asChild size="lg" className="font-semibold group focus-ring transition-shadow hover:shadow-lg">
+          <Button 
+            asChild 
+            size="lg" 
+            className="font-semibold group focus-ring transition-shadow hover:shadow-lg"
+            onClick={() => trackClick('hero_github', { 
+              destination: 'https://github.com/pittmanluke/vibespec',
+              section: 'hero' 
+            })}
+          >
             <Link href="https://github.com/pittmanluke/vibespec" target="_blank">
               <Github className="mr-2 h-5 w-5 transition-transform group-hover:-translate-y-0.5" />
               View on GitHub
             </Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="group focus-ring transition-shadow hover:shadow-lg">
+          <Button 
+            asChild 
+            variant="outline" 
+            size="lg" 
+            className="group focus-ring transition-shadow hover:shadow-lg"
+            onClick={() => trackClick('hero_docs', { 
+              destination: '/docs',
+              section: 'hero' 
+            })}
+          >
             <Link href="/docs">
               <BookOpen className="mr-2 h-5 w-5 transition-transform group-hover:-translate-y-0.5" />
               Read the Docs

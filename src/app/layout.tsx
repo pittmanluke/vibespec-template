@@ -6,6 +6,9 @@ import { AuthProvider } from "@/services/auth";
 import { OnlineStatusProvider } from "@/providers/online-status-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeFavicon } from "@/components/theme/theme-favicon";
+import { AnalyticsProvider } from "@/providers/analytics-provider";
+import { JsonLd } from "@/components/seo/json-ld";
+import { organizationSchema, websiteSchema } from "@/lib/seo/structured-data";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -65,6 +68,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/favicon_io/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#6366F1" />
+        <JsonLd data={[organizationSchema, websiteSchema]} />
       </head>
       <body className={inter.className}>
         <ThemeProvider
@@ -76,8 +80,10 @@ export default function RootLayout({
           <ThemeFavicon />
           <AuthProvider>
             <OnlineStatusProvider>
-              {children}
-              <Toaster />
+              <AnalyticsProvider>
+                {children}
+                <Toaster />
+              </AnalyticsProvider>
             </OnlineStatusProvider>
           </AuthProvider>
         </ThemeProvider>
