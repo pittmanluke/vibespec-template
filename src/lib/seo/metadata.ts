@@ -32,7 +32,7 @@ export function generateMetadata({
   robots = { index: true, follow: true },
   alternates,
 }: GenerateMetadataProps = {}): Metadata {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vibespec.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vibespec.dev';
   
   return {
     title: {

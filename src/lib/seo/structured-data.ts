@@ -3,8 +3,8 @@ export const organizationSchema = {
   '@type': 'Organization',
   name: 'VibeSpec',
   description: 'Spec-driven development for AI coding',
-  url: 'https://vibespec.com',
-  logo: 'https://vibespec.com/favicon_io/apple-touch-icon.png',
+  url: 'https://vibespec.dev',
+  logo: 'https://vibespec.dev/favicon_io/apple-touch-icon.png',
   sameAs: [
     'https://github.com/vibespec/vibespec',
     'https://twitter.com/vibespec',
@@ -16,12 +16,12 @@ export const websiteSchema = {
   '@type': 'WebSite',
   name: 'VibeSpec',
   description: 'Transform ideas into specifications, specifications into shipped products',
-  url: 'https://vibespec.com',
+  url: 'https://vibespec.dev',
   potentialAction: {
     '@type': 'SearchAction',
     target: {
       '@type': 'EntryPoint',
-      urlTemplate: 'https://vibespec.com/search?q={search_term_string}',
+      urlTemplate: 'https://vibespec.dev/search?q={search_term_string}',
     },
     'query-input': 'required name=search_term_string',
   },
@@ -96,6 +96,6 @@ export function generateArticleSchema(article: {
       name: article.author || 'VibeSpec Team',
     },
     publisher: organizationSchema,
-    image: article.image || 'https://vibespec.com/opengraph-image.png',
+    image: article.image || 'https://vibespec.dev/opengraph-image.png',
   };
 }

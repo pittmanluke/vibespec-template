@@ -21,13 +21,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://vibespec.com",
+    url: "https://vibespec.dev",
     title: "VibeSpec - Spec-driven development for AI coding",
     description: "Transform ideas into specifications, specifications into shipped products. Build MVPs faster with Claude Code integration.",
     siteName: "VibeSpec",
     images: [
       {
-        url: "https://vibespec.com/og-image.png",
+        url: "https://vibespec.dev/og-image.png",
         width: 1200,
         height: 630,
         alt: "VibeSpec - Spec-driven development for AI coding",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "VibeSpec - Spec-driven development for AI coding",
     description: "Transform ideas into specifications, specifications into shipped products.",
-    images: ["https://vibespec.com/og-image.png"],
+    images: ["https://vibespec.dev/og-image.png"],
     creator: "@vibespec",
   },
   robots: {
