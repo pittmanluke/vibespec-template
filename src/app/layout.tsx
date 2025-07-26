@@ -26,12 +26,21 @@ export const metadata: Metadata = {
     title: "VibeSpec - Spec-driven development for AI coding",
     description: "Transform ideas into specifications, specifications into shipped products. Build MVPs faster with Claude Code integration.",
     siteName: "VibeSpec",
+    images: [
+      {
+        url: '/opengraph-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'VibeSpec - A template for spec-driven AI-assisted coding',
+      }
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "VibeSpec - Spec-driven development for AI coding",
     description: "Transform ideas into specifications, specifications into shipped products.",
     creator: "@vibespec",
+    images: ['/twitter-image.png'],
   },
   robots: {
     index: true,
