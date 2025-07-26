@@ -21,7 +21,6 @@ const roadmapItems: RoadmapItem[] = [
     description: "Improved docs and AI workflow guides",
     priority: "in-progress",
     status: "active",
-    category: "ai",
     votes: 42
   },
   {
@@ -30,138 +29,51 @@ const roadmapItems: RoadmapItem[] = [
     description: "More templates for common patterns",
     priority: "in-progress",
     status: "active",
-    category: "core",
     votes: 38
   },
   {
-    id: "docs-site",
-    title: "Documentation site",
-    description: "Comprehensive guides and tutorials",
+    id: "sub-agent-workflows",
+    title: "Sub-agent workflows",
+    description: "Automated AI agents for development tasks",
     priority: "in-progress",
     status: "active",
-    category: "community",
-    votes: 55
+    votes: 68
   },
   
   // Up Next
   {
-    id: "mcp-servers",
-    title: "MCP servers pre-configured",
-    description: "Model Context Protocol server integrations",
+    id: "more-sub-agents",
+    title: "More Sub-agents",
+    description: "Expand automated AI agent capabilities",
     priority: "up-next",
     status: "planned",
-    category: "ai",
-    votes: 127
+    votes: 95
   },
   {
-    id: "product-planning",
-    title: "Product planning + deep research",
-    description: "AI-powered product planning within VibeSpec",
+    id: "deeper-command-integrations",
+    title: "Deeper integrations with /commands",
+    description: "Enhanced Claude Code command workflows",
     priority: "up-next",
     status: "planned",
-    category: "ai",
-    votes: 89
+    votes: 82
   },
   {
-    id: "design-commands",
-    title: "Design iteration commands",
-    description: "/commands for automated design workflows",
+    id: "claude-code-hooks",
+    title: "Claude Code Hooks",
+    description: "Event-driven automation hooks for development",
     priority: "up-next",
     status: "planned",
-    category: "ai",
-    votes: 76
-  },
-  {
-    id: "spec-validation",
-    title: "Spec validation",
-    description: "Automated checks for spec completeness",
-    priority: "up-next",
-    status: "planned",
-    category: "core",
-    votes: 63
+    votes: 74
   },
   
   // Future Ideas
   {
-    id: "vscode-extension",
-    title: "VS Code extension",
-    description: "Direct IDE integration for commands",
+    id: "video-tutorials",
+    title: "Video tutorials",
+    description: "Step-by-step walkthroughs",
     priority: "future",
     status: "planned",
-    category: "dx",
-    votes: 234
-  },
-  {
-    id: "multi-agent",
-    title: "Multi-agent workflows",
-    description: "Complex AI orchestration using git trees",
-    priority: "future",
-    status: "planned",
-    category: "ai",
-    votes: 156
-  },
-  {
-    id: "semantic-search",
-    title: "Semantic search via MCP",
-    description: "Advanced search capabilities through MCP",
-    priority: "future",
-    status: "planned",
-    category: "ai",
-    votes: 142
-  },
-  {
-    id: "claude-hooks",
-    title: "Claude Code Hooks",
-    description: "Event-driven automation hooks",
-    priority: "future",
-    status: "planned",
-    category: "ai",
-    votes: 118
-  },
-  {
-    id: "cli-tool",
-    title: "CLI tool",
-    description: "Standalone CLI for spec operations",
-    priority: "future",
-    status: "planned",
-    category: "dx",
-    votes: 95
-  },
-  {
-    id: "team-workspaces",
-    title: "Team workspaces",
-    description: "Collaborate on specifications",
-    priority: "future",
-    status: "planned",
-    category: "enterprise",
-    votes: 78
-  },
-  {
-    id: "example-gallery",
-    title: "Example gallery",
-    description: "Real-world spec examples",
-    priority: "future",
-    status: "planned",
-    category: "community",
-    votes: 72
-  },
-  {
-    id: "spec-linting",
-    title: "Spec linting",
-    description: "Ensure spec quality and consistency",
-    priority: "future",
-    status: "planned",
-    category: "dx",
-    votes: 68
-  },
-  {
-    id: "custom-ai-models",
-    title: "Custom AI models",
-    description: "Bring your own AI provider",
-    priority: "future",
-    status: "planned",
-    category: "enterprise",
-    votes: 52
+    votes: 45
   },
   {
     id: "discord-community",
@@ -169,47 +81,35 @@ const roadmapItems: RoadmapItem[] = [
     description: "Connect with other developers",
     priority: "future",
     status: "planned",
-    category: "community",
     votes: 48
   },
   {
-    id: "video-tutorials",
-    title: "Video tutorials",
-    description: "Step-by-step walkthroughs",
+    id: "default-mcp-config",
+    title: "Default MCP configuration",
+    description: "Pre-configured Model Context Protocol setup",
     priority: "future",
     status: "planned",
-    category: "community",
-    votes: 45
-  },
-  {
-    id: "sso-integration",
-    title: "SSO integration",
-    description: "Enterprise authentication",
-    priority: "future",
-    status: "planned",
-    category: "enterprise",
-    votes: 31
-  },
-  {
-    id: "audit-logs",
-    title: "Audit logs",
-    description: "Track all spec changes",
-    priority: "future",
-    status: "planned",
-    category: "enterprise",
-    votes: 28
+    votes: 52
   }
 ];
 
 // Recently completed items
 const recentlyShipped: RoadmapItem[] = [
   {
+    id: "claude-code-subagents",
+    title: "Claude Code sub-agents",
+    description: "Automated AI agents for quality control and workflow automation",
+    priority: "in-progress",
+    status: "completed",
+    votes: 0,
+    completedAt: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000) // 7 days ago
+  },
+  {
     id: "firebase-integration",
     title: "Firebase integration",
     description: "Optional authentication and database",
     priority: "in-progress",
     status: "completed",
-    category: "core",
     votes: 0,
     completedAt: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000) // 14 days ago
   },
@@ -219,7 +119,6 @@ const recentlyShipped: RoadmapItem[] = [
     description: "Track development sessions with memory",
     priority: "in-progress",
     status: "completed",
-    category: "core",
     votes: 0,
     completedAt: new Date(Date.now() - 21 * 24 * 60 * 60 * 1000) // 21 days ago
   },
@@ -229,7 +128,6 @@ const recentlyShipped: RoadmapItem[] = [
     description: "Custom commands and CLAUDE.md file",
     priority: "in-progress",
     status: "completed",
-    category: "core",
     votes: 0,
     completedAt: new Date(Date.now() - 28 * 24 * 60 * 60 * 1000) // 28 days ago
   },
@@ -239,7 +137,6 @@ const recentlyShipped: RoadmapItem[] = [
     description: "Transform designs and PRDs into specifications",
     priority: "in-progress",
     status: "completed",
-    category: "core",
     votes: 0,
     completedAt: new Date(Date.now() - 35 * 24 * 60 * 60 * 1000) // 35 days ago
   }

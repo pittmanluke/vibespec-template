@@ -1,6 +1,5 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ThumbsUp, CheckCircle2, Circle, Clock } from "lucide-react";
@@ -12,7 +11,6 @@ export interface RoadmapItem {
   description: string;
   priority: 'in-progress' | 'up-next' | 'future';
   status: 'completed' | 'active' | 'planned';
-  category: 'ai' | 'dx' | 'core' | 'community' | 'enterprise';
   votes: number;
   completedAt?: Date;
 }
@@ -25,21 +23,6 @@ interface RoadmapItemProps {
   variant?: 'default' | 'compact' | 'completed';
 }
 
-const categoryLabels = {
-  ai: 'AI',
-  dx: 'DX',
-  core: 'Core',
-  community: 'Community',
-  enterprise: 'Enterprise'
-};
-
-const categoryColors = {
-  ai: 'bg-purple-100 text-purple-700 dark:bg-purple-900/20 dark:text-purple-400',
-  dx: 'bg-blue-100 text-blue-700 dark:bg-blue-900/20 dark:text-blue-400',
-  core: 'bg-green-100 text-green-700 dark:bg-green-900/20 dark:text-green-400',
-  community: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/20 dark:text-yellow-400',
-  enterprise: 'bg-red-100 text-red-700 dark:bg-red-900/20 dark:text-red-400'
-};
 
 export function RoadmapItemComponent({ 
   item, 
@@ -57,9 +40,6 @@ export function RoadmapItemComponent({
         <div className="flex items-center gap-3 flex-1">
           <Circle className="w-4 h-4 text-muted-foreground/50 group-hover:text-muted-foreground transition-colors" />
           <span className="font-medium text-foreground/80 group-hover:text-foreground transition-colors">{item.title}</span>
-          <Badge variant="secondary" className={cn("text-xs transition-all", categoryColors[item.category])}>
-            {categoryLabels[item.category]}
-          </Badge>
         </div>
         {showVoting && (
           <div className="flex items-center gap-3">
@@ -118,9 +98,6 @@ export function RoadmapItemComponent({
                 <Circle className="w-4 h-4 text-muted-foreground/50 group-hover:text-muted-foreground transition-colors" />
               )}
               <h3 className="font-semibold text-base text-foreground/80 group-hover:text-foreground transition-colors">{item.title}</h3>
-              <Badge variant="secondary" className={cn("text-xs transition-all", categoryColors[item.category])}>
-                {categoryLabels[item.category]}
-              </Badge>
             </div>
             <p className="text-sm text-muted-foreground/80 leading-relaxed pl-7">{item.description}</p>
           </div>
