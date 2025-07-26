@@ -6,6 +6,7 @@
 export interface FeatureFlags {
   // User features
   enableUserOnboarding: boolean;
+  enableEmailSubscription: boolean;
   
   // Admin features
   enableAdminFeatures: boolean;
@@ -23,12 +24,14 @@ export interface FeatureFlags {
 function getFeatureFlags(): FeatureFlags {
   // Check for explicit environment variable overrides
   const userOnboardingEnabled = process.env.NEXT_PUBLIC_ENABLE_USER_ONBOARDING;
+  const emailSubscriptionEnabled = process.env.NEXT_PUBLIC_ENABLE_EMAIL_SUBSCRIPTION;
   const adminFeaturesEnabled = process.env.NEXT_PUBLIC_ENABLE_ADMIN_FEATURES;
   const debugModeEnabled = process.env.NEXT_PUBLIC_ENABLE_DEBUG_MODE;
   
   // Default configuration
   const defaultFlags: FeatureFlags = {
     enableUserOnboarding: true,
+    enableEmailSubscription: false,
     enableAdminFeatures: false,
     enableDebugMode: false,
   };
@@ -38,6 +41,7 @@ function getFeatureFlags(): FeatureFlags {
     return {
       ...defaultFlags,
       enableUserOnboarding: userOnboardingEnabled === 'false' ? false : true,
+      enableEmailSubscription: emailSubscriptionEnabled === 'true' ? true : false,
       enableAdminFeatures: adminFeaturesEnabled === 'true' ? true : false,
       enableDebugMode: debugModeEnabled === 'false' ? false : true,
     };
@@ -47,6 +51,7 @@ function getFeatureFlags(): FeatureFlags {
   return {
     ...defaultFlags,
     enableUserOnboarding: userOnboardingEnabled === 'false' ? false : true,
+    enableEmailSubscription: emailSubscriptionEnabled === 'true' ? true : false,
     enableAdminFeatures: adminFeaturesEnabled === 'true' ? true : false,
     enableDebugMode: false, // Always false in production
   };
@@ -59,6 +64,7 @@ export const featureFlags = getFeatureFlags();
  * Helper functions for common feature checks
  */
 export const isUserOnboardingEnabled = () => featureFlags.enableUserOnboarding;
+export const isEmailSubscriptionEnabled = () => featureFlags.enableEmailSubscription;
 export const isAdminFeaturesEnabled = () => featureFlags.enableAdminFeatures;
 export const isDebugModeEnabled = () => featureFlags.enableDebugMode;
 

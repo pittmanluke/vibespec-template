@@ -3,9 +3,15 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/services/auth";
+import { firebaseFeatures } from "@/config/firebase.config";
 
 export function HeaderAuth() {
   const { user, loading } = useAuth();
+
+  // If authentication is disabled, don't show auth UI
+  if (!firebaseFeatures.useAuthentication) {
+    return null;
+  }
 
   if (loading) {
     return null; // Don't render anything while loading

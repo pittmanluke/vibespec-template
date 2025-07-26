@@ -11,6 +11,7 @@ import { ModeToggle } from "@/components/theme/mode-toggle";
 import { Logo } from "@/components/ui/logo";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { isEmailSubscriptionEnabled } from "@/lib/feature-flags";
 
 // Roadmap data
 const roadmapItems: RoadmapItem[] = [
@@ -401,44 +402,46 @@ export default function RoadmapPage() {
         </div>
 
         {/* Stay Connected Section */}
-        <div className="max-w-2xl mx-auto mt-32 mb-32 animate-fade-in animation-delay-800 text-center">
-          <div className="space-y-8">
-            <div>
-              <h2 className="heading-3 mb-4">Stay Connected</h2>
-              <p className="text-muted-foreground max-w-lg mx-auto">
-                Get notified when new features ship or contribute your ideas to shape the roadmap
-              </p>
-            </div>
+        {isEmailSubscriptionEnabled() && (
+          <div className="max-w-2xl mx-auto mt-32 mb-32 animate-fade-in animation-delay-800 text-center">
+            <div className="space-y-8">
+              <div>
+                <h2 className="heading-3 mb-4">Stay Connected</h2>
+                <p className="text-muted-foreground max-w-lg mx-auto">
+                  Get notified when new features ship or contribute your ideas to shape the roadmap
+                </p>
+              </div>
 
-            {/* Email Subscribe */}
-            <div>
-              <form onSubmit={(e) => {
-                e.preventDefault();
-                const formData = new FormData(e.currentTarget);
-                const email = formData.get('email') as string;
-                if (email) handleSubscribe(email);
-              }} className="flex max-w-sm mx-auto gap-3 mb-3">
-                <Input
-                  type="email"
-                  name="email"
-                  placeholder="email@example.com"
-                  required
-                  className="flex-1 focus-ring transition-all h-10"
-                />
-                <Button 
-                  type="submit" 
-                  className="group focus-ring transition-all hover:shadow-md h-10 px-8"
-                >
-                  Subscribe
-                  <span className="ml-1.5 inline-block transition-transform group-hover:translate-x-0.5">→</span>
-                </Button>
-              </form>
-              <p className="text-xs text-muted-foreground">
-                No spam, just product updates. Unsubscribe anytime.
-              </p>
+              {/* Email Subscribe */}
+              <div>
+                <form onSubmit={(e) => {
+                  e.preventDefault();
+                  const formData = new FormData(e.currentTarget);
+                  const email = formData.get('email') as string;
+                  if (email) handleSubscribe(email);
+                }} className="flex max-w-sm mx-auto gap-3 mb-3">
+                  <Input
+                    type="email"
+                    name="email"
+                    placeholder="email@example.com"
+                    required
+                    className="flex-1 focus-ring transition-all h-10"
+                  />
+                  <Button 
+                    type="submit" 
+                    className="group focus-ring transition-all hover:shadow-md h-10 px-8"
+                  >
+                    Subscribe
+                    <span className="ml-1.5 inline-block transition-transform group-hover:translate-x-0.5">→</span>
+                  </Button>
+                </form>
+                <p className="text-xs text-muted-foreground">
+                  No spam, just product updates. Unsubscribe anytime.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </section>
       
       {/* Footer */}
