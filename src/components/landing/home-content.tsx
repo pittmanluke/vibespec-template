@@ -8,6 +8,7 @@ import { SpecsWorkflow } from "@/components/landing/specs-workflow";
 import { ContextSection } from "@/components/landing/context-section";
 import { ClaudeSection } from "@/components/landing/claude-section";
 import { WorkflowSection } from "@/components/landing/workflow-section";
+import { FAQSection } from "@/components/landing/faq-section";
 import { CTASection } from "@/components/landing/cta-section";
 import { HeaderAuth } from "@/components/landing/header-auth";
 
@@ -42,6 +43,9 @@ export function HomeContent() {
 
       {/* Our Workflow */}
       <WorkflowSection />
+
+      {/* FAQ Section */}
+      <FAQSection />
 
       {/* Secondary CTA */}
       <CTASection />
