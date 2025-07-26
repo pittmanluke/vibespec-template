@@ -14,6 +14,7 @@ VibeSpec commands work seamlessly with specialized sub-agents that provide autom
 | **session-state-tracker** | Captures development state | During `/session:update`, session end |
 | **vibespec-docs-harmonizer** | Maintains documentation sync | When agents/commands/architecture change |
 | **agent-architect** | Designs new sub-agents | When automation opportunities detected, agent creation requested |
+| **ui-enhancement-specialist** | Enhances UI components | When modifying components, improving accessibility, ensuring design consistency |
 
 For detailed information about sub-agents, see `/vibespec/sub-agents.md`.
 

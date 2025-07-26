@@ -179,6 +179,56 @@ Let me design a naming-convention-validator agent that can:
 Would you like me to create this agent configuration?
 ```
 
+### 6. ui-enhancement-specialist
+
+**Purpose**: Helps developers effectively and efficiently make edits, changes, and enhancements to UI components in VibeSpec projects. Specializes in React component development, Tailwind CSS v4, accessibility standards, and responsive design patterns.
+
+**Activates When**:
+- UI components need modification or improvement
+- Accessibility enhancements are required
+- Design consistency needs to be ensured across components
+- Component styling needs updates
+- Responsive design changes are needed
+- UI code needs refactoring for better maintainability
+
+**What It Does**:
+- Analyzes existing UI components for improvement opportunities
+- Identifies accessibility compliance issues (WCAG 2.1 AA)
+- Ensures design consistency across components
+- Validates Tailwind CSS v4 usage with @theme directive
+- Checks CVA (class-variance-authority) pattern implementation
+- Provides specific, actionable enhancement recommendations
+- Ensures all changes follow VibeSpec standards
+
+**Example Intervention**:
+```
+🎨 UI ENHANCEMENT ANALYSIS
+
+## Component: ButtonComponent
+
+### Current State
+- Missing focus-visible states for keyboard navigation
+- Inconsistent spacing with design system
+- No loading state variant
+
+### Enhancements
+
+#### 1. Accessibility
+**Issue**: No visible focus indicator for keyboard users
+**Solution**: Add focus-visible:ring-2 focus-visible:ring-offset-2
+**Impact**: Improves keyboard navigation (WCAG 2.1 compliance)
+
+#### 2. Design Consistency
+**Issue**: Using px-3 instead of design token
+**Solution**: Use px-4 to match system spacing scale
+**Impact**: Maintains consistent spacing across all components
+
+### Implementation Priority
+1. Critical: Accessibility fix
+2. High: Design token consistency
+3. Medium: Loading state addition
+```
+
 ## How Sub-Agents Work
 
 ### Automatic Activation
@@ -347,8 +397,9 @@ The agent-architect ensures all new agents:
 Potential agents for future development:
 - **api-contract-guardian**: Ensures API implementations match their contracts
 - **performance-sentinel**: Monitors for performance regressions
-- **accessibility-advocate**: Ensures WCAG compliance
 - **deps-harmony-keeper**: Manages dependency updates safely
+- **database-schema-validator**: Ensures database changes are backward compatible
+- **i18n-consistency-checker**: Validates translations and internationalization
 
 Use the agent-architect to design these or any other specialized agents your project needs!
 

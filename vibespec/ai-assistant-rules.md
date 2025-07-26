@@ -5,6 +5,7 @@ This document contains the 12 strict rules that ALL AI assistants must follow wh
 **Note**: Multiple sub-agents automatically assist with these rules:
 - **vibespec-compliance-validator**: Monitors and enforces rules during development
 - **agent-architect**: Helps create new agents for repetitive validation tasks
+- **ui-enhancement-specialist**: Ensures UI components follow standards and best practices
 
 See [Sub-Agents Guide](./sub-agents.md) for more information.
 

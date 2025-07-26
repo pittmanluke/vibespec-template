@@ -27,6 +27,7 @@ claude                    # Open Claude CLI
 - 💾 **session-state-tracker** - Captures progress
 - 📚 **vibespec-docs-harmonizer** - Syncs documentation
 - 🤖 **agent-architect** - Identifies automation opportunities
+- 🎨 **ui-enhancement-specialist** - Improves UI components
 
 ### 🏁 Ending a Work Session
 ```bash

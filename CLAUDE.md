@@ -327,6 +327,7 @@ VibeSpec includes specialized sub-agents that automatically monitor and assist d
 - **session-state-tracker** - Captures comprehensive development state
 - **vibespec-docs-harmonizer** - Keeps documentation synchronized
 - **agent-architect** - Designs new sub-agents for automation opportunities
+- **ui-enhancement-specialist** - Enhances UI components for accessibility, consistency, and quality
 
 These agents activate automatically when needed or can be invoked manually. See `vibespec/sub-agents.md` for details.
 
