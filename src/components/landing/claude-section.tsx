@@ -2,7 +2,8 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Terminal, FileText, Bot } from "lucide-react";
+import { Terminal, FileText, Bot, ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 const claudeMdContent = `# CLAUDE.md - AI Assistant Technical Context
 
@@ -83,7 +84,12 @@ const subAgents = [
 ];
 
 export function ClaudeSection() {
-  // Simplified - showing all content without expand/collapse
+  // State for mobile accordion
+  const [expandedSection, setExpandedSection] = useState<'claude' | 'commands' | 'agents' | null>('claude');
+  
+  const toggleSection = (section: 'claude' | 'commands' | 'agents') => {
+    setExpandedSection(expandedSection === section ? null : section);
+  };
   
   return (
     <section className="container mx-auto px-4 section-padding">
@@ -102,10 +108,135 @@ export function ClaudeSection() {
       </div>
 
       <div className="max-w-7xl mx-auto">
-        {/* Responsive Grid - Stack on mobile, 2 cols on tablet, 3 on desktop */}
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3 items-start">
-          {/* CLAUDE.md Content - Full width on mobile/tablet */}
-          <div className="h-full flex flex-col md:col-span-2 xl:col-span-1 min-h-[500px] xl:h-[600px]">
+        {/* Mobile/Tablet Accordion Layout */}
+        <div className="lg:hidden space-y-4">
+          {/* CLAUDE.md Accordion */}
+          <div className="border border-border rounded-lg overflow-hidden">
+            <button
+              onClick={() => toggleSection('claude')}
+              className="w-full px-4 py-4 flex items-center justify-between text-left hover:bg-accent/5 transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <FileText className="w-5 h-5 text-primary" />
+                <h3 className="text-lg font-semibold">CLAUDE.md</h3>
+              </div>
+              <ChevronDown 
+                className={`w-5 h-5 text-muted-foreground transition-transform ${
+                  expandedSection === 'claude' ? 'rotate-180' : ''
+                }`} 
+              />
+            </button>
+            <div className={`overflow-hidden transition-all duration-300 ${
+              expandedSection === 'claude' ? 'max-h-[400px]' : 'max-h-0'
+            }`}>
+              <div className="px-4 pb-4">
+                <div className="bg-zinc-900 rounded-lg overflow-hidden flex flex-col shadow-lg max-h-[300px]">
+                  {/* Editor Header */}
+                  <div className="flex items-center justify-between px-4 py-2 bg-zinc-800 border-b border-zinc-700">
+                    <div className="flex items-center gap-2">
+                      <div className="flex gap-1.5">
+                        <div className="w-3 h-3 rounded-full bg-red-500" />
+                        <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                        <div className="w-3 h-3 rounded-full bg-green-500" />
+                      </div>
+                      <span className="text-xs text-zinc-400 ml-2">CLAUDE.md</span>
+                    </div>
+                    <span className="text-xs text-zinc-500">AI Context File</span>
+                  </div>
+                  {/* Code Content */}
+                  <div className="relative flex-1 overflow-hidden flex flex-col">
+                    <div className="p-4 text-xs font-mono text-zinc-50 overflow-auto">
+                      <pre className="whitespace-pre-wrap leading-relaxed">{claudeMdContent}</pre>
+                    </div>
+                    {/* Fade overlay at bottom */}
+                    <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-zinc-900 to-transparent pointer-events-none" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Commands Accordion */}
+          <div className="border border-border rounded-lg overflow-hidden">
+            <button
+              onClick={() => toggleSection('commands')}
+              className="w-full px-4 py-4 flex items-center justify-between text-left hover:bg-accent/5 transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <Terminal className="w-5 h-5 text-primary" />
+                <h3 className="text-lg font-semibold">Custom Commands</h3>
+              </div>
+              <ChevronDown 
+                className={`w-5 h-5 text-muted-foreground transition-transform ${
+                  expandedSection === 'commands' ? 'rotate-180' : ''
+                }`} 
+              />
+            </button>
+            <div className={`overflow-hidden transition-all duration-300 ${
+              expandedSection === 'commands' ? 'max-h-[600px]' : 'max-h-0'
+            }`}>
+              <div className="px-4 pb-4 space-y-3 overflow-y-auto">
+                {commands.map((cmd, index) => (
+                  <Card key={index} className="bg-transparent shadow-sm">
+                    <CardContent className="p-4">
+                      <div className="flex flex-col gap-2">
+                        <h4 className="font-mono text-sm font-semibold text-primary">
+                          {cmd.command}
+                        </h4>
+                        <p className="text-xs text-muted-foreground">
+                          {cmd.description}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Sub-Agents Accordion */}
+          <div className="border border-border rounded-lg overflow-hidden">
+            <button
+              onClick={() => toggleSection('agents')}
+              className="w-full px-4 py-4 flex items-center justify-between text-left hover:bg-accent/5 transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <Bot className="w-5 h-5 text-primary" />
+                <h3 className="text-lg font-semibold">Sub-Agents</h3>
+              </div>
+              <ChevronDown 
+                className={`w-5 h-5 text-muted-foreground transition-transform ${
+                  expandedSection === 'agents' ? 'rotate-180' : ''
+                }`} 
+              />
+            </button>
+            <div className={`overflow-hidden transition-all duration-300 ${
+              expandedSection === 'agents' ? 'max-h-[800px]' : 'max-h-0'
+            }`}>
+              <div className="px-4 pb-4 space-y-3 overflow-y-auto">
+                {subAgents.map((agent, index) => (
+                  <Card key={index} className="bg-transparent shadow-sm">
+                    <CardContent className="p-4">
+                      <div className="flex flex-col gap-1">
+                        <h4 className="font-mono text-sm font-semibold text-primary">
+                          {agent.name}
+                        </h4>
+                        <p className="text-xs text-muted-foreground">
+                          {agent.description}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Grid Layout */}
+        <div className="hidden lg:grid gap-8 lg:grid-cols-3 items-start">
+          {/* CLAUDE.md Content */}
+          <div className="h-full flex flex-col lg:h-[600px]">
             <div className="flex items-center gap-2 mb-6">
               <FileText className="w-5 h-5 text-primary" />
               <h3 className="text-lg font-semibold">CLAUDE.md</h3>
@@ -140,7 +271,7 @@ export function ClaudeSection() {
           </div>
 
           {/* Commands Content */}
-          <div className="h-full flex flex-col min-h-[500px] xl:h-[600px]">
+          <div className="h-full flex flex-col lg:h-[600px]">
             <div className="flex items-center gap-2 mb-6">
               <Terminal className="w-5 h-5 text-primary" />
               <h3 className="text-lg font-semibold">Custom Commands</h3>
@@ -184,7 +315,7 @@ export function ClaudeSection() {
           </div>
 
           {/* Sub-Agents Content */}
-          <div className="h-full flex flex-col min-h-[500px] xl:h-[600px]">
+          <div className="h-full flex flex-col lg:h-[600px]">
             <div className="flex items-center gap-2 mb-6">
               <Bot className="w-5 h-5 text-primary" />
               <h3 className="text-lg font-semibold">Sub-Agents</h3>
