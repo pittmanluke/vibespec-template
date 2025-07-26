@@ -25,7 +25,7 @@ interface GenerateMetadataProps {
 
 export function generateMetadata({
   title = 'VibeSpec',
-  description = 'Transform ideas into specifications, specifications into shipped products',
+  description = 'Specs first, code second',
   keywords = ['nextjs', 'claude code', 'ai development', 'specifications', 'mvp', 'typescript', 'react'],
   openGraph,
   twitter,
@@ -87,21 +87,6 @@ export function generatePageMetadata(
       title: 'Roadmap',
       description: 'See what\'s planned for the future of VibeSpec',
       keywords: ['roadmap', 'features', 'updates', 'vibespec', 'development'],
-    },
-    login: {
-      title: 'Login',
-      description: 'Sign in to your VibeSpec account',
-      robots: { index: false, follow: false },
-    },
-    signup: {
-      title: 'Sign Up',
-      description: 'Create your VibeSpec account and start building',
-      robots: { index: false, follow: false },
-    },
-    dashboard: {
-      title: 'Dashboard',
-      description: 'Manage your VibeSpec projects and specifications',
-      robots: { index: false, follow: false },
     },
   };
 
