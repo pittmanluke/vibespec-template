@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](./LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-Ready-purple?style=flat-square)](https://claude.ai)
 
-Spec-driven development for agentic coding. Transform ideas into specifications, specifications into shipped products.
+A template for spec-driven AI-assisted coding. Specifications first, code second.Build MVPs faster with Claude Code and structured workflows.
 
 ## Overview
 

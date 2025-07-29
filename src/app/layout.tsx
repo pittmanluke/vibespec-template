@@ -14,8 +14,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://vibespec.dev'),
-  title: "VibeSpec - Spec-driven development for AI coding",
-  description: "Transform ideas into specifications, specifications into shipped products. Build MVPs faster with Claude Code integration and structured workflows.",
+  title: "VibeSpec - A template for spec-driven AI-assisted coding",
+  description: "Specifications first, code second. Build MVPs faster with Claude Code and structured workflows.",
   keywords: ["nextjs", "claude code", "ai development", "specifications", "mvp", "typescript", "react"],
   authors: [{ name: "VibeSpec Team" }],
   creator: "VibeSpec",
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://vibespec.dev",
-    title: "VibeSpec - Spec-driven development for AI coding",
-    description: "Transform ideas into specifications, specifications into shipped products. Build MVPs faster with Claude Code integration.",
+    title: "VibeSpec - A template for spec-driven AI-assisted coding",
+    description: "Specifications first, code second. Build MVPs faster with Claude Code and structured workflows.",
     siteName: "VibeSpec",
     images: [
       {
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "VibeSpec - Spec-driven development for AI coding",
-    description: "Transform ideas into specifications, specifications into shipped products.",
+    title: "VibeSpec - A template for spec-driven AI-assisted coding",
+    description: "Specifications first, code second.Build MVPs faster with Claude Code and structured workflows.",
     creator: "@vibespec",
     images: ['/twitter-image.png'],
   },

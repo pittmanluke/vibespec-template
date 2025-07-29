@@ -17,7 +17,7 @@ const faqItems: FAQItem[] = [
   {
     category: 'general',
     question: "What is VibeSpec?",
-    answer: "VibeSpec is a production-ready Next.js template designed for spec-driven AI-assisted development. It provides a structured approach to building applications with AI coding assistants like Claude Code, ensuring consistency and quality through well-defined specifications."
+    answer: "VibeSpec is a template for spec-driven AI-assisted coding. It provides a structured approach to building applications with AI coding assistants like Claude Code, following the principle of 'specifications first, code second' helping you build MVPs faster with structured workflows."
   },
   {
     category: 'general',

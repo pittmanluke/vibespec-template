@@ -15,7 +15,7 @@ export const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'VibeSpec',
-  description: 'Specifications first, code second',
+  description: 'Specifications first, code second. Build MVPs faster with Claude Code and structured workflows.',
   url: 'https://vibespec.dev',
   potentialAction: {
     '@type': 'SearchAction',

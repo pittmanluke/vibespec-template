@@ -1,7 +1,7 @@
 {
   "name": "vibespec",
   "version": "1.0.0",
-  "description": "Spec-driven Next.js starter template for AI-assisted development. Transform ideas into specifications, specifications into shipped products.",
+  "description": "A template for spec-driven AI-assisted coding. Specifications first, code second. Build MVPs faster with Claude Code and structured workflows.",
   "author": "VibeSpec Contributors",
   "keywords": [
     "nextjs",
