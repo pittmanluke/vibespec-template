@@ -2,7 +2,7 @@ export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'VibeSpec',
-  description: 'Spec-driven development for AI coding',
+  description: 'A template for spec-driven AI-assisted coding',
   url: 'https://vibespec.dev',
   logo: 'https://vibespec.dev/favicon_io/apple-touch-icon.png',
   sameAs: [
@@ -15,7 +15,7 @@ export const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'VibeSpec',
-  description: 'Transform ideas into specifications, specifications into shipped products',
+  description: 'Specifications first, code second',
   url: 'https://vibespec.dev',
   potentialAction: {
     '@type': 'SearchAction',

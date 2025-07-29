@@ -1,1 +1,0 @@
-VibeSpec - A template for spec-driven AI-assisted coding
