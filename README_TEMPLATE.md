@@ -33,7 +33,7 @@ A production-ready Next.js template optimized for AI-assisted development. Build
 
 ```bash
 # Create a new project
-npx create-next-app@latest my-app --example github.com/pittmanluke/vibespec-template
+npx create-next-app@latest my-app --example github.com/vibespec/vibespec-template
 cd my-app
 
 # Install dependencies
@@ -166,7 +166,7 @@ Automated assistants that help maintain quality:
 ## 🚢 Deployment
 
 ### Vercel (Recommended)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/pittmanluke/vibespec-template)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vibespec/vibespec-template)
 
 ### Other Platforms
 Works with any Next.js compatible platform:
@@ -212,7 +212,7 @@ npm run lint
 ## 💬 Community
 
 - [Discord](https://discord.gg/vibespec)
-- [GitHub Discussions](https://github.com/pittmanluke/vibespec-template/discussions)
+- [GitHub Discussions](https://github.com/vibespec/vibespec-template/discussions)
 - [Twitter](https://twitter.com/vibespec)
 
 ## 📄 License
