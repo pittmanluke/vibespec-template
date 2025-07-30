@@ -1,0 +1,9 @@
+{
+  "syncHistory": [],
+  "metadata": {
+    "created": "2025-07-30",
+    "templateRepo": "https://github.com/vibespec/vibespec-template.git",
+    "syncMethod": "git-submodule",
+    "lastCheck": null
+  }
+}
