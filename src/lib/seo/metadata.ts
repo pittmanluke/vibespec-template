@@ -23,46 +23,43 @@ interface GenerateMetadataProps {
   };
 }
 
+const appName = process.env.NEXT_PUBLIC_APP_NAME || 'My App';
+const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+
 export function generateMetadata({
-  title = 'VibeSpec',
-  description = 'Specs first, code second',
-  keywords = ['nextjs', 'claude code', 'ai development', 'specifications', 'mvp', 'typescript', 'react'],
+  title = appName,
+  description = 'A modern web application built with Next.js',
+  keywords = ['nextjs', 'typescript', 'react', 'web app'],
   openGraph,
   twitter,
   robots = { index: true, follow: true },
   alternates,
 }: GenerateMetadataProps = {}): Metadata {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://vibespec.dev';
   
   return {
     title: {
       default: title,
-      template: `%s | VibeSpec`,
+      template: `%s | ${appName}`,
     },
     description,
     keywords,
-    authors: [{ name: 'VibeSpec Team' }],
-    creator: 'VibeSpec',
-    metadataBase: new URL(siteUrl),
+    metadataBase: new URL(appUrl),
     openGraph: {
       type: 'website',
       locale: 'en_US',
-      url: siteUrl,
-      siteName: 'VibeSpec',
+      url: appUrl,
+      siteName: appName,
       title: openGraph?.title || title,
       description: openGraph?.description || description,
-      images: openGraph?.images || [`${siteUrl}/opengraph-image.png`],
     },
     twitter: {
       card: 'summary_large_image',
       title: twitter?.title || title,
       description: twitter?.description || description,
-      images: twitter?.images || [`${siteUrl}/twitter-image.png`],
-      creator: '@vibespec',
     },
     robots,
     alternates: {
-      canonical: alternates?.canonical || siteUrl,
+      canonical: alternates?.canonical || appUrl,
     },
   };
 }
@@ -75,18 +72,18 @@ export function generatePageMetadata(
   const pageDefaults: Record<string, GenerateMetadataProps> = {
     docs: {
       title: 'Documentation',
-      description: 'Learn how to use VibeSpec for spec-driven development with AI coding assistants',
-      keywords: ['documentation', 'guide', 'tutorial', 'vibespec', 'claude code', 'ai development'],
+      description: 'Learn how to use our application',
+      keywords: ['documentation', 'guide', 'tutorial'],
     },
-    examples: {
-      title: 'Examples',
-      description: 'Explore example projects and templates built with VibeSpec',
-      keywords: ['examples', 'templates', 'showcase', 'vibespec', 'nextjs', 'react'],
+    dashboard: {
+      title: 'Dashboard',
+      description: 'Manage your account and view analytics',
+      keywords: ['dashboard', 'analytics', 'account'],
     },
-    roadmap: {
-      title: 'Roadmap',
-      description: 'See what\'s planned for the future of VibeSpec',
-      keywords: ['roadmap', 'features', 'updates', 'vibespec', 'development'],
+    auth: {
+      title: 'Authentication',
+      description: 'Sign in or create an account',
+      keywords: ['login', 'signup', 'authentication'],
     },
   };
 

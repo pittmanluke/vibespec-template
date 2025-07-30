@@ -6,53 +6,12 @@ import { AuthProvider } from "@/services/auth";
 import { OnlineStatusProvider } from "@/providers/online-status-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeFavicon } from "@/components/theme/theme-favicon";
-import { AnalyticsProvider } from "@/providers/analytics-provider";
-import { JsonLd } from "@/components/seo/json-ld";
-import { organizationSchema, websiteSchema } from "@/lib/seo/structured-data";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://vibespec.dev'),
-  title: "VibeSpec - A template for spec-driven AI-assisted coding",
-  description: "Specifications first, code second. Build MVPs faster with Claude Code and structured workflows.",
-  keywords: ["nextjs", "claude code", "ai development", "specifications", "mvp", "typescript", "react"],
-  authors: [{ name: "VibeSpec Team" }],
-  creator: "VibeSpec",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://vibespec.dev",
-    title: "VibeSpec - A template for spec-driven AI-assisted coding",
-    description: "Specifications first, code second. Build MVPs faster with Claude Code and structured workflows.",
-    siteName: "VibeSpec",
-    images: [
-      {
-        url: '/opengraph-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'VibeSpec - A template for spec-driven AI-assisted coding',
-      }
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "VibeSpec - A template for spec-driven AI-assisted coding",
-    description: "Specifications first, code second.Build MVPs faster with Claude Code and structured workflows.",
-    creator: "@vibespec",
-    images: ['/twitter-image.png'],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  title: "My App - Built with VibeSpec",
+  description: "A modern web application built with Next.js and the VibeSpec template",
 };
 
 export default function RootLayout({
@@ -69,7 +28,6 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/favicon_io/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#6366F1" />
-        <JsonLd data={[organizationSchema, websiteSchema]} />
       </head>
       <body className={inter.className}>
         <ThemeProvider
@@ -81,10 +39,8 @@ export default function RootLayout({
           <ThemeFavicon />
           <AuthProvider>
             <OnlineStatusProvider>
-              <AnalyticsProvider>
-                {children}
-                <Toaster />
-              </AnalyticsProvider>
+              {children}
+              <Toaster />
             </OnlineStatusProvider>
           </AuthProvider>
         </ThemeProvider>

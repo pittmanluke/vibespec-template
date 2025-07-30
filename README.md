@@ -1,38 +1,58 @@
-# VibeSpec
+# VibeSpec Template
 
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](./LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-Ready-purple?style=flat-square)](https://claude.ai)
 
-A template for spec-driven AI-assisted coding. Specifications first, code second.Build MVPs faster with Claude Code and structured workflows.
+A production-ready Next.js template optimized for AI-assisted development. Build your MVP faster with structured workflows, Firebase integration, and Claude Code optimization.
 
-## Overview
+## ✨ Features
 
-VibeSpec is a Next.js starter specifically designed for founders and developers building with AI assistants like Claude Code. It solves the fundamental problems of AI-assisted development through a specification-first approach that ensures AI builds exactly what you envision.
+### 🚀 Core Features
+- **Next.js 15** with App Router and Server Components
+- **TypeScript** with strict mode for type safety
+- **Tailwind CSS v4** for modern styling
+- **Authentication** ready with Firebase Auth or mock service
+- **Dark Mode** with next-themes
+- **Responsive Design** mobile-first approach
 
-### Why VibeSpec?
+### 🔥 Firebase Integration (Optional)
+- **Feature Flags** - Toggle Firebase services on/off
+- **Mock Services** - Develop without Firebase setup
+- **Authentication** - Email/password, Google, GitHub
+- **Firestore** - NoSQL database
+- **Cloud Storage** - File uploads
+- **Cloud Functions** - Serverless backend
 
-- **Specification-driven**: AI confusion eliminated through clear specs
-- **Token efficient**: Reduce API costs by 50% with structured workflows  
-- **Context aware**: Never lose progress to context window limits
-- **Founder focused**: Ship MVPs in days, not months
-- **Production ready**: Beautiful UI, TypeScript, all the essentials
+### 🤖 AI Development Ready
+- **Claude Code Optimized** - Built for AI pair programming
+- **VibeSpec Methodology** - Specification-first development
+- **Sub-Agents** - Automated quality control
+- **Structured Workflows** - Consistent patterns
+- **Session Management** - Track development progress
 
-## Getting Started
+### 🛠️ Developer Experience
+- **ESLint & TypeScript** - Catch errors early
+- **Organized Structure** - Clear file organization
+- **Component Library** - Pre-built UI components
+- **Protected Routes** - Authentication guards
+- **Form Handling** - React Hook Form + Zod
+- **Error Boundaries** - Graceful error handling
+
+## 🚀 Quick Start
 
 ### Prerequisites
-
 - Node.js 18.17 or later
-- npm (or yarn/pnpm)
+- npm, yarn, or pnpm
 - Git
 
-### Quick Start
+### Installation
 
-1. **Create your project**
+1. **Clone the template**
    ```bash
-   npx create-next-app@latest my-startup --example github.com/pittmanluke/vibespec
-   cd my-startup
+   npx create-next-app@latest my-app --example github.com/vibespec/vibespec-template
+   cd my-app
    ```
 
 2. **Install dependencies**
@@ -40,248 +60,229 @@ VibeSpec is a Next.js starter specifically designed for founders and developers 
    npm install
    ```
 
-3. **Start developing**
+3. **Set up environment variables**
+   ```bash
+   cp .env.local.example .env.local
+   ```
+
+4. **Start development server**
    ```bash
    npm run dev
    ```
 
-4. **Open Claude Code**
-   ```bash
-   claude
-   /context-prime  # Load project structure
-   /session:start  # Begin tracked session
+5. **Open in browser**
+   ```
+   http://localhost:3000
    ```
 
-You're now ready to build with AI assistance!
-
-## Core Concepts
-
-### Specification-First Development
-
-VibeSpec revolutionizes AI coding through specifications—structured documents that tell AI exactly what to build. No more prompt engineering, no more confusion.
-
-### Two Development Paths
-
-#### 1. Design-First Development
-Perfect when you have mockups or UI examples:
-
-```bash
-# Save your design to examples/
-claude
-/transpose @examples/dashboard-mockup.tsx
-# Creates: specs/dashboard-specification.md
-# Now AI understands exactly what to build
-```
-
-#### 2. Spec-First Development  
-Ideal when you have requirements or user stories:
-
-```bash
-# Write your requirements in specs/
-claude
-/breakdown @specs/user-authentication.md
-# Creates: plans/implement-authentication.md
-# Phased plan for systematic development
-```
-
-## Key Features
-
-### 🤖 Claude Code Integration
-- Custom commands pre-configured
-- Optimized prompts and workflows
-- MCP server compatibility
-- Session management built-in
-
-### 📋 Specification System
-- Transform designs to specs automatically
-- Break down PRDs into actionable tasks
-- Ensure consistent AI output
-- Reusable specification templates
-
-### 🎨 Beautiful UI Out-of-Box
-- 40+ shadcn/ui components
-- Dark mode support
-- Responsive design
-- Tailwind CSS v4
-
-### 🏗️ Smart Architecture
-- Enforced file structure AI understands
-- TypeScript with strict mode
-- Local-first development
-- Progressive enhancement
-
-### ⚡ Developer Experience
-- Zero configuration required
-- Hot reload everything
-- Clear error messages
-- Git-friendly workflow
-
-## Project Structure
+## 📁 Project Structure
 
 ```
-vibespec/
-├── src/
-│   ├── app/              # Next.js pages (routes only)
-│   ├── components/       # Reusable UI components
-│   │   ├── ui/          # Base shadcn components
-│   │   └── features/    # Feature-specific components
-│   ├── services/        # Business logic layer
-│   ├── lib/            # Utilities and helpers
-│   ├── hooks/          # Custom React hooks
-│   ├── types/          # TypeScript definitions
-│   └── config/         # App configuration
-│
-├── specs/              # Specifications (your source of truth)
-├── plans/              # Implementation plans
-├── examples/           # UI examples and mockups
-├── docs/              # Additional documentation
-└── .claude/           # Claude Code configuration
+src/
+├── app/              # Next.js pages and routes
+├── components/       # Reusable UI components
+│   ├── ui/          # Base UI components
+│   └── auth/        # Authentication components
+├── services/         # Business logic and APIs
+│   └── auth/        # Auth service with mock fallback
+├── providers/        # React context providers
+├── hooks/           # Custom React hooks
+├── lib/             # Utility functions
+├── types/           # TypeScript type definitions
+└── config/          # App configuration
+
+vibespec/            # VibeSpec methodology docs
+.claude/             # Claude Code configuration
+├── agents/          # AI sub-agents
+├── commands/        # Custom commands
+└── sessions/        # Development sessions
 ```
 
-### Key Directories Explained
+## 🔧 Configuration
 
-- **specs/**: Where specifications live. These drive your development.
-- **plans/**: Implementation plans created by `/breakdown` command
-- **examples/**: UI mockups and examples for `/transpose` command
-- **.claude/**: Custom commands and Claude Code configuration
+### Environment Variables
 
-## Available Commands
+Create a `.env.local` file with:
 
-### Claude Code Commands
+```env
+# Firebase Feature Flags (set to true to enable)
+NEXT_PUBLIC_USE_FIREBASE_AUTH=false
+NEXT_PUBLIC_USE_FIRESTORE=false
+NEXT_PUBLIC_USE_STORAGE=false
+NEXT_PUBLIC_USE_FUNCTIONS=false
+
+# Firebase Config (required if using Firebase)
+NEXT_PUBLIC_FIREBASE_API_KEY=
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+NEXT_PUBLIC_FIREBASE_APP_ID=
+
+# App Configuration
+NEXT_PUBLIC_APP_NAME=My App
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+### Feature Flags
+
+Toggle Firebase services without code changes:
+
+- **Mock Mode** (default): All flags `false`, uses mock services
+- **Firebase Mode**: Set flags to `true`, requires Firebase config
+- **Hybrid Mode**: Enable specific services as needed
+
+## 🎯 Usage
+
+### Authentication
+
+The template includes a complete auth flow:
+
+```typescript
+// Using the auth service
+import { useAuth } from '@/services/auth';
+
+function MyComponent() {
+  const { user, signIn, signOut } = useAuth();
+  
+  // User is typed and ready to use
+  if (user) {
+    return <div>Welcome {user.email}</div>;
+  }
+}
+```
+
+### Protected Routes
+
+Wrap pages that require authentication:
+
+```typescript
+import ProtectedRoute from '@/components/auth/protected-route';
+
+export default function DashboardPage() {
+  return (
+    <ProtectedRoute>
+      <DashboardContent />
+    </ProtectedRoute>
+  );
+}
+```
+
+### Adding New Features
+
+1. **Create specifications** in `/specs/`
+2. **Plan implementation** in `/plans/`
+3. **Build with AI assistance** using Claude Code
+4. **Document patterns** for future reference
+
+## 🤖 AI Development
+
+### Claude Code Integration
+
+This template is optimized for Claude Code:
+
+1. **Context-Aware**: CLAUDE.md provides project context
+2. **Commands Ready**: Custom commands in `.claude/commands/`
+3. **Sub-Agents**: Automated quality checks
+4. **Session Tracking**: Development progress saved
+
+### Available Commands
+
+- `/adapt` - Customize template for your project
 - `/context-prime` - Load project context
 - `/session:start` - Begin development session
-- `/session:update` - Checkpoint your progress
+- `/session:update` - Track progress
 - `/session:end` - Close session with summary
-- `/transpose @file` - Convert design to specification
-- `/breakdown @spec` - Create implementation plan
 
-### Development Scripts
-```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint
-npm run typecheck    # Check TypeScript
-```
+### VibeSpec Methodology
 
-## Common Workflows
+1. **Specification First**: Define before coding
+2. **Structured Approach**: Consistent patterns
+3. **AI Collaboration**: Let Claude handle implementation
+4. **Quality Control**: Sub-agents ensure standards
 
-### Building a New Feature
+## 📚 Documentation
 
-1. **Define what you want**
-   - Option A: Create a mockup in `examples/`
-   - Option B: Write requirements in `specs/`
+### Template Guides
+- [Getting Started](./vibespec/getting-started.md)
+- [Project Structure](./vibespec/project-structure.md)
+- [Development Workflow](./vibespec/development-workflow.md)
+- [AI Workflow Guide](./vibespec/ai-workflow-guide.md)
 
-2. **Generate specification**
-   ```bash
-   claude
-   /transpose @examples/feature.tsx  # If you have mockup
-   # OR
-   /breakdown @specs/feature.md      # If you have requirements
-   ```
+### Reference
+- [Architecture Principles](./vibespec/architecture-principles.md)
+- [Naming Conventions](./vibespec/naming-conventions.md)
+- [Code Quality Standards](./vibespec/code-quality.md)
+- [Feature Flags](./vibespec/feature-flags.md)
 
-3. **Build with AI**
-   - AI now has clear specifications
-   - Builds exactly what you defined
-   - No confusion or rewrites
+## 🚢 Deployment
 
-4. **Ship it**
-   ```bash
-   git add .
-   git commit -m "feat: add new feature"
-   npm run build  # Verify everything works
-   ```
+### Vercel (Recommended)
 
-### Managing Long Sessions
+1. Push to GitHub
+2. Import to Vercel
+3. Add environment variables
+4. Deploy
 
-When working on complex features:
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vibespec/vibespec-template)
 
-```bash
-claude
-/session:start my-feature
+### Other Platforms
 
-# Work on your feature...
-# After significant progress:
-/session:update
+The template works with any platform supporting Next.js:
+- Firebase Hosting
+- Netlify
+- AWS Amplify
+- Self-hosted
 
-# If context window fills:
-# Start new conversation
-/context-prime  # Reload context
-# Continue where you left off
+## 🛡️ Best Practices
 
-/session:end  # When complete
-```
+### Code Organization
+- Keep pages in `/app` only
+- Business logic in `/services`
+- UI components in `/components`
+- Shared state in `/providers`
 
-## Best Practices
+### Naming Conventions
+- Files: `kebab-case.tsx`
+- Components: `PascalCase`
+- Utilities: `camelCase`
+- No exceptions
 
-1. **Always start with specifications**
-   - Clear specs = consistent results
-   - Reduces token usage significantly
+### Development Flow
+1. Start with mock services
+2. Build features incrementally
+3. Enable Firebase when ready
+4. Test thoroughly
+5. Deploy with confidence
 
-2. **Use session management**
-   - Track progress on complex features
-   - Never lose work to context limits
+## 🤝 Contributing
 
-3. **Leverage the structure**
-   - Follow established patterns
-   - AI works better with consistency
+Contributions are welcome! Please read our [Contributing Guide](./CONTRIBUTING.md) first.
 
-4. **Build incrementally**
-   - Ship small features often
-   - Get user feedback early
+### Development
 
-## Troubleshooting
+1. Fork the repository
+2. Create your feature branch
+3. Follow the code standards
+4. Submit a pull request
 
-### AI generates inconsistent code
-→ Ensure you're using specifications via `/transpose` or `/breakdown`
+## 📄 License
 
-### Lost context mid-development  
-→ Use `/session:update` regularly and `/context-prime` to restore
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
-### Slow development speed
-→ Check if you're fighting the structure - follow VibeSpec patterns
+## 🙏 Acknowledgments
 
-### High token usage
-→ Specifications reduce token usage by 50% - always start there
+- Built with the [VibeSpec methodology](https://vibespec.dev)
+- UI components from [shadcn/ui](https://ui.shadcn.com)
+- Optimized for [Claude Code](https://claude.ai)
 
-## Tech Stack Details
+## 🔗 Links
 
-- **Framework**: Next.js 15 (App Router)
-- **Language**: TypeScript 5.x
-- **Styling**: Tailwind CSS v4
-- **Components**: shadcn/ui
-- **React**: Version 19
-- **Node**: 18.17+
-
-## Contributing
-
-We welcome contributions! Please:
-1. Follow the established file structure
-2. Use specifications for new features
-3. Test with Claude Code
-4. Submit PRs with clear descriptions
-
-## Resources
-
-- [Full Documentation](./docs)
-- [AI Development Guide](./ai-development-guide.md)
-- [AI Workflow Guide](./ai-workflow-guide.md)
-- [Example Projects](./examples)
-- [Discord Community](#)
-- [Video Tutorials](#)
-
-## Support
-
-- **Discord**: [Join our community](#)
-- **Issues**: [GitHub Issues](https://github.com/pittmanluke/vibespec/issues)
-- **Twitter**: [@vibespec](#)
-
-## License
-
-MIT License - see [LICENSE](./LICENSE) for details
+- [VibeSpec Website](https://vibespec.dev)
+- [Template Repository](https://github.com/vibespec/vibespec-template)
+- [Documentation](https://github.com/vibespec/vibespec-template/wiki)
+- [Issues](https://github.com/vibespec/vibespec-template/issues)
 
 ---
 
-**Built by founders, for founders.** VibeSpec is the result of thousands of hours building with AI. We've made every mistake so you don't have to.
-
-Ready to ship? Let's build something amazing together! 🚀
+Built with ❤️ by the VibeSpec team

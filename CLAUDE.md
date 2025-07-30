@@ -20,7 +20,9 @@ This project uses the VibeSpec template. For detailed template documentation, se
 
 ## Project Overview
 
-This is a production-ready Next.js 15 template with optional Firebase integration. The key feature is its flexibility - developers can start immediately with mock services and enable Firebase features as needed.
+[PROJECT DESCRIPTION HERE - Update this section with your specific project details]
+
+This project is built using the VibeSpec template - a production-ready Next.js 15 starter with optional Firebase integration.
 
 **Note**: To adapt this documentation to your specific project after creating initial specifications, run `/adapt`.
 
