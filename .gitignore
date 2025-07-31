@@ -43,7 +43,6 @@ firestore-debug.log
 ui-debug.log
 storage-debug.log
 pubsub-debug.log
-functions/lib/
 
 # emulator data
 /emulator-data
