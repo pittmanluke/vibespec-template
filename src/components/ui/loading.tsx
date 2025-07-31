@@ -1,7 +1,6 @@
 import React from "react";
 import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { animations } from "@/lib/styles/styles";
 
 export interface LoadingProps {
   /**
@@ -62,7 +61,7 @@ export function Loading({
     switch (type) {
       case 'spinner':
         return (
-          <Loader2 className={cn(sizeClasses[size].wrapper, animations.spin)} />
+          <Loader2 className={cn(sizeClasses[size].wrapper, "animate-spin")} />
         );
       case 'dots':
         return (
@@ -73,7 +72,7 @@ export function Loading({
                 className={cn(
                   "rounded-full bg-current",
                   size === 'sm' ? 'size-1' : size === 'md' ? 'size-2' : 'size-3',
-                  animations.pulse
+                  "animate-pulse"
                 )}
                 style={{ animationDelay: `${i * 0.15}s` }}
               />
@@ -88,10 +87,7 @@ export function Loading({
             "bg-muted rounded-full"
           )}>
             <div
-              className={cn(
-                "absolute inset-y-0 left-0 bg-primary rounded-full",
-                animations.slideRight
-              )}
+              className="absolute inset-y-0 left-0 bg-primary rounded-full animate-[slide_1.5s_ease-in-out_infinite]"
               style={{ width: '40%' }}
             />
           </div>

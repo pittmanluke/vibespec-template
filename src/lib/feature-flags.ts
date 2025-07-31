@@ -1,21 +1,21 @@
 /**
  * Feature flags for the application
  * Used to enable/disable features for different deployment environments
+ * 
+ * This is separate from Firebase feature flags (which control mock vs real services).
+ * These flags control application-level features.
  */
 
 export interface FeatureFlags {
   // User features
-  enableUserOnboarding: boolean;
-  enableEmailSubscription: boolean;
+  enableUserOnboarding: boolean;  // Redirect new users to onboarding flow
   
-  // Admin features
-  enableAdminFeatures: boolean;
-  
-  // Development features
-  enableDebugMode: boolean;
-  
-  // Future feature flags can be added here
-  // enableNewFeature: boolean;
+  // Example flags - uncomment and implement as needed:
+  // enableEmailSubscription: boolean;  // Email newsletter signup
+  // enableAdminFeatures: boolean;      // Admin dashboard features
+  // enableDebugMode: boolean;          // Debug UI elements
+  // enableBetaFeatures: boolean;       // Beta/experimental features
+  // enableMaintenanceMode: boolean;    // Maintenance mode banner
 }
 
 /**
@@ -24,16 +24,10 @@ export interface FeatureFlags {
 function getFeatureFlags(): FeatureFlags {
   // Check for explicit environment variable overrides
   const userOnboardingEnabled = process.env.NEXT_PUBLIC_ENABLE_USER_ONBOARDING;
-  const emailSubscriptionEnabled = process.env.NEXT_PUBLIC_ENABLE_EMAIL_SUBSCRIPTION;
-  const adminFeaturesEnabled = process.env.NEXT_PUBLIC_ENABLE_ADMIN_FEATURES;
-  const debugModeEnabled = process.env.NEXT_PUBLIC_ENABLE_DEBUG_MODE;
   
   // Default configuration
   const defaultFlags: FeatureFlags = {
     enableUserOnboarding: true,
-    enableEmailSubscription: false,
-    enableAdminFeatures: false,
-    enableDebugMode: false,
   };
 
   // Environment-specific overrides
@@ -41,9 +35,6 @@ function getFeatureFlags(): FeatureFlags {
     return {
       ...defaultFlags,
       enableUserOnboarding: userOnboardingEnabled === 'false' ? false : true,
-      enableEmailSubscription: emailSubscriptionEnabled === 'true' ? true : false,
-      enableAdminFeatures: adminFeaturesEnabled === 'true' ? true : false,
-      enableDebugMode: debugModeEnabled === 'false' ? false : true,
     };
   }
 
@@ -51,9 +42,6 @@ function getFeatureFlags(): FeatureFlags {
   return {
     ...defaultFlags,
     enableUserOnboarding: userOnboardingEnabled === 'false' ? false : true,
-    enableEmailSubscription: emailSubscriptionEnabled === 'true' ? true : false,
-    enableAdminFeatures: adminFeaturesEnabled === 'true' ? true : false,
-    enableDebugMode: false, // Always false in production
   };
 }
 
@@ -64,15 +52,27 @@ export const featureFlags = getFeatureFlags();
  * Helper functions for common feature checks
  */
 export const isUserOnboardingEnabled = () => featureFlags.enableUserOnboarding;
-export const isEmailSubscriptionEnabled = () => featureFlags.enableEmailSubscription;
-export const isAdminFeaturesEnabled = () => featureFlags.enableAdminFeatures;
-export const isDebugModeEnabled = () => featureFlags.enableDebugMode;
+
+// Example helper functions - uncomment as you implement features:
+// export const isEmailSubscriptionEnabled = () => featureFlags.enableEmailSubscription;
+// export const isAdminFeaturesEnabled = () => featureFlags.enableAdminFeatures;
+// export const isDebugModeEnabled = () => featureFlags.enableDebugMode;
 
 /**
  * Log feature flag status for debugging
  */
 export const logFeatureFlags = () => {
   if (process.env.NODE_ENV === 'development') {
-    console.log('🚩 Feature Flags:', featureFlags);
+    console.log('🚩 Application Feature Flags:', featureFlags);
   }
 };
+
+/**
+ * Example usage:
+ * 
+ * import { isUserOnboardingEnabled } from '@/lib/feature-flags';
+ * 
+ * if (isUserOnboardingEnabled()) {
+ *   router.push('/onboarding');
+ * }
+ */

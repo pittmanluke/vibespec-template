@@ -5,29 +5,9 @@
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](./LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-Ready-purple?style=flat-square)](https://claude.ai)
 
-A production-ready Next.js template optimized for AI-assisted development. Build your MVP faster with structured workflows, Firebase integration, and Claude Code optimization.
+A production-ready Next.js template optimized for AI-assisted development. Start building your MVP in minutes.
 
-> **Note**: This is the template repository. For the VibeSpec landing page and documentation site, visit [vibespec.dev](https://vibespec.dev).
-
-## ✨ What Makes This Special
-
-### 🤖 AI-First Development
-- **Built for Claude Code**: Optimized project structure and documentation
-- **Smart Sub-Agents**: Automated quality control and workflow assistance
-- **Session Management**: Track development progress across sessions
-- **Structured Workflows**: Consistent patterns that AI understands
-
-### 🚀 Production Ready
-- **Next.js 15**: Latest features with App Router
-- **TypeScript**: Full type safety with strict mode
-- **Tailwind CSS v4**: Modern styling with new features
-- **Firebase Ready**: Optional integration with feature flags
-
-### 🛠️ Developer Experience
-- **Zero Config Start**: Works out of the box with mock services
-- **Feature Flags**: Toggle Firebase services on/off
-- **Clean Architecture**: Organized file structure
-- **Quality Built-in**: ESLint, TypeScript, and formatting configured
+> **Learn more**: Visit [vibespec.dev](https://vibespec.dev) for detailed documentation and guides.
 
 ## 🚀 Quick Start
 
@@ -48,120 +28,74 @@ npm run dev
 
 Visit `http://localhost:3000` to see your app.
 
+## ✨ Features
+
+- **Next.js 15** with App Router
+- **TypeScript** with strict mode
+- **Tailwind CSS v4** for styling
+- **Authentication** ready (Firebase optional)
+- **30+ UI Components** from shadcn/ui
+- **Dark Mode** support
+- **AI-Optimized** for Claude Code
+
 ## 📁 Project Structure
 
 ```
 src/
 ├── app/              # Next.js pages and routes
 ├── components/       # Reusable UI components
-│   ├── ui/          # Base UI components (Button, Card, etc.)
-│   └── auth/        # Authentication components
 ├── services/         # Business logic and APIs
-│   └── auth/        # Auth service with mock fallback
 ├── providers/        # React context providers
 ├── hooks/           # Custom React hooks
 ├── lib/             # Utility functions
-├── types/           # TypeScript type definitions
+├── types/           # TypeScript definitions
 └── config/          # App configuration
-
-vibespec/            # VibeSpec methodology docs
-.claude/             # Claude Code configuration
-├── agents/          # AI sub-agents for automation
-├── commands/        # Custom Claude commands
-└── sessions/        # Development session tracking
 ```
 
-## 🔧 Key Features
+## 🔧 Configuration
 
-### Authentication System
-- Firebase Auth integration (optional)
-- Mock authentication for development
-- Protected routes
-- User management
-- Social login support
+### Environment Variables
 
-### UI Components
-- 30+ pre-built components from shadcn/ui
-- Dark mode support
-- Responsive design
-- Accessibility built-in
-- Customizable with Tailwind
+The template uses feature flags to toggle Firebase services:
 
-### Development Tools
-- Hot reload
-- TypeScript checking
-- ESLint with auto-fix
-- Prettier formatting
-- Git hooks with Husky
-
-### Firebase Integration
-Enable any combination of services:
-- Authentication
-- Firestore Database
-- Cloud Storage
-- Cloud Functions
-
-## 🎯 Usage Examples
-
-### Authentication
-```typescript
-import { useAuth } from '@/services/auth';
-
-function MyComponent() {
-  const { user, signIn, signOut } = useAuth();
-  
-  if (!user) {
-    return <button onClick={() => signIn(email, password)}>Login</button>;
-  }
-  
-  return <div>Welcome {user.email}!</div>;
-}
-```
-
-### Protected Routes
-```typescript
-import ProtectedRoute from '@/components/auth/protected-route';
-
-export default function DashboardPage() {
-  return (
-    <ProtectedRoute>
-      <YourProtectedContent />
-    </ProtectedRoute>
-  );
-}
-```
-
-### Feature Flags
 ```env
-# .env.local
-NEXT_PUBLIC_USE_FIREBASE_AUTH=false  # Use mock auth
-NEXT_PUBLIC_USE_FIRESTORE=true       # Use real Firestore
+# Use mock services (default)
+NEXT_PUBLIC_USE_FIREBASE_AUTH=false
+NEXT_PUBLIC_USE_FIRESTORE=false
+NEXT_PUBLIC_USE_STORAGE=false
+
+# Or enable Firebase (requires configuration)
+NEXT_PUBLIC_USE_FIREBASE_AUTH=true
+# Add Firebase config values...
 ```
 
-## 🤖 Claude Code Integration
+### Mock Services
 
-This template is optimized for AI-assisted development:
-
-### Available Commands
-- `/adapt` - Customize template for your project
-- `/context-prime` - Load project context
-- `/session:start` - Begin tracked development session
-- `/transpose` - Convert designs to specifications
-- `/breakdown` - Break specs into implementation tasks
-
-### Sub-Agents
-Automated assistants that help maintain quality:
-- **spec-alignment-guardian** - Ensures implementation matches specs
-- **velocity-guardian** - Prevents scope creep
-- **ui-enhancement-specialist** - Improves UI components
-- **vibespec-compliance-validator** - Enforces conventions
+By default, the template uses mock services for development:
+- Mock authentication (any email/password works)
+- Data persists in localStorage
+- No external dependencies required
 
 ## 📚 Documentation
 
-- [Getting Started Guide](./vibespec/getting-started.md)
-- [Architecture Principles](./vibespec/architecture-principles.md)
+- [Getting Started](./vibespec/getting-started.md)
+- [Architecture Guide](./vibespec/architecture-principles.md)
 - [AI Workflow Guide](./vibespec/ai-workflow-guide.md)
-- [Development Workflow](./vibespec/development-workflow.md)
+- [Full Documentation](https://vibespec.dev)
+
+## 🤖 Claude Code Integration
+
+This template includes:
+- Custom commands for workflow automation
+- AI sub-agents for quality control
+- Structured project organization
+- Session management tools
+
+Available commands:
+- `/adapt` - Customize for your project
+- `/context-prime` - Load project context
+- `/session:start` - Begin development session
+- `/transpose` - Convert designs to specs
 
 ## 🚢 Deployment
 
@@ -169,62 +103,14 @@ Automated assistants that help maintain quality:
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/pittmanluke/vibespec-template)
 
 ### Other Platforms
-Works with any Next.js compatible platform:
 - Firebase Hosting
 - Netlify
 - AWS Amplify
-- Railway
-- Render
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](./CONTRIBUTING.md) for details.
-
-### Development Setup
-```bash
-# Fork and clone
-git clone https://github.com/YOUR_USERNAME/vibespec-template.git
-cd vibespec-template
-
-# Install dependencies
-npm install
-
-# Create feature branch
-git checkout -b feature/amazing-feature
-
-# Make changes and test
-npm run dev
-npm run build
-npm run lint
-
-# Submit PR
-```
-
-## 📈 Roadmap
-
-- [ ] More UI component variants
-- [ ] Additional auth providers
-- [ ] Internationalization support
-- [ ] E2E testing setup
-- [ ] Docker configuration
-- [ ] More sub-agents
-
-## 💬 Community
-
-- [Discord](https://discord.gg/vibespec)
-- [GitHub Discussions](https://github.com/pittmanluke/vibespec-template/discussions)
-- [Twitter](https://twitter.com/vibespec)
+- Any Next.js compatible platform
 
 ## 📄 License
 
 MIT License - see [LICENSE](./LICENSE) for details.
-
-## 🙏 Acknowledgments
-
-- [shadcn/ui](https://ui.shadcn.com) for the component system
-- [Next.js](https://nextjs.org) team for the amazing framework
-- [Vercel](https://vercel.com) for hosting and deployment
-- [Claude](https://claude.ai) for AI assistance
 
 ---
 

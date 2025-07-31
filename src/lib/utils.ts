@@ -1,6 +1,5 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { localeConfig } from "@/config/locale.config"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -10,11 +9,11 @@ export function cn(...inputs: ClassValue[]) {
  * Format a number as currency
  */
 export function formatCurrency(amount: number): string {
-  return new Intl.NumberFormat(localeConfig.currency.locale, {
+  return new Intl.NumberFormat('en-US', {
     style: 'currency',
-    currency: localeConfig.currency.code,
-    minimumFractionDigits: localeConfig.currency.minimumFractionDigits,
-    maximumFractionDigits: localeConfig.currency.maximumFractionDigits,
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
   }).format(amount);
 }
 
@@ -23,7 +22,11 @@ export function formatCurrency(amount: number): string {
  */
 export function formatDate(date: Date | string | number): string {
   const dateObj = new Date(date);
-  return new Intl.DateTimeFormat(localeConfig.dateFormat.locale, localeConfig.dateFormat.short).format(dateObj);
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  }).format(dateObj);
 }
 
 /**
@@ -31,7 +34,14 @@ export function formatDate(date: Date | string | number): string {
  */
 export function formatDateTime(date: Date | string | number): string {
   const dateObj = new Date(date);
-  return new Intl.DateTimeFormat(localeConfig.dateFormat.locale, localeConfig.dateFormat.long).format(dateObj);
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+  }).format(dateObj);
 }
 
 /**

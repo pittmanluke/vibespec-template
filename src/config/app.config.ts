@@ -25,12 +25,7 @@ export const appConfig = {
     linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || '',
   },
   
-  // Feature flags
-  features: {
-    enableUserOnboarding: process.env.NEXT_PUBLIC_ENABLE_USER_ONBOARDING === 'true',
-    enableAdminFeatures: process.env.NEXT_PUBLIC_ENABLE_ADMIN_FEATURES === 'true',
-    enableAnalytics: process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === 'true',
-  },
+  // Feature flags are managed in /src/lib/feature-flags.ts
   
   // API endpoints (if using external APIs)
   api: {

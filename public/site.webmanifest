@@ -1,7 +1,7 @@
 {
-  "name": "VibeSpec",
-  "short_name": "VibeSpec",
-  "description": "A template for spec-driven AI-assisted coding",
+  "name": "My App",
+  "short_name": "My App",
+  "description": "A modern web application",
   "icons": [
     {
       "src": "/favicon_io/android-chrome-192x192.png",
