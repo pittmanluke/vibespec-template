@@ -25,12 +25,6 @@ export const firebaseFeatures = {
   useStorage: process.env.NEXT_PUBLIC_USE_STORAGE !== 'false',
   
   /**
-   * Enable/disable Cloud Functions
-   * When disabled, functions will be mocked locally
-   */
-  useFunctions: process.env.NEXT_PUBLIC_USE_FUNCTIONS !== 'false',
-  
-  /**
    * Enable/disable Firebase Emulators
    * Only relevant when other features are enabled
    */
@@ -64,7 +58,6 @@ export const getFeatureStatus = () => {
     auth: firebaseFeatures.useAuthentication ? 'Firebase' : 'Mock',
     database: firebaseFeatures.useFirestore ? 'Firestore' : 'LocalStorage',
     storage: firebaseFeatures.useStorage ? 'Firebase Storage' : 'Browser Storage',
-    functions: firebaseFeatures.useFunctions ? 'Cloud Functions' : 'Mock Functions',
   };
   
   return status;

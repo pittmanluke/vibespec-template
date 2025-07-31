@@ -3,7 +3,6 @@ import { initializeApp, getApps, getApp, FirebaseApp } from 'firebase/app';
 import { getAuth, Auth } from 'firebase/auth';
 import { getFirestore, Firestore } from 'firebase/firestore';
 import { getStorage, FirebaseStorage } from 'firebase/storage';
-import { getFunctions, Functions } from 'firebase/functions';
 import { firebaseFeatures, hasFirebaseConfig } from '@/config/firebase.config';
 
 // Your web app's Firebase configuration
@@ -62,20 +61,13 @@ if (firebaseFeatures.useStorage && app) {
   storage = getStorage(app);
 }
 
-// Initialize Functions if enabled
-let functions: Functions | null = null;
-if (firebaseFeatures.useFunctions && app) {
-  functions = getFunctions(app);
-}
-
 // Log feature status in development
 if (firebaseFeatures.isDevelopment) {
   console.log('🔥 Firebase Feature Status:', {
     auth: auth ? 'Initialized' : 'Disabled',
     firestore: db ? 'Initialized' : 'Disabled', 
     storage: storage ? 'Initialized' : 'Disabled',
-    functions: functions ? 'Initialized' : 'Disabled',
   });
 }
 
-export { app, auth, db, storage, functions }; 
+export { app, auth, db, storage }; 
