@@ -1,7 +1,7 @@
 {
-  "name": "My App",
-  "short_name": "My App",
-  "description": "A modern web application",
+  "name": "VibeSpec Template",
+  "short_name": "VibeSpec",
+  "description": "Production-ready Next.js template for AI-assisted development",
   "icons": [
     {
       "src": "/favicon_io/android-chrome-192x192.png",
