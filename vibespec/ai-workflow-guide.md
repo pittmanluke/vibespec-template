@@ -9,13 +9,13 @@ This guide documents a battle-tested workflow for building applications with AI 
 ### Sub-Agents Integration
 
 VibeSpec includes specialized sub-agents that automatically assist during development:
-- **spec-alignment-guardian**: Validates implementations match specifications
-- **velocity-guardian**: Prevents feature creep and maintains momentum
-- **vibespec-compliance-validator**: Enforces coding standards and conventions
-- **session-state-tracker**: Captures development state for seamless handoffs
-- **vibespec-docs-harmonizer**: Keeps documentation synchronized
-- **agent-architect**: Designs new agents for automation opportunities
-- **ui-enhancement-specialist**: Enhances UI components for accessibility, consistency, and maintainability
+- **spec-guardian**: Validates implementations match specifications
+- **velocity**: Prevents feature creep and maintains momentum
+- **compliance**: Enforces coding standards and conventions
+- **session-tracker**: Captures development state for seamless handoffs
+- **docs-sync**: Keeps documentation synchronized
+- **architect**: Designs new agents for automation opportunities
+- **ui-enhancer**: Enhances UI components for accessibility, consistency, and maintainability
 
 These agents activate automatically at key points in your workflow or can be invoked manually. See `/vibespec/sub-agents.md` for detailed information.
 
@@ -70,8 +70,8 @@ Once you have a clear plan, move into your development environment:
 
 5. **Execute & Track**
    ```bash
-   /session:update  # After significant progress (triggers session-state-tracker)
-   git commit       # Regular commits (triggers vibespec-compliance-validator)
+   /session:update  # After significant progress (triggers session-tracker)
+   git commit       # Regular commits (triggers compliance)
    ```
 
 6. **Close Session**

@@ -16,7 +16,7 @@ Sub-agents are specialized AI assistants that work alongside Claude Code to hand
 
 ## Available Sub-Agents
 
-### 1. spec-alignment-guardian
+### 1. spec-guardian
 
 **Purpose**: Ensures implementations match their specifications exactly, preventing the #1 cause of wasted time in AI development - building the wrong thing.
 
@@ -41,7 +41,7 @@ authentication. Per VibeSpec principles, auth should be added last.
 Recommendation: Remove auth code and save for final implementation phase.
 ```
 
-### 2. velocity-guardian
+### 2. velocity
 
 **Purpose**: Prevents feature creep and maintains shipping momentum by enforcing "done is better than perfect."
 
@@ -69,7 +69,7 @@ Recommendation: Ship this version now. Create `/specs/dashboard-v2.md`
 for the excellent enhancement ideas. Real user feedback > imagined features.
 ```
 
-### 3. vibespec-compliance-validator
+### 3. compliance
 
 **Purpose**: Enforces the 12 strict VibeSpec rules and architectural patterns without slowing development.
 
@@ -105,7 +105,7 @@ Run these commands to fix:
 - Update imports as shown above
 ```
 
-### 4. session-state-tracker
+### 4. session-tracker
 
 **Purpose**: Captures comprehensive development state to ensure seamless continuation between sessions and prevent context loss.
 
@@ -146,7 +146,7 @@ Run these commands to fix:
 3. Test responsive breakpoints
 ```
 
-### 5. agent-architect
+### 5. architect
 
 **Purpose**: Designs and creates optimal sub-agent configurations for VibeSpec projects, analyzing tasks for automation opportunities and crafting specialized agents that follow VibeSpec patterns.
 
@@ -179,7 +179,7 @@ Let me design a naming-convention-validator agent that can:
 Would you like me to create this agent configuration?
 ```
 
-### 6. ui-enhancement-specialist
+### 6. ui-enhancer
 
 **Purpose**: Helps developers effectively and efficiently make edits, changes, and enhancements to UI components in VibeSpec projects. Specializes in React component development, Tailwind CSS v4, accessibility standards, and responsive design patterns.
 
@@ -244,9 +244,9 @@ Sub-agents monitor your development activity and activate when their expertise i
 You can explicitly request an agent's help:
 
 ```
-> Use the spec-alignment-guardian to check my implementation
-> Have the velocity-guardian review our current scope
-> Ask the session-state-tracker to capture current state
+> Use the spec-guardian to check my implementation
+> Have the velocity review our current scope
+> Ask the session-tracker to capture current state
 ```
 
 ### Integration with Commands
@@ -255,10 +255,10 @@ Sub-agents integrate seamlessly with VibeSpec commands:
 
 | Command | Triggered Agents |
 |---------|-----------------|
-| `/transpose` | spec-alignment-guardian (validates generated spec) |
-| `/breakdown` | spec-alignment-guardian (checks plan alignment) |
-| `/session:update` | session-state-tracker (captures state) |
-| Code changes | vibespec-compliance-validator (enforces rules) |
+| `/transpose` | spec-guardian (validates generated spec) |
+| `/breakdown` | spec-guardian (checks plan alignment) |
+| `/session:update` | session-tracker (captures state) |
+| Code changes | compliance (enforces rules) |
 
 ## Best Practices
 
@@ -312,8 +312,8 @@ While agents come pre-configured, you can adjust them:
 **Solutions**:
 - Agents are designed to complement each other
 - Follow the most specific agent's advice
-- spec-alignment-guardian takes precedence for spec issues
-- vibespec-compliance-validator takes precedence for code standards
+- spec-guardian takes precedence for spec issues
+- compliance takes precedence for code standards
 
 ### Session State Issues
 
@@ -331,24 +331,24 @@ While agents come pre-configured, you can adjust them:
 
 1. Create specification in `/specs`
 2. Run `/transpose` or `/breakdown`
-   - spec-alignment-guardian validates output
+   - spec-guardian validates output
 3. Begin implementation
-   - vibespec-compliance-validator ensures standards
+   - compliance ensures standards
 4. Regular `/session:update`
-   - session-state-tracker captures progress
+   - session-tracker captures progress
 5. When tempted to add "one more thing"
-   - velocity-guardian keeps you focused
+   - velocity keeps you focused
 
 ### Resuming After Break
 
 1. Run `/context-prime`
 2. Check last session in `.claude/sessions/`
-3. session-state-tracker provides quick-start guide
+3. session-tracker provides quick-start guide
 4. Continue where you left off
 
 ### Fixing Violations
 
-1. vibespec-compliance-validator reports issues
+1. compliance reports issues
 2. Follow specific fix instructions
 3. Run validation again
 4. Commit when clean
@@ -363,29 +363,29 @@ The sub-agents in VibeSpec are:
 
 ## Agent Creation
 
-### Using the agent-architect
+### Using the architect
 
-The **agent-architect** sub-agent helps you create new specialized agents for your project:
+The **architect** sub-agent helps you create new specialized agents for your project:
 
 1. **Identify Automation Opportunities**
    ```
    "I keep having to check if my API responses match the TypeScript interfaces"
-   > The agent-architect can design an api-contract-validator for this
+   > The architect can design an api-contract-validator for this
    ```
 
 2. **Request Agent Creation**
    ```
    "Create an agent that ensures all images have alt text"
-   > The agent-architect will design an accessibility-checker agent
+   > The architect will design an accessibility-checker agent
    ```
 
 3. **Optimize Existing Workflows**
    ```
    "Can we automate checking for unused imports?"
-   > The agent-architect will create a code-hygiene agent
+   > The architect will create a code-hygiene agent
    ```
 
-The agent-architect ensures all new agents:
+The architect ensures all new agents:
 - Follow VibeSpec naming conventions (kebab-case)
 - Include proper triggering conditions
 - Have comprehensive system prompts
@@ -401,7 +401,7 @@ Potential agents for future development:
 - **database-schema-validator**: Ensures database changes are backward compatible
 - **i18n-consistency-checker**: Validates translations and internationalization
 
-Use the agent-architect to design these or any other specialized agents your project needs!
+Use the architect to design these or any other specialized agents your project needs!
 
 ## Summary
 

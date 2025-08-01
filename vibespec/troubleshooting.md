@@ -484,16 +484,16 @@ If nothing works:
 
 **Solutions**:
 1. **Check agent triggers**:
-   - spec-alignment-guardian: After `/transpose`, `/breakdown`, or during implementation
-   - velocity-guardian: When adding "enhancements" or refactoring working code
-   - vibespec-compliance-validator: After any code changes
-   - session-state-tracker: During `/session:update`
-   - agent-architect: When repetitive tasks detected or agent creation requested
+   - spec-guardian: After `/transpose`, `/breakdown`, or during implementation
+   - velocity: When adding "enhancements" or refactoring working code
+   - compliance: After any code changes
+   - session-tracker: During `/session:update`
+   - architect: When repetitive tasks detected or agent creation requested
 
 2. **Manually invoke the agent**:
    ```
-   > Use the spec-alignment-guardian to check my implementation
-   > Have the velocity-guardian review our current scope
+   > Use the spec-guardian to check my implementation
+   > Have the velocity review our current scope
    ```
 
 3. **Verify agent files exist**:
@@ -519,11 +519,11 @@ If nothing works:
 1. Check CLAUDE.md for project-specific overrides
 2. Ensure specifications are up to date
 3. Review agent configuration in `.claude/agents/`
-4. Remember spec-alignment-guardian takes precedence for spec issues
+4. Remember spec-guardian takes precedence for spec issues
 
 ### Session State Missing Information
 
-**Problem**: session-state-tracker not capturing important context
+**Problem**: session-tracker not capturing important context
 
 **Solutions**:
 1. Ensure git is initialized

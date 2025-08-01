@@ -315,21 +315,21 @@ This project includes custom Claude commands for workflow automation:
 ### Available Commands
 - `/context-prime` - Load project context and understand structure
 - `/session:start` - Begin a development session
-- `/session:update` - Track progress during development (triggers session-state-tracker)
+- `/session:update` - Track progress during development (triggers session-tracker)
 - `/session:end` - Close and document session
-- `/transpose` - Convert artifact files to template-compliant PRDs (triggers spec-alignment-guardian)
-- `/breakdown` - Break external PRDs into phased implementation specs (triggers spec-alignment-guardian)
+- `/transpose` - Convert artifact files to template-compliant PRDs (triggers spec-guardian)
+- `/breakdown` - Break external PRDs into phased implementation specs (triggers spec-guardian)
 - `/adapt` - Adapt CLAUDE.md and README.md to your specific project
 
 ### Sub-Agents
 VibeSpec includes specialized sub-agents that automatically monitor and assist development:
-- **spec-alignment-guardian** - Ensures implementations match specifications exactly
-- **velocity-guardian** - Prevents feature creep and maintains shipping momentum
-- **vibespec-compliance-validator** - Enforces VibeSpec rules and conventions
-- **session-state-tracker** - Captures comprehensive development state
-- **vibespec-docs-harmonizer** - Keeps documentation synchronized
-- **agent-architect** - Designs new sub-agents for automation opportunities
-- **ui-enhancement-specialist** - Enhances UI components for accessibility, consistency, and quality
+- **spec-guardian** - Ensures implementations match specifications exactly
+- **velocity** - Prevents feature creep and maintains shipping momentum
+- **compliance** - Enforces VibeSpec rules and conventions
+- **session-tracker** - Captures comprehensive development state
+- **docs-sync** - Keeps documentation synchronized
+- **architect** - Designs new sub-agents for automation opportunities
+- **ui-enhancer** - Enhances UI components for accessibility, consistency, and quality
 
 These agents activate automatically when needed or can be invoked manually. See `vibespec/sub-agents.md` for details.
 

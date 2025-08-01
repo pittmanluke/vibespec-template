@@ -6,12 +6,12 @@ This document outlines the core architectural principles and patterns that guide
 
 VibeSpec employs specialized sub-agents to automatically enforce architectural principles:
 
-- **spec-alignment-guardian**: Ensures implementations follow specifications
-- **velocity-guardian**: Prevents over-engineering and scope creep
-- **vibespec-compliance-validator**: Enforces file naming and code standards
-- **session-state-tracker**: Maintains development continuity
-- **vibespec-docs-harmonizer**: Keeps all documentation synchronized
-- **agent-architect**: Creates new agents for project-specific automation needs
+- **spec-guardian**: Ensures implementations follow specifications
+- **velocity**: Prevents over-engineering and scope creep
+- **compliance**: Enforces file naming and code standards
+- **session-tracker**: Maintains development continuity
+- **docs-sync**: Keeps all documentation synchronized
+- **architect**: Creates new agents for project-specific automation needs
 
 These agents work in the background, proactively preventing architectural drift. See [Sub-Agents Guide](./sub-agents.md) for details.
 

@@ -45,13 +45,13 @@ claude
 - When you need progress tracking
 
 **Sub-agent integration**:
-- Enables session-state-tracker for automatic progress capture
+- Enables session-tracker for automatic progress capture
 - Activates all monitoring agents:
-  - spec-alignment-guardian
-  - velocity-guardian
-  - vibespec-compliance-validator
-  - vibespec-docs-harmonizer
-  - agent-architect
+  - spec-guardian
+  - velocity
+  - compliance
+  - docs-sync
+  - architect
 
 **Usage**:
 ```bash

@@ -6,13 +6,13 @@ This document outlines the development workflow, common tasks, and best practice
 
 VibeSpec includes automated sub-agents that monitor and assist your development:
 
-- **spec-alignment-guardian**: Ensures your implementation matches specifications
-- **velocity-guardian**: Keeps you focused on shipping, not perfecting
-- **vibespec-compliance-validator**: Automatically checks code standards
-- **session-state-tracker**: Captures your progress for easy handoffs
-- **vibespec-docs-harmonizer**: Keeps documentation in sync
-- **agent-architect**: Identifies and creates agents for repetitive tasks
-- **ui-enhancement-specialist**: Helps improve UI components for accessibility and consistency
+- **spec-guardian**: Ensures your implementation matches specifications
+- **velocity**: Keeps you focused on shipping, not perfecting
+- **compliance**: Automatically checks code standards
+- **session-tracker**: Captures your progress for easy handoffs
+- **docs-sync**: Keeps documentation in sync
+- **architect**: Identifies and creates agents for repetitive tasks
+- **ui-enhancer**: Helps improve UI components for accessibility and consistency
 
 These agents work automatically in the background, intervening only when needed. See [Sub-Agents Guide](./sub-agents.md) for details.
 

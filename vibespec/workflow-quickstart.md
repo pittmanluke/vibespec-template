@@ -21,17 +21,17 @@ claude                    # Open Claude CLI
 ```
 
 **Active Sub-Agents**: Once you start a session, these agents monitor your work:
-- 🎯 **spec-alignment-guardian** - Validates spec compliance
-- ⚡ **velocity-guardian** - Prevents feature creep
-- ✅ **vibespec-compliance-validator** - Checks code standards
-- 💾 **session-state-tracker** - Captures progress
-- 📚 **vibespec-docs-harmonizer** - Syncs documentation
-- 🤖 **agent-architect** - Identifies automation opportunities
-- 🎨 **ui-enhancement-specialist** - Improves UI components
+- 🎯 **spec-guardian** - Validates spec compliance
+- ⚡ **velocity** - Prevents feature creep
+- ✅ **compliance** - Checks code standards
+- 💾 **session-tracker** - Captures progress
+- 📚 **docs-sync** - Syncs documentation
+- 🤖 **architect** - Identifies automation opportunities
+- 🎨 **ui-enhancer** - Improves UI components
 
 ### 🏁 Ending a Work Session
 ```bash
-/session:update          # Track progress (triggers session-state-tracker)
+/session:update          # Track progress (triggers session-tracker)
 git add . && git commit  # Commit changes (triggers compliance validator)
 /session:end            # Close session
 ```

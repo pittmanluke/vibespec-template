@@ -51,3 +51,7 @@ pubsub-debug.log
 # claude
 .claude/sessions/*.md
 .claude/settings.local.json
+
+# plans (except README)
+plans/*.md
+!plans/README.md

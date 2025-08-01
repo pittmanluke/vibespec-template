@@ -61,13 +61,18 @@ if (firebaseFeatures.useStorage && app) {
   storage = getStorage(app);
 }
 
-// Log feature status in development
-if (firebaseFeatures.isDevelopment) {
-  console.log('🔥 Firebase Feature Status:', {
-    auth: auth ? 'Initialized' : 'Disabled',
-    firestore: db ? 'Initialized' : 'Disabled', 
-    storage: storage ? 'Initialized' : 'Disabled',
-  });
+// Log feature status in development (only once per environment)
+if (firebaseFeatures.isDevelopment && typeof window !== 'undefined') {
+  // Client-side only logging using sessionStorage as a flag
+  const logKey = 'firebase-status-logged';
+  if (!sessionStorage.getItem(logKey)) {
+    sessionStorage.setItem(logKey, 'true');
+    console.log('🔥 Firebase Feature Status:', {
+      auth: auth ? 'Initialized' : 'Disabled',
+      firestore: db ? 'Initialized' : 'Disabled', 
+      storage: storage ? 'Initialized' : 'Disabled',
+    });
+  }
 }
 
 export { app, auth, db, storage }; 
