@@ -1,0 +1,413 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-02",
+    "description": "Event routing configuration for VibeSpec hook infrastructure",
+    "performance_targets": {
+      "event_processing_latency": "<100ms",
+      "throughput": ">1000 events/sec",
+      "zero_event_loss": true
+    }
+  },
+  "event_types": {
+    "file.created": {
+      "description": "File creation events",
+      "priority": "normal",
+      "deduplication_window": 500,
+      "max_batch_size": 50,
+      "handlers": ["file-watcher", "compliance-validator", "spec-guardian"],
+      "filters": {
+        "include_extensions": [".ts", ".tsx", ".js", ".jsx", ".json", ".md", ".py", ".sh"],
+        "exclude_patterns": ["node_modules/*", ".git/*", "*.tmp", "*.log"],
+        "include_paths": ["src/", "app/", "components/", "lib/", "hooks/", "types/", "services/", "providers/", "specs/", "plans/", "docs/", ".claude/"]
+      },
+      "propagation": {
+        "immediate": ["file-watcher"],
+        "batched": ["compliance-validator", "spec-guardian"],
+        "async": []
+      }
+    },
+    "file.modified": {
+      "description": "File modification events",
+      "priority": "high",
+      "deduplication_window": 1000,
+      "max_batch_size": 25,
+      "handlers": ["file-watcher", "post-tool-use", "compliance-validator"],
+      "filters": {
+        "include_extensions": [".ts", ".tsx", ".js", ".jsx", ".json", ".md", ".py", ".sh", ".css", ".yml", ".yaml"],
+        "exclude_patterns": ["node_modules/*", ".git/*", "*.tmp", "*.log", ".next/*", "dist/*", "build/*"],
+        "include_paths": ["src/", "app/", "components/", "lib/", "hooks/", "types/", "services/", "providers/", "specs/", "plans/", "docs/", ".claude/"]
+      },
+      "propagation": {
+        "immediate": ["file-watcher", "post-tool-use"],
+        "batched": ["compliance-validator"],
+        "async": []
+      }
+    },
+    "file.deleted": {
+      "description": "File deletion events",
+      "priority": "high",
+      "deduplication_window": 2000,
+      "max_batch_size": 10,
+      "handlers": ["file-watcher", "cleanup-manager"],
+      "filters": {
+        "include_extensions": [".ts", ".tsx", ".js", ".jsx", ".json", ".md"],
+        "exclude_patterns": ["node_modules/*", ".git/*", "*.tmp", "*.log"]
+      },
+      "propagation": {
+        "immediate": ["file-watcher"],
+        "batched": ["cleanup-manager"],
+        "async": []
+      }
+    },
+    "workflow.started": {
+      "description": "Workflow execution started",
+      "priority": "critical",
+      "deduplication_window": 0,
+      "max_batch_size": 1,
+      "handlers": ["workflow-state-manager", "performance-monitor", "session-tracker"],
+      "filters": {},
+      "propagation": {
+        "immediate": ["workflow-state-manager", "performance-monitor"],
+        "batched": [],
+        "async": ["session-tracker"]
+      }
+    },
+    "workflow.completed": {
+      "description": "Workflow execution completed",
+      "priority": "critical",
+      "deduplication_window": 0,
+      "max_batch_size": 1,
+      "handlers": ["workflow-state-manager", "performance-monitor", "session-tracker", "agent-coordinator"],
+      "filters": {},
+      "propagation": {
+        "immediate": ["workflow-state-manager", "performance-monitor"],
+        "batched": [],
+        "async": ["session-tracker", "agent-coordinator"]
+      }
+    },
+    "workflow.failed": {
+      "description": "Workflow execution failed",
+      "priority": "critical",
+      "deduplication_window": 0,
+      "max_batch_size": 1,
+      "handlers": ["workflow-state-manager", "error-recovery", "alert-manager"],
+      "filters": {},
+      "propagation": {
+        "immediate": ["workflow-state-manager", "error-recovery", "alert-manager"],
+        "batched": [],
+        "async": []
+      }
+    },
+    "agent.started": {
+      "description": "Agent execution started",
+      "priority": "normal",
+      "deduplication_window": 100,
+      "max_batch_size": 10,
+      "handlers": ["agent-coordinator", "performance-monitor"],
+      "filters": {},
+      "propagation": {
+        "immediate": ["agent-coordinator"],
+        "batched": ["performance-monitor"],
+        "async": []
+      }
+    },
+    "agent.completed": {
+      "description": "Agent execution completed",
+      "priority": "high",
+      "deduplication_window": 100,
+      "max_batch_size": 10,
+      "handlers": ["agent-coordinator", "sub-agent-stop", "performance-monitor", "output-processor"],
+      "filters": {},
+      "propagation": {
+        "immediate": ["agent-coordinator", "sub-agent-stop"],
+        "batched": ["performance-monitor"],
+        "async": ["output-processor"]
+      }
+    },
+    "agent.failed": {
+      "description": "Agent execution failed",
+      "priority": "critical",
+      "deduplication_window": 0,
+      "max_batch_size": 1,
+      "handlers": ["agent-coordinator", "error-recovery", "performance-monitor"],
+      "filters": {},
+      "propagation": {
+        "immediate": ["agent-coordinator", "error-recovery"],
+        "batched": ["performance-monitor"],
+        "async": []
+      }
+    },
+    "tool.used": {
+      "description": "Tool usage events",
+      "priority": "normal",
+      "deduplication_window": 500,
+      "max_batch_size": 20,
+      "handlers": ["post-tool-use", "performance-monitor", "usage-tracker"],
+      "filters": {
+        "include_tools": ["Read", "Write", "Glob", "WebSearch", "Execute"],
+        "exclude_tools": []
+      },
+      "propagation": {
+        "immediate": ["post-tool-use"],
+        "batched": ["performance-monitor", "usage-tracker"],
+        "async": []
+      }
+    },
+    "git.commit": {
+      "description": "Git commit events",
+      "priority": "high",
+      "deduplication_window": 0,
+      "max_batch_size": 1,
+      "handlers": ["pre-commit", "compliance-validator", "change-tracker"],
+      "filters": {},
+      "propagation": {
+        "immediate": ["pre-commit"],
+        "batched": [],
+        "async": ["compliance-validator", "change-tracker"]
+      }
+    },
+    "naming.violation": {
+      "description": "Naming convention violations",
+      "priority": "high",
+      "deduplication_window": 1000,
+      "max_batch_size": 5,
+      "handlers": ["compliance-validator", "alert-manager"],
+      "filters": {},
+      "propagation": {
+        "immediate": ["compliance-validator"],
+        "batched": [],
+        "async": ["alert-manager"]
+      }
+    },
+    "spec.drift": {
+      "description": "Specification drift detected",
+      "priority": "high",
+      "deduplication_window": 2000,
+      "max_batch_size": 3,
+      "handlers": ["spec-guardian", "alert-manager"],
+      "filters": {},
+      "propagation": {
+        "immediate": ["spec-guardian"],
+        "batched": [],
+        "async": ["alert-manager"]
+      }
+    },
+    "performance.threshold": {
+      "description": "Performance threshold breached",
+      "priority": "critical",
+      "deduplication_window": 5000,
+      "max_batch_size": 1,
+      "handlers": ["performance-monitor", "alert-manager", "auto-optimizer"],
+      "filters": {},
+      "propagation": {
+        "immediate": ["performance-monitor", "alert-manager"],
+        "batched": [],
+        "async": ["auto-optimizer"]
+      }
+    },
+    "state.changed": {
+      "description": "Workflow state changes",
+      "priority": "normal",
+      "deduplication_window": 200,
+      "max_batch_size": 50,
+      "handlers": ["workflow-state-manager", "session-tracker"],
+      "filters": {},
+      "propagation": {
+        "immediate": ["workflow-state-manager"],
+        "batched": ["session-tracker"],
+        "async": []
+      }
+    },
+    "session.started": {
+      "description": "Development session started",
+      "priority": "normal",
+      "deduplication_window": 0,
+      "max_batch_size": 1,
+      "handlers": ["session-tracker", "context-builder"],
+      "filters": {},
+      "propagation": {
+        "immediate": ["session-tracker"],
+        "batched": [],
+        "async": ["context-builder"]
+      }
+    },
+    "session.ended": {
+      "description": "Development session ended",
+      "priority": "normal",
+      "deduplication_window": 0,
+      "max_batch_size": 1,
+      "handlers": ["session-tracker", "session-archiver"],
+      "filters": {},
+      "propagation": {
+        "immediate": ["session-tracker"],
+        "batched": [],
+        "async": ["session-archiver"]
+      }
+    }
+  },
+  "agent_triggers": {
+    "compliance": {
+      "events": ["file.created", "file.modified", "naming.violation", "git.commit"],
+      "conditions": {
+        "file_extensions": [".ts", ".tsx", ".js", ".jsx", ".json"],
+        "file_patterns": ["src/**/*", "app/**/*", "components/**/*"],
+        "violation_threshold": 1
+      },
+      "debounce_ms": 2000,
+      "max_concurrent": 1,
+      "timeout_seconds": 120
+    },
+    "reviewer": {
+      "events": ["workflow.started", "git.commit", "file.modified"],
+      "conditions": {
+        "file_extensions": [".ts", ".tsx", ".js", ".jsx"],
+        "file_patterns": ["src/**/*", "app/**/*"],
+        "min_files_changed": 2
+      },
+      "debounce_ms": 3000,
+      "max_concurrent": 1,
+      "timeout_seconds": 300
+    },
+    "ui-enhancer": {
+      "events": ["file.modified", "file.created"],
+      "conditions": {
+        "file_extensions": [".tsx", ".jsx", ".css"],
+        "file_patterns": ["components/**/*", "app/**/*"],
+        "ui_change_detected": true
+      },
+      "debounce_ms": 5000,
+      "max_concurrent": 1,
+      "timeout_seconds": 180
+    },
+    "spec-guardian": {
+      "events": ["file.modified", "spec.drift"],
+      "conditions": {
+        "file_patterns": ["specs/**/*", "plans/**/*", "src/**/*"],
+        "spec_file_changed": true
+      },
+      "debounce_ms": 1000,
+      "max_concurrent": 1,
+      "timeout_seconds": 150
+    },
+    "architect": {
+      "events": ["workflow.started", "file.modified"],
+      "conditions": {
+        "file_patterns": [".claude/config/**/*", "src/services/**/*"],
+        "architecture_change": true
+      },
+      "debounce_ms": 10000,
+      "max_concurrent": 1,
+      "timeout_seconds": 240
+    },
+    "velocity": {
+      "events": ["workflow.completed", "agent.completed"],
+      "conditions": {
+        "scope_creep_detected": true,
+        "feature_bloat_threshold": 5
+      },
+      "debounce_ms": 15000,
+      "max_concurrent": 1,
+      "timeout_seconds": 120
+    },
+    "performance-monitor": {
+      "events": ["tool.used", "workflow.completed", "performance.threshold"],
+      "conditions": {
+        "always": true
+      },
+      "debounce_ms": 1000,
+      "max_concurrent": 2,
+      "timeout_seconds": 60
+    },
+    "meta-agent": {
+      "events": ["workflow.failed", "agent.failed"],
+      "conditions": {
+        "failure_pattern_detected": true,
+        "automation_opportunity": true
+      },
+      "debounce_ms": 30000,
+      "max_concurrent": 1,
+      "timeout_seconds": 300
+    }
+  },
+  "queue_configuration": {
+    "priority_queues": {
+      "critical": {
+        "max_size": 1000,
+        "processing_timeout_ms": 50,
+        "retry_attempts": 3,
+        "dlq_enabled": true
+      },
+      "high": {
+        "max_size": 5000,
+        "processing_timeout_ms": 100,
+        "retry_attempts": 2,
+        "dlq_enabled": true
+      },
+      "normal": {
+        "max_size": 10000,
+        "processing_timeout_ms": 500,
+        "retry_attempts": 1,
+        "dlq_enabled": true
+      },
+      "low": {
+        "max_size": 20000,
+        "processing_timeout_ms": 1000,
+        "retry_attempts": 1,
+        "dlq_enabled": false
+      }
+    },
+    "batch_processing": {
+      "enabled": true,
+      "max_batch_size": 100,
+      "batch_timeout_ms": 2000,
+      "min_batch_size": 5
+    },
+    "circuit_breaker": {
+      "failure_threshold": 5,
+      "recovery_timeout_ms": 30000,
+      "half_open_max_calls": 3
+    }
+  },
+  "routing_rules": {
+    "default_handler": "event-dispatcher",
+    "fallback_queue": "normal",
+    "load_balancing": {
+      "strategy": "round_robin",
+      "max_queue_depth": 1000,
+      "overflow_strategy": "drop_oldest"
+    },
+    "conditional_routing": {
+      "high_load_threshold": 0.8,
+      "degraded_mode_handlers": ["performance-monitor", "alert-manager"],
+      "emergency_mode_handlers": ["alert-manager"]
+    }
+  },
+  "state_propagation": {
+    "enabled": true,
+    "storage_backend": "file_system",
+    "compression": true,
+    "encryption": false,
+    "retention_policy": {
+      "max_age_days": 30,
+      "max_size_mb": 500,
+      "cleanup_frequency": "daily"
+    },
+    "replication": {
+      "enabled": false,
+      "replicas": 1,
+      "consistency": "eventual"
+    }
+  },
+  "monitoring": {
+    "metrics_collection": true,
+    "performance_logging": true,
+    "event_tracing": true,
+    "alert_thresholds": {
+      "queue_depth": 500,
+      "processing_latency_ms": 1000,
+      "error_rate_percent": 5,
+      "memory_usage_mb": 100
+    }
+  }
+}

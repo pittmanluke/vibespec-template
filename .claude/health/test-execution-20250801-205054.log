@@ -1,0 +1,10 @@
+[0;32m🚀 Starting Comprehensive Multi-Agent Workflow Integration Tests[0m
+==================================================================
+📅 Start Time: Fri Aug  1 20:50:54 CDT 2025
+📁 Base Path: /home/lukep/dev/vibespec-template
+📝 Log File: /home/lukep/dev/vibespec-template/.claude/health/test-execution-20250801-205054.log
+
+[0;34m🔍 Checking Prerequisites...[0m
+   📦 Checking Python packages...
+[1;33m⚠️  Installing required Python packages...[0m
+[0;31m❌ Failed to install required packages[0m

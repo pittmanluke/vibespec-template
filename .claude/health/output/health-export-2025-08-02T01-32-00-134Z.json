@@ -1,0 +1,737 @@
+{
+  "overallScore": 87,
+  "trend": {
+    "change": 2.3
+  },
+  "dimensions": {
+    "compliance": {
+      "score": 92,
+      "trend": {
+        "change": 1.5
+      },
+      "issues": 0
+    },
+    "velocity": {
+      "score": 84,
+      "trend": {
+        "change": -1.2
+      },
+      "issues": 2
+    },
+    "specAlignment": {
+      "score": 89,
+      "trend": {
+        "change": 3.1
+      },
+      "issues": 1
+    },
+    "codeQuality": {
+      "score": 85,
+      "trend": {
+        "change": 4.2
+      },
+      "issues": 0
+    },
+    "architecture": {
+      "score": 95,
+      "trend": {
+        "change": 0
+      },
+      "issues": 0
+    }
+  },
+  "issues": {
+    "critical": 0,
+    "warnings": 3,
+    "passed": 47
+  },
+  "recommendations": [
+    {
+      "title": "Increase commit frequency to maintain velocity momentum",
+      "priority": "high",
+      "impact": "Velocity improvement",
+      "description": "Current commit frequency is below target. Consider implementing smaller, more frequent commits.",
+      "effort": "Low"
+    },
+    {
+      "title": "Address ESLint warnings in user management components",
+      "priority": "medium",
+      "impact": "Code quality improvement",
+      "description": "3 ESLint warnings detected in user management module that should be resolved.",
+      "effort": "Medium"
+    },
+    {
+      "title": "Consider extracting common utilities from authentication service",
+      "priority": "low",
+      "impact": "Code reusability",
+      "description": "Potential code duplication detected in authentication components.",
+      "effort": "High"
+    }
+  ],
+  "history": [
+    {
+      "timestamp": "2025-07-03T01:32:00.134Z",
+      "overallScore": 82,
+      "dimensions": {
+        "compliance": {
+          "score": 85
+        },
+        "velocity": {
+          "score": 82
+        },
+        "specAlignment": {
+          "score": 85
+        },
+        "codeQuality": {
+          "score": 81
+        },
+        "architecture": {
+          "score": 79
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-04T01:32:00.134Z",
+      "overallScore": 81,
+      "dimensions": {
+        "compliance": {
+          "score": 79
+        },
+        "velocity": {
+          "score": 78
+        },
+        "specAlignment": {
+          "score": 85
+        },
+        "codeQuality": {
+          "score": 80
+        },
+        "architecture": {
+          "score": 81
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-05T01:32:00.134Z",
+      "overallScore": 79,
+      "dimensions": {
+        "compliance": {
+          "score": 76
+        },
+        "velocity": {
+          "score": 75
+        },
+        "specAlignment": {
+          "score": 75
+        },
+        "codeQuality": {
+          "score": 75
+        },
+        "architecture": {
+          "score": 77
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-06T01:32:00.134Z",
+      "overallScore": 84,
+      "dimensions": {
+        "compliance": {
+          "score": 80
+        },
+        "velocity": {
+          "score": 87
+        },
+        "specAlignment": {
+          "score": 86
+        },
+        "codeQuality": {
+          "score": 88
+        },
+        "architecture": {
+          "score": 88
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-07T01:32:00.134Z",
+      "overallScore": 83,
+      "dimensions": {
+        "compliance": {
+          "score": 84
+        },
+        "velocity": {
+          "score": 84
+        },
+        "specAlignment": {
+          "score": 86
+        },
+        "codeQuality": {
+          "score": 84
+        },
+        "architecture": {
+          "score": 80
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-08T01:32:00.134Z",
+      "overallScore": 87,
+      "dimensions": {
+        "compliance": {
+          "score": 91
+        },
+        "velocity": {
+          "score": 87
+        },
+        "specAlignment": {
+          "score": 88
+        },
+        "codeQuality": {
+          "score": 91
+        },
+        "architecture": {
+          "score": 87
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-09T01:32:00.134Z",
+      "overallScore": 87,
+      "dimensions": {
+        "compliance": {
+          "score": 92
+        },
+        "velocity": {
+          "score": 86
+        },
+        "specAlignment": {
+          "score": 92
+        },
+        "codeQuality": {
+          "score": 84
+        },
+        "architecture": {
+          "score": 84
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-10T01:32:00.134Z",
+      "overallScore": 85,
+      "dimensions": {
+        "compliance": {
+          "score": 89
+        },
+        "velocity": {
+          "score": 81
+        },
+        "specAlignment": {
+          "score": 83
+        },
+        "codeQuality": {
+          "score": 85
+        },
+        "architecture": {
+          "score": 81
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-11T01:32:00.134Z",
+      "overallScore": 82,
+      "dimensions": {
+        "compliance": {
+          "score": 87
+        },
+        "velocity": {
+          "score": 81
+        },
+        "specAlignment": {
+          "score": 79
+        },
+        "codeQuality": {
+          "score": 84
+        },
+        "architecture": {
+          "score": 86
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-12T01:32:00.134Z",
+      "overallScore": 78,
+      "dimensions": {
+        "compliance": {
+          "score": 77
+        },
+        "velocity": {
+          "score": 75
+        },
+        "specAlignment": {
+          "score": 78
+        },
+        "codeQuality": {
+          "score": 80
+        },
+        "architecture": {
+          "score": 80
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-13T01:32:00.134Z",
+      "overallScore": 79,
+      "dimensions": {
+        "compliance": {
+          "score": 81
+        },
+        "velocity": {
+          "score": 83
+        },
+        "specAlignment": {
+          "score": 81
+        },
+        "codeQuality": {
+          "score": 77
+        },
+        "architecture": {
+          "score": 77
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-14T01:32:00.134Z",
+      "overallScore": 83,
+      "dimensions": {
+        "compliance": {
+          "score": 87
+        },
+        "velocity": {
+          "score": 79
+        },
+        "specAlignment": {
+          "score": 87
+        },
+        "codeQuality": {
+          "score": 84
+        },
+        "architecture": {
+          "score": 88
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-15T01:32:00.134Z",
+      "overallScore": 88,
+      "dimensions": {
+        "compliance": {
+          "score": 90
+        },
+        "velocity": {
+          "score": 86
+        },
+        "specAlignment": {
+          "score": 86
+        },
+        "codeQuality": {
+          "score": 90
+        },
+        "architecture": {
+          "score": 86
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-16T01:32:00.134Z",
+      "overallScore": 86,
+      "dimensions": {
+        "compliance": {
+          "score": 85
+        },
+        "velocity": {
+          "score": 88
+        },
+        "specAlignment": {
+          "score": 90
+        },
+        "codeQuality": {
+          "score": 87
+        },
+        "architecture": {
+          "score": 89
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-17T01:32:00.134Z",
+      "overallScore": 83,
+      "dimensions": {
+        "compliance": {
+          "score": 85
+        },
+        "velocity": {
+          "score": 87
+        },
+        "specAlignment": {
+          "score": 84
+        },
+        "codeQuality": {
+          "score": 80
+        },
+        "architecture": {
+          "score": 80
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-18T01:32:00.134Z",
+      "overallScore": 90,
+      "dimensions": {
+        "compliance": {
+          "score": 93
+        },
+        "velocity": {
+          "score": 93
+        },
+        "specAlignment": {
+          "score": 95
+        },
+        "codeQuality": {
+          "score": 87
+        },
+        "architecture": {
+          "score": 88
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-19T01:32:00.134Z",
+      "overallScore": 86,
+      "dimensions": {
+        "compliance": {
+          "score": 85
+        },
+        "velocity": {
+          "score": 87
+        },
+        "specAlignment": {
+          "score": 90
+        },
+        "codeQuality": {
+          "score": 89
+        },
+        "architecture": {
+          "score": 83
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-20T01:32:00.134Z",
+      "overallScore": 82,
+      "dimensions": {
+        "compliance": {
+          "score": 79
+        },
+        "velocity": {
+          "score": 82
+        },
+        "specAlignment": {
+          "score": 86
+        },
+        "codeQuality": {
+          "score": 85
+        },
+        "architecture": {
+          "score": 85
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-21T01:32:00.134Z",
+      "overallScore": 85,
+      "dimensions": {
+        "compliance": {
+          "score": 88
+        },
+        "velocity": {
+          "score": 90
+        },
+        "specAlignment": {
+          "score": 87
+        },
+        "codeQuality": {
+          "score": 86
+        },
+        "architecture": {
+          "score": 90
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-22T01:32:00.134Z",
+      "overallScore": 92,
+      "dimensions": {
+        "compliance": {
+          "score": 90
+        },
+        "velocity": {
+          "score": 95
+        },
+        "specAlignment": {
+          "score": 95
+        },
+        "codeQuality": {
+          "score": 97
+        },
+        "architecture": {
+          "score": 95
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-23T01:32:00.134Z",
+      "overallScore": 85,
+      "dimensions": {
+        "compliance": {
+          "score": 89
+        },
+        "velocity": {
+          "score": 82
+        },
+        "specAlignment": {
+          "score": 86
+        },
+        "codeQuality": {
+          "score": 85
+        },
+        "architecture": {
+          "score": 80
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-24T01:32:00.134Z",
+      "overallScore": 85,
+      "dimensions": {
+        "compliance": {
+          "score": 88
+        },
+        "velocity": {
+          "score": 80
+        },
+        "specAlignment": {
+          "score": 88
+        },
+        "codeQuality": {
+          "score": 81
+        },
+        "architecture": {
+          "score": 89
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-25T01:32:00.134Z",
+      "overallScore": 89,
+      "dimensions": {
+        "compliance": {
+          "score": 90
+        },
+        "velocity": {
+          "score": 90
+        },
+        "specAlignment": {
+          "score": 92
+        },
+        "codeQuality": {
+          "score": 91
+        },
+        "architecture": {
+          "score": 92
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-26T01:32:00.134Z",
+      "overallScore": 92,
+      "dimensions": {
+        "compliance": {
+          "score": 87
+        },
+        "velocity": {
+          "score": 93
+        },
+        "specAlignment": {
+          "score": 90
+        },
+        "codeQuality": {
+          "score": 95
+        },
+        "architecture": {
+          "score": 93
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-27T01:32:00.134Z",
+      "overallScore": 91,
+      "dimensions": {
+        "compliance": {
+          "score": 90
+        },
+        "velocity": {
+          "score": 94
+        },
+        "specAlignment": {
+          "score": 88
+        },
+        "codeQuality": {
+          "score": 90
+        },
+        "architecture": {
+          "score": 88
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-28T01:32:00.134Z",
+      "overallScore": 85,
+      "dimensions": {
+        "compliance": {
+          "score": 81
+        },
+        "velocity": {
+          "score": 89
+        },
+        "specAlignment": {
+          "score": 85
+        },
+        "codeQuality": {
+          "score": 86
+        },
+        "architecture": {
+          "score": 81
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-29T01:32:00.134Z",
+      "overallScore": 91,
+      "dimensions": {
+        "compliance": {
+          "score": 86
+        },
+        "velocity": {
+          "score": 95
+        },
+        "specAlignment": {
+          "score": 87
+        },
+        "codeQuality": {
+          "score": 90
+        },
+        "architecture": {
+          "score": 88
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-30T01:32:00.134Z",
+      "overallScore": 92,
+      "dimensions": {
+        "compliance": {
+          "score": 96
+        },
+        "velocity": {
+          "score": 94
+        },
+        "specAlignment": {
+          "score": 94
+        },
+        "codeQuality": {
+          "score": 89
+        },
+        "architecture": {
+          "score": 94
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-31T01:32:00.134Z",
+      "overallScore": 82,
+      "dimensions": {
+        "compliance": {
+          "score": 81
+        },
+        "velocity": {
+          "score": 86
+        },
+        "specAlignment": {
+          "score": 83
+        },
+        "codeQuality": {
+          "score": 79
+        },
+        "architecture": {
+          "score": 78
+        }
+      }
+    },
+    {
+      "timestamp": "2025-08-01T01:32:00.134Z",
+      "overallScore": 91,
+      "dimensions": {
+        "compliance": {
+          "score": 92
+        },
+        "velocity": {
+          "score": 87
+        },
+        "specAlignment": {
+          "score": 86
+        },
+        "codeQuality": {
+          "score": 93
+        },
+        "architecture": {
+          "score": 88
+        }
+      }
+    },
+    {
+      "timestamp": "2025-08-02T01:32:00.134Z",
+      "overallScore": 86,
+      "dimensions": {
+        "compliance": {
+          "score": 83
+        },
+        "velocity": {
+          "score": 89
+        },
+        "specAlignment": {
+          "score": 89
+        },
+        "codeQuality": {
+          "score": 84
+        },
+        "architecture": {
+          "score": 89
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "timestamp": "2025-08-02T01:32:00.134Z",
+    "duration": 8234,
+    "nextCheck": "24 hours"
+  },
+  "performance": {
+    "healthCheckDuration": 8234,
+    "dataCollectionTime": 3456,
+    "analysisTime": 2890,
+    "reportGenerationTime": 1888
+  },
+  "exportedAt": "2025-08-02T01:32:00.134Z",
+  "format": "vibespec-health-v1"
+}

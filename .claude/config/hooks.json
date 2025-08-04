@@ -1,0 +1,98 @@
+{
+    "hooks": {
+        "pre-commit": {
+            "enabled": true,
+            "timeout": 120,
+            "fail_fast": true
+        },
+        "post-tool-use": {
+            "enabled": true,
+            "timeout": 30,
+            "batch_size": 10,
+            "track_file_changes": true,
+            "monitor_directories": [
+                "src/", "app/", "components/", "lib/", "hooks/",
+                "types/", "services/", "providers/", "pages/",
+                "specs/", "plans/", "docs/", ".claude/"
+            ],
+            "ignore_patterns": [
+                "*.log", "*.tmp", "node_modules/*", ".git/*",
+                "dist/*", "build/*", ".next/*", "coverage/*"
+            ],
+            "significant_extensions": [
+                ".ts", ".tsx", ".js", ".jsx", ".json", ".md",
+                ".sh", ".py", ".yml", ".yaml", ".env"
+            ]
+        },
+        "sub-agent-stop": {
+            "enabled": true,
+            "timeout": 15,
+            "save_outputs": true,
+            "enable_chaining": true,
+            "performance_tracking": true,
+            "output_formats": ["json", "markdown"],
+            "max_output_size_mb": 10,
+            "agent_timeout_seconds": 300
+        },
+        "file-watcher": {
+            "enabled": true,
+            "debounce_ms": 1000,
+            "batch_events": true,
+            "batch_size": 50,
+            "batch_timeout": 5.0,
+            "monitor_directories": [
+                "src/", "app/", "components/", "lib/", "hooks/",
+                "types/", "services/", "providers/", "pages/",
+                "specs/", "plans/", "docs/", ".claude/agents/",
+                ".claude/commands/", ".claude/workflow-state/"
+            ],
+            "ignore_patterns": [
+                "*.log", "*.tmp", "*~", ".#*", "#*#",
+                "node_modules/*", ".git/*", "dist/*", 
+                "build/*", ".next/*", "coverage/*",
+                "*.lock", "package-lock.json"
+            ],
+            "watch_extensions": [
+                ".ts", ".tsx", ".js", ".jsx", ".json", ".md",
+                ".sh", ".py", ".yml", ".yaml", ".env", ".css"
+            ],
+            "trigger_agents": {
+                "naming_violations": ["compliance"],
+                "spec_changes": ["spec-guardian"],
+                "code_changes": ["reviewer"],
+                "config_changes": ["architect"],
+                "ui_changes": ["ui-enhancer"]
+            }
+        }
+    },
+    "agent_coordination": {
+        "parallel_groups": {
+            "review": ["compliance", "reviewer", "ui-enhancer"],
+            "validation": ["spec-guardian", "architect"],
+            "optimization": ["performance-monitor", "velocity"]
+        },
+        "chain_patterns": {
+            "spec-guardian": ["architect", "velocity"],
+            "compliance": ["reviewer"],
+            "architect": ["performance-monitor"],
+            "meta-agent": ["workflow-builder"]
+        },
+        "priority_order": [
+            "compliance", "spec-guardian", "reviewer",
+            "architect", "ui-enhancer", "velocity",
+            "performance-monitor", "meta-agent"
+        ]
+    },
+    "file_monitoring": {
+        "use_polling_fallback": true,
+        "polling_interval": 2.0,
+        "max_file_size_mb": 50,
+        "enable_content_analysis": true,
+        "violation_threshold": 3
+    },
+    "performance": {
+        "max_execution_time": 300,
+        "enable_caching": true,
+        "log_performance": true
+    }
+}

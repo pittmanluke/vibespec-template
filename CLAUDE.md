@@ -330,6 +330,7 @@ VibeSpec includes specialized sub-agents that automatically monitor and assist d
 - **docs-sync** - Keeps documentation synchronized
 - **architect** - Designs new sub-agents for automation opportunities
 - **ui-enhancer** - Enhances UI components for accessibility, consistency, and quality
+- **archive-manager** - Archives markdown files to maintain clean project structure
 
 These agents activate automatically when needed or can be invoked manually. See `vibespec/sub-agents.md` for details.
 
@@ -351,3 +352,65 @@ This template prioritizes developer experience and flexibility. Maintain these p
 5. **Update this document** when making architectural changes
 6. **Use provided commands** for session management and planning
 7. **Document in appropriate directories** (specs/, plans/, docs/)
+
+## Advanced Workflow Capabilities
+
+This project includes a sophisticated multi-agent orchestration system where Claude Code directly coordinates specialized agents for maximum efficiency.
+
+### Available Workflows & Shortcuts
+- `/workflow:review` or `/wr` - Parallel comprehensive code review (70-80% time savings)
+- `/workflow:validate` or `/wv` - Pre-commit validation with early termination
+- `/workflow:implement` or `/wi` - Full feature implementation pipeline
+- `/workflow:help` - Show all available workflows
+- `/workflow:list` - List workflows with descriptions
+
+### Architecture
+```
+User → Claude Code (Orchestrator) → Multiple Agents (Parallel/Serial)
+         ↓
+   Direct coordination
+```
+
+### Key Features
+- **True Parallel Execution**: Multiple agents run simultaneously
+- **State Management**: Workflow state saved in `.claude/workflow-state/`
+- **Hook System**: Execution tracking via `.claude/hooks/`
+- **Meta-Agent**: Create new agents with `/workflow:build-agent [purpose]`
+- **Performance Monitoring**: Track workflow efficiency
+
+### Quick Usage
+```bash
+# Parallel code review (30-45s instead of 2-3min)
+/wr
+
+# Pre-commit validation
+/wv
+
+# Implement a feature
+/wi user-authentication
+
+# Create custom agent
+/workflow:build-agent api-validator
+
+# Monitor workflows
+.claude/scripts/workflow-monitor.sh
+```
+
+### Specialized Agents (13 total)
+- `compliance` - VibeSpec rules enforcement
+- `reviewer` - Security and code quality
+- `ui-enhancer` - UI/UX improvements
+- `spec-guardian` - Specification alignment
+- `architect` - System design
+- `velocity` - Scope creep prevention
+- `meta-agent` - Agent builder
+- `workflow-builder` - Workflow designer
+- `performance-monitor` - Performance analysis
+- And more...
+
+### Performance Gains
+- Code Reviews: 70-80% faster with parallel execution
+- Validation: 40-60% faster with early termination
+- Implementation: Structured approach prevents rework
+
+See `/docs/claude-code-workflow-patterns.md` for detailed patterns and `/docs/claude-code-advanced-features-analysis.md` for architecture details.

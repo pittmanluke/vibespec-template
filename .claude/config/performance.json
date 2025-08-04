@@ -1,0 +1,56 @@
+{
+  "workflow_optimization": {
+    "parallel_execution": {
+      "enabled": true,
+      "max_concurrent_agents": 5,
+      "timeout_seconds": 120
+    },
+    "caching": {
+      "enabled": true,
+      "ttl_minutes": 30,
+      "cache_directory": ".claude/cache"
+    },
+    "token_management": {
+      "warn_threshold": 150000,
+      "max_per_workflow": 500000,
+      "optimization_mode": "balanced"
+    }
+  },
+  "agent_performance": {
+    "timeouts": {
+      "compliance": 30,
+      "reviewer": 45,
+      "ui-enhancer": 60,
+      "spec-guardian": 30,
+      "architect": 90,
+      "meta-agent": 120
+    },
+    "priority_order": [
+      "compliance",
+      "reviewer",
+      "spec-guardian",
+      "ui-enhancer"
+    ]
+  },
+  "monitoring": {
+    "log_level": "info",
+    "track_execution_times": true,
+    "save_performance_metrics": true,
+    "alert_on_failures": true
+  },
+  "optimization_patterns": {
+    "early_termination": {
+      "enabled": true,
+      "fail_fast_on_critical": true
+    },
+    "smart_routing": {
+      "enabled": true,
+      "skip_ui_enhancer_for_backend": true,
+      "skip_spec_guardian_without_spec": true
+    },
+    "result_aggregation": {
+      "format": "json",
+      "compress_large_outputs": true
+    }
+  }
+}

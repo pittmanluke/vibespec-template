@@ -48,10 +48,22 @@ pubsub-debug.log
 /emulator-data
 /my_emulator_data
 
-# claude
-.claude/sessions/*.md
+# claude runtime and user-specific files
+.claude/sessions/
+.claude/workflow-state/
+.claude/logs/
+.claude/cache/
+.claude/test-related-files/
+.claude/test-outputs/
 .claude/settings.local.json
 
+# code reviews
+reviews/
+
 # plans (except README)
-plans/*.md
-!plans/README.md
+# plans/*.md
+# !plans/README.md
+
+# archive
+archive/
+!archive/README.md

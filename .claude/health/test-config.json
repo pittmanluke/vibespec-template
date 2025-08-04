@@ -1,0 +1,227 @@
+{
+  "test_configuration": {
+    "version": "1.0",
+    "last_updated": "2025-08-02",
+    "description": "Configuration for multi-agent workflow integration tests"
+  },
+  
+  "integration_tests": {
+    "enabled": true,
+    "timeout_seconds": 300,
+    "parallel_execution": true,
+    "retry_failed_tests": true,
+    "max_retries": 2,
+    "categories": {
+      "workflow_commands": {
+        "enabled": true,
+        "commands": ["/wr", "/wv", "/wi", "/workflow:help", "/workflow:list"],
+        "expected_response_times": {
+          "/wr": 45.0,
+          "/wv": 30.0,
+          "/wi": 120.0,
+          "/workflow:help": 5.0,
+          "/workflow:list": 5.0
+        }
+      },
+      "hook_system": {
+        "enabled": true,
+        "hooks_to_test": ["pre-commit", "post-tool-use", "sub-agent-stop", "file-watcher"],
+        "timeout_per_hook": 30
+      },
+      "multi_agent_coordination": {
+        "enabled": true,
+        "agent_count": 5,
+        "parallel_efficiency_threshold": 3.0,
+        "test_agents": ["compliance", "reviewer", "architect", "performance-monitor", "ui-enhancer"]
+      },
+      "end_to_end_scenarios": {
+        "enabled": true,
+        "scenarios": [
+          "complete_feature_implementation_workflow",
+          "code_review_with_violations", 
+          "session_interruption_and_recovery",
+          "performance_under_load"
+        ]
+      }
+    }
+  },
+  
+  "performance_benchmarks": {
+    "enabled": true,
+    "iterations": {
+      "parallel_execution": 20,
+      "command_response": 25,
+      "state_persistence": 100,
+      "hook_overhead": 100
+    },
+    "thresholds": {
+      "min_throughput_rps": 50.0,
+      "max_avg_latency_ms": 100.0,
+      "min_parallel_efficiency": 3.0,
+      "max_hook_overhead_ms": 5.0
+    },
+    "resource_monitoring": {
+      "enabled": true,
+      "sample_interval_seconds": 1.0,
+      "cpu_threshold_percent": 90.0,
+      "memory_threshold_percent": 85.0
+    }
+  },
+  
+  "load_tests": {
+    "enabled": true,
+    "confirmation_required": true,
+    "timeout_minutes": 30,
+    "scenarios": [
+      {
+        "name": "light_load_baseline",
+        "duration_seconds": 120,
+        "concurrent_users": 5,
+        "requests_per_second": 2.0,
+        "workflow_types": ["/wr", "/wv"],
+        "ramp_up_seconds": 15,
+        "ramp_down_seconds": 15
+      },
+      {
+        "name": "moderate_load_mixed_workflows",
+        "duration_seconds": 180,
+        "concurrent_users": 10,
+        "requests_per_second": 5.0,
+        "workflow_types": ["/wr", "/wv", "/wi", "code_review"],
+        "ramp_up_seconds": 30,
+        "ramp_down_seconds": 30
+      },
+      {
+        "name": "high_load_parallel_review",
+        "duration_seconds": 150,
+        "concurrent_users": 15,
+        "requests_per_second": 8.0,
+        "workflow_types": ["/wr", "code_review"],
+        "ramp_up_seconds": 20,
+        "ramp_down_seconds": 20
+      },
+      {
+        "name": "stress_test_all_workflows",
+        "duration_seconds": 200,
+        "concurrent_users": 20,
+        "requests_per_second": 12.0,
+        "workflow_types": ["/wr", "/wv", "/wi", "feature_workflow", "code_review", "deployment"],
+        "ramp_up_seconds": 40,
+        "ramp_down_seconds": 40
+      },
+      {
+        "name": "burst_load_test",
+        "duration_seconds": 90,
+        "concurrent_users": 25,
+        "requests_per_second": 20.0,
+        "workflow_types": ["/wr", "/wv"],
+        "ramp_up_seconds": 10,
+        "ramp_down_seconds": 10
+      }
+    ],
+    "success_criteria": {
+      "min_stability_score": 0.7,
+      "max_error_rate": 0.05,
+      "min_throughput_ratio": 0.8
+    }
+  },
+  
+  "system_validation": {
+    "required_directories": [
+      ".claude/agents",
+      ".claude/commands", 
+      ".claude/hooks",
+      ".claude/scripts",
+      ".claude/workflow-state",
+      ".claude/config"
+    ],
+    "core_agents": [
+      "compliance.md",
+      "reviewer.md", 
+      "architect.md",
+      "performance-monitor.md",
+      "ui-enhancer.md"
+    ],
+    "critical_commands": [
+      "wr.md",
+      "wv.md", 
+      "wi.md",
+      "workflow-help.md",
+      "workflow-list.md"
+    ],
+    "essential_hooks": [
+      "hook-manager.sh",
+      "file-watcher.py",
+      "pre-commit.sh",
+      "post-tool-use.py",
+      "sub-agent-stop.py"
+    ]
+  },
+  
+  "reporting": {
+    "generate_json_reports": true,
+    "generate_text_reports": true,
+    "generate_markdown_reports": true,
+    "include_system_metrics": true,
+    "include_recommendations": true,
+    "archive_old_reports": true,
+    "max_archived_reports": 10,
+    "report_sections": [
+      "executive_summary",
+      "test_results_detail",
+      "performance_analysis",
+      "scalability_assessment", 
+      "bottleneck_identification",
+      "optimization_recommendations",
+      "production_readiness_checklist"
+    ]
+  },
+  
+  "environments": {
+    "development": {
+      "reduced_load_tests": true,
+      "skip_stress_tests": false,
+      "enable_debug_logging": true
+    },
+    "staging": {
+      "full_test_suite": true,
+      "production_like_load": true,
+      "comprehensive_monitoring": true
+    },
+    "production": {
+      "health_checks_only": true,
+      "minimal_load_testing": true,
+      "real_time_monitoring": true
+    }
+  },
+  
+  "notifications": {
+    "on_test_completion": {
+      "enabled": false,
+      "webhook_url": "",
+      "slack_channel": "",
+      "email_recipients": []
+    },
+    "on_test_failure": {
+      "enabled": false,
+      "immediate_notification": true,
+      "include_logs": true
+    },
+    "performance_alerts": {
+      "enabled": false,
+      "cpu_threshold": 85.0,
+      "memory_threshold": 80.0,
+      "response_time_threshold": 1.0
+    }
+  },
+  
+  "advanced_options": {
+    "parallel_test_execution": true,
+    "test_isolation": true,
+    "automatic_cleanup": true,
+    "performance_profiling": false,
+    "memory_leak_detection": false,
+    "custom_metrics_collection": true,
+    "test_data_persistence": true
+  }
+}

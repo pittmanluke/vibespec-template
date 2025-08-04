@@ -259,6 +259,7 @@ Sub-agents integrate seamlessly with VibeSpec commands:
 | `/breakdown` | spec-guardian (checks plan alignment) |
 | `/session:update` | session-tracker (captures state) |
 | Code changes | compliance (enforces rules) |
+| `/archive` | archive-manager (organizes files) |
 
 ## Best Practices
 
@@ -395,6 +396,42 @@ The architect ensures all new agents:
 ## Future Enhancements
 
 Potential agents for future development:
+### 7. archive-manager
+
+**Purpose**: Archives markdown files from specs/, docs/, and plans/ directories to maintain clean project structure while preserving historical content.
+
+**Activates When**:
+- `/archive` command is invoked
+- Project cleanup is requested
+- Documentation directories need organization
+- Historical content needs preservation
+
+**What It Does**:
+- Scans specified directories for .md files
+- Moves files to organized archive structure
+- Preserves original directory hierarchy
+- Creates comprehensive archive manifests
+- Skips README.md and example files
+
+**Example Intervention**:
+```
+📦 ARCHIVE OPERATION COMPLETE
+
+Archived 18 files successfully:
+- docs/ → archive/docs/ (10 files)
+- plans/ → archive/plans/ (8 files)
+- specs/ → archive/specs/ (0 files - examples preserved)
+
+Skipped:
+- 3 README.md files (preserved structure)
+- 2 example files in specs/examples/
+
+Manifests created in each archive directory for easy restoration.
+```
+
+## Future Enhancements
+
+Potential agents for future development:
 - **api-contract-guardian**: Ensures API implementations match their contracts
 - **performance-sentinel**: Monitors for performance regressions
 - **deps-harmony-keeper**: Manages dependency updates safely
@@ -410,5 +447,6 @@ Sub-agents transform VibeSpec development by:
 2. **Preventing expensive mistakes** - Catch issues early
 3. **Maintaining velocity** - Stay focused on shipping
 4. **Preserving context** - Never lose progress
+5. **Organizing project structure** - Keep directories clean and focused
 
 They embody VibeSpec's core philosophy: make the right way the easy way, ship fast, and iterate based on real user feedback.

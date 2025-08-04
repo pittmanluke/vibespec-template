@@ -163,6 +163,34 @@ Adapt CLAUDE.md and README.md to specific project.
 - Project identity established
 - Ready to customize docs
 
+#### `/archive`
+Archive markdown files to maintain clean project structure.
+
+```bash
+/archive
+/archive --docs
+/archive --specs --plans
+```
+
+**What it does:**
+- Moves .md files to organized archive directories
+- Preserves directory structure in archive
+- Skips README.md and example files
+- Creates detailed archive manifests
+- **Triggers archive-manager** for execution
+
+**Options:**
+- No option or `--all`: Archive from all directories
+- `--specs`: Archive only specification files
+- `--docs`: Archive only documentation files
+- `--plans`: Archive only planning files
+
+**When to use:**
+- Project directories getting cluttered
+- Before major restructuring
+- Preserving historical documentation
+- Cleaning up for release
+
 ### Session Management Commands
 
 #### `/session:list`
