@@ -7,9 +7,11 @@
 set -euo pipefail
 
 # Source utilities
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Resolve the actual script location (following symlinks)
+SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}" 2>/dev/null || realpath "${BASH_SOURCE[0]}" 2>/dev/null || echo "${BASH_SOURCE[0]}")"
+SCRIPT_DIR="$(cd "$(dirname "${SCRIPT_PATH}")" && pwd)"
 source "${SCRIPT_DIR}/hook-utils.sh" 2>/dev/null || {
-    echo "ERROR: hook-utils.sh not found. Hook infrastructure may be incomplete."
+    echo "ERROR: hook-utils.sh not found at ${SCRIPT_DIR}/hook-utils.sh. Hook infrastructure may be incomplete."
     exit 1
 }
 
@@ -183,13 +185,13 @@ run_workflow_validation() {
     fi
     
     # Run workflow validation
-    log_info "Executing: claude -m \"/workflow:validate\""
+    log_info "Executing: claude \"/workflow:validate\""
     
     if [[ -n "$timeout_cmd" ]]; then
-        $timeout_cmd claude -m "/workflow:validate" 2>&1 | tee "${HOOK_LOG_DIR}/pre-commit-validation.log"
+        $timeout_cmd claude "/workflow:validate" 2>&1 | tee "${HOOK_LOG_DIR}/pre-commit-validation.log"
         local result=${PIPESTATUS[1]}
     else
-        claude -m "/workflow:validate" 2>&1 | tee "${HOOK_LOG_DIR}/pre-commit-validation.log"
+        claude "/workflow:validate" 2>&1 | tee "${HOOK_LOG_DIR}/pre-commit-validation.log"
         local result=$?
     fi
     
