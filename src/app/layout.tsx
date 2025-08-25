@@ -4,8 +4,12 @@ import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { AuthProvider } from "@/services/auth";
 import { OnlineStatusProvider } from "@/providers/online-status-provider";
+import { FeedbackProvider } from "@/providers/feedback-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeFavicon } from "@/components/theme/theme-favicon";
+import { FeedbackOverlay } from "@/components/feedback/feedback-overlay";
+import { FeedbackController } from "@/components/feedback/feedback-controller";
+import { FeedbackDebugButton } from "@/components/feedback/feedback-debug-button";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,8 +43,13 @@ export default function RootLayout({
           <ThemeFavicon />
           <AuthProvider>
             <OnlineStatusProvider>
-              {children}
-              <Toaster />
+              <FeedbackProvider>
+                {children}
+                <Toaster />
+                <FeedbackOverlay />
+                <FeedbackController />
+                <FeedbackDebugButton />
+              </FeedbackProvider>
             </OnlineStatusProvider>
           </AuthProvider>
         </ThemeProvider>
